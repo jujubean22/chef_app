@@ -13,81 +13,81 @@
 ActiveRecord::Schema.define(version: 2022_01_24_112947) do
 
   create_table "admins", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_admins_on_user_id_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "service_id_id", null: false
-    t.integer "request_id_id", null: false
+    t.integer "service_id", null: false
+    t.integer "request_id", null: false
     t.datetime "schedule"
     t.decimal "total_charge"
     t.datetime "confirmed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["request_id_id"], name: "index_appointments_on_request_id_id"
-    t.index ["service_id_id"], name: "index_appointments_on_service_id_id"
+    t.index ["request_id"], name: "index_appointments_on_request_id"
+    t.index ["service_id"], name: "index_appointments_on_service_id"
   end
 
   create_table "chefs", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.string "location"
     t.string "contact_number"
     t.datetime "suspended_at"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_chefs_on_user_id_id"
+    t.index ["user_id"], name: "index_chefs_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.string "location"
     t.string "contact_number"
     t.datetime "suspended_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_clients_on_user_id_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "galleries", force: :cascade do |t|
-    t.integer "chef_id_id", null: false
+    t.integer "chef_id", null: false
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chef_id_id"], name: "index_galleries_on_chef_id_id"
+    t.index ["chef_id"], name: "index_galleries_on_chef_id"
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer "chef_id_id", null: false
-    t.integer "client_id_id", null: false
+    t.integer "chef_id", null: false
+    t.integer "client_id", null: false
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chef_id_id"], name: "index_reports_on_chef_id_id"
-    t.index ["client_id_id"], name: "index_reports_on_client_id_id"
+    t.index ["chef_id"], name: "index_reports_on_chef_id"
+    t.index ["client_id"], name: "index_reports_on_client_id"
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "client_id_id", null: false
+    t.integer "client_id", null: false
     t.integer "head_count"
     t.string "cuisine"
     t.string "courses"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id_id"], name: "index_requests_on_client_id_id"
+    t.index ["client_id"], name: "index_requests_on_client_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "appointment_id_id", null: false
+    t.integer "appointment_id", null: false
     t.text "client_comment"
     t.decimal "chef_rating"
     t.decimal "client_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["appointment_id_id"], name: "index_reviews_on_appointment_id_id"
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -102,12 +102,12 @@ ActiveRecord::Schema.define(version: 2022_01_24_112947) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "chef_id_id", null: false
+    t.integer "chef_id", null: false
     t.text "specialty"
     t.decimal "service_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chef_id_id"], name: "index_services_on_chef_id_id"
+    t.index ["chef_id"], name: "index_services_on_chef_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,22 +135,22 @@ ActiveRecord::Schema.define(version: 2022_01_24_112947) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_wallets_on_user_id_id"
+    t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
-  add_foreign_key "admins", "user_ids"
-  add_foreign_key "appointments", "request_ids"
-  add_foreign_key "appointments", "service_ids"
-  add_foreign_key "chefs", "user_ids"
-  add_foreign_key "clients", "user_ids"
-  add_foreign_key "galleries", "chef_ids"
-  add_foreign_key "reports", "chef_ids"
-  add_foreign_key "reports", "client_ids"
-  add_foreign_key "requests", "client_ids"
-  add_foreign_key "reviews", "appointment_ids"
-  add_foreign_key "services", "chef_ids"
-  add_foreign_key "wallets", "user_ids"
+  add_foreign_key "admins", "users"
+  add_foreign_key "appointments", "requests"
+  add_foreign_key "appointments", "services"
+  add_foreign_key "chefs", "users"
+  add_foreign_key "clients", "users"
+  add_foreign_key "galleries", "chefs"
+  add_foreign_key "reports", "chefs"
+  add_foreign_key "reports", "clients"
+  add_foreign_key "requests", "clients"
+  add_foreign_key "reviews", "appointments"
+  add_foreign_key "services", "chefs"
+  add_foreign_key "wallets", "users"
 end
