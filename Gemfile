@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'rolify', '~> 6.0'
 gem 'cancancan'
+gem 'hamlit-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
