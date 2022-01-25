@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_135351) do
+ActiveRecord::Schema.define(version: 2022_01_25_124025) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_135351) do
     t.datetime "confirmed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "payment_released_at"
     t.index ["request_id"], name: "index_appointments_on_request_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"
   end
