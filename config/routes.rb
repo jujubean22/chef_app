@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     get '/admins', to: 'admins#index', as: :admin_root
     get '/admins/users', to: 'admins#all_users', as: :all_users
     get '/admins/reports', to: 'admins#reports'
+    get '/admins/appointments', to: 'admins#appointments'
+    get '/admins/transactions', to: 'admins#transactions'
+    get '/admins/wallet', to: 'admins#admin_wallet'
   end
 
   get '/page-not-found', action: :error_page, controller: 'home'

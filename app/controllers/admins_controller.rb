@@ -13,4 +13,20 @@ class AdminsController < ApplicationController
   def reports
     @reports = Report.all
   end
+
+  def appointments
+    @appointments = Appointment.all
+  end
+
+  def transactions
+    
+  end
+
+  def admin_wallet
+    if current_user.wallet
+      @balance = current_user.wallet.current_balance
+    else
+      @balance = '0.00'
+    end
+  end
 end

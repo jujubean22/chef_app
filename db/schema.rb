@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_124025) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "current_balance"
+    t.float "current_balance"
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
