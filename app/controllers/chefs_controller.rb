@@ -8,4 +8,8 @@ class ChefsController < ApplicationController
   def profile
     @chef = Chef.find(params[:id])
   end
+
+  def appointments
+    @chef = Chef.find(params[:id])
+  end
 end
