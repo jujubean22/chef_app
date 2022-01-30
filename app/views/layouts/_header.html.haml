@@ -24,9 +24,9 @@
         %i{ class: 'fas fa-home'}
       %h3.text-sm Home
     .span
-      =link_to 'Profile', root_path
+      =link_to 'Profile', client_profile_path(current_user.client.id)
     .span
-      =link_to 'Chefs', root_path
+      =link_to 'Chefs', chefs_path
     .span
       =link_to 'Log Out', destroy_user_session_path, method: :delete
 
@@ -37,7 +37,7 @@
         %i{ class: 'fas fa-home'}
       %h3.text-sm Home
     .span
-      =link_to 'Profile', root_path
+      =link_to 'Profile', chef_profile_path(current_user.chef.id)
     .span
       =link_to 'Appointments', root_path
     .span

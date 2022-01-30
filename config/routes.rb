@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   #   resources :users
   # end
 
-  resources :users do
-    resources :clients
-    resources :chefs
-  end
+  # resources :users do
+  #   resources :clients
+  #   resources :chefs
+  # end
   
   devise_scope :users do
+    get '/client', to: 'clients#index', as: :client_root
+    get '/client/:id' => 'clients#profile', as: :client_profile
+    get '/chefs', to: 'clients#all_chefs'
+    get '/chef/:id' => 'chefs#profile', as: :chef_profile
+    get '/chef', to: 'chefs#index', as: :chef_root
     get '/admins', to: 'admins#index', as: :admin_root
     get '/admins/users', to: 'admins#all_users', as: :all_users
     get '/admins/reports', to: 'admins#reports'

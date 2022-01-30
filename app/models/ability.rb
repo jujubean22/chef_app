@@ -7,11 +7,15 @@ class Ability
 
     user ||= User.new
     if user.client?
-      # can :read, Wallet, {:account_id => user.account.id}
+      can :manage, Client, user_id: user.id
+      can :manage, Chef
       # can :read, Portfolio, {:account_id => user.account.id}
       # can [:read, :update], Client, {:user_id => user.id}
       # can :manage, []
       # cannot :update, Wallet
+    elsif user.chef?
+      can :manage, Chef, user_id: user.id
+      can :manage, Client
     elsif user.admin?
       can :manage, :all
     end
