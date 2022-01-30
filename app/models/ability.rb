@@ -4,6 +4,18 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    user ||= User.new
+    if user.client?
+      # can :read, Wallet, {:account_id => user.account.id}
+      # can :read, Portfolio, {:account_id => user.account.id}
+      # can [:read, :update], Client, {:user_id => user.id}
+      # can :manage, []
+      # cannot :update, Wallet
+    elsif user.admin?
+      can :manage, :all
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

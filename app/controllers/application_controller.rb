@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :user_type, :username, :first_name, :last_name])
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
+
   # def handle_error
   #   redirect_to page_not_found_path
   # end
