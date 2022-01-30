@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
 
-  # def handle_error
-  #   redirect_to page_not_found_path
-  # end
+  def handle_error
+    redirect_to page_not_found_path
+  end
 end

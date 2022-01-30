@@ -7,5 +7,8 @@ class HomeController < ApplicationController
       @name = "Stranger"
     end
   end
+
+  def error_page
+  end
 end
 
