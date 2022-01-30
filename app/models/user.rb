@@ -29,7 +29,7 @@ class User < ApplicationRecord
       Admin.create(user: self)
     elsif self.user_type == 'Client'
       Client.create(user: self, location: 'default location', contact_number: '0')
-    elsif self.user_type == 'Client'
+    elsif self.user_type == 'Chef'
       Chef.create(user: self, location: 'default location', contact_number: '0')
     end
   end

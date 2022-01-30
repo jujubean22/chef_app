@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   
   devise_scope :users do
     get '/admins', to: 'admins#index', as: :admin_root
+    get '/admins/users', to: 'admins#all_users', as: :all_users
+    get '/admins/reports', to: 'admins#reports'
   end
 
   get '/page-not-found', action: :error_page, controller: 'home'

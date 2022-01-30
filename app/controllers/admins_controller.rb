@@ -7,6 +7,10 @@ class AdminsController < ApplicationController
   end
 
   def all_users
-    @users = User.all
+    @users = User.all.where("user_type != ?", 'Admin')
+  end
+
+  def reports
+    @reports = Report.all
   end
 end

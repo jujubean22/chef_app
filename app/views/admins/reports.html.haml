@@ -1,0 +1,13 @@
+%h1{class:'text-3xl'} Reports List
+%table{:class => "w-full py-22 table text-gray-900 text-sm"}
+  %thead{:class => "bg-gray-50 text-gray-500"}
+    %tr
+      %th{:class => "p-3 center"} Chef
+      %th{:class => "p-3 center"} Client
+      %th{:class => "p-3 center"} Message
+  %tbody
+    - @reports.each do |report|
+      %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
+        %td{:class => "p-3"}= report.chef.user.username
+        %td{:class => "p-3"}= report.client.user.username
+        %td{:class => "p-3"}= report.message
