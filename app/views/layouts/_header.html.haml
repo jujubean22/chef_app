@@ -1,49 +1,56 @@
-- if user_signed_in? && current_user.user_type == "Client"
+- if user_signed_in? && current_user.user_type == "Admin"
   .nav
     .div
       = link_to root_path do
         %i{ class: 'fas fa-home'}
       %h3.text-sm Home
     .span
-      =link_to 'View All Accounts', root_path
+      =link_to 'Users', root_path
+    .span
+      =link_to 'Reports', root_path
+    .span
+      =link_to 'Appointments', root_path
+    .span
+      =link_to 'Transactions', root_path
+    .span
+      =link_to 'Wallet', root_path
     .span
       =link_to 'Log Out', destroy_user_session_path, method: :delete
 
-- elsif user_signed_in? && current_user.user_type == "Buyer"
-  .div.main-header-home
-    .div.logo
-      =image_tag "logo/logo.png", width: "auto", height: "120px" 
-    .span.nav-bar-link
-      =link_to 'Home', root_path
-    .span.nav-bar-link
-      =link_to 'Profile', account_path(current_user.account.id)
-    .span.nav-bar-link
-      =link_to 'Portfolio', portfolios_path
-    .span.nav-bar-link
-      =link_to 'Market', markets_path
-    .span.nav-bar-link
-      =link_to 'Logs', logs_path
-    .span.nav-bar-button-home
+- elsif user_signed_in? && current_user.user_type == "Client"
+  .nav
+    .div
+      = link_to root_path do
+        %i{ class: 'fas fa-home'}
+      %h3.text-sm Home
+    .span
+      =link_to 'Profile', root_path
+    .span
+      =link_to 'Chefs', root_path
+    .span
       =link_to 'Log Out', destroy_user_session_path, method: :delete
 
-  .div.welcome-text-home
-    %h1.welcome-home Welcome to PenguInvest!
-    %p.welcome-sub-home You're one of the millions who've already discovered smarter investing in multiple types of assets
-  .div.main-footer
-    .span.footer-text Created by Thea Kaylee Libunao & Ria Almeda. © 2022. Disclaimer: This app is created for educational purposes only.
+- elsif user_signed_in? && current_user.user_type == "Chef"
+  .nav
+    .div
+      = link_to root_path do
+        %i{ class: 'fas fa-home'}
+      %h3.text-sm Home
+    .span
+      =link_to 'Profile', root_path
+    .span
+      =link_to 'Appointments', root_path
+    .span
+      =link_to 'Log Out', destroy_user_session_path, method: :delete
+
 
 -else
-  .div.main-header-home
-    .div.logo
-      =image_tag "logo/logo.png", width: "auto", height: "120px" 
-    .span.nav-bar-link-home
+  .nav
+    .div
+      = link_to root_path do
+        %i{ class: 'fas fa-home'}
+      %h3.text-sm Home
+    .span
       = link_to 'Log In', new_user_session_path
-    .span.nav-bar-button-home
+    .span
       = link_to 'Sign Up', new_user_registration_path
-
-  .div.welcome-text-home
-    %h1.welcome-home Trade with confidence on the world's leading social trading platform
-    %p.welcome-sub-home Join millions who've already discovered smarter investing in multiple types of assets
-
-  .div.main-footer
-    .span.footer-text Created by Thea Kaylee Libunao & Ria Almeda. © 2022. Disclaimer: This app is created for educational purposes only.
