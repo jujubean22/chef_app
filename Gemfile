@@ -29,6 +29,8 @@ gem 'rolify', '~> 6.0'
 gem 'cancancan'
 gem 'hamlit-rails'
 
+gem 'materialize-sass'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
