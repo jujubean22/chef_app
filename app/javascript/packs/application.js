@@ -3,6 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+//= require jquery
+//= require jquery_ujs
+//= require materialize-sprockets
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -13,3 +17,18 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "@fortawesome/fontawesome-free/css/all"
+
+// Mobile Menu Initialization
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var options = {
+    edge: 'left'
+  }
+  var instances = M.Sidenav.init(elems, options);
+
+  // see materializecss.com for details on options
+  // var instances = M.Sidenav.init(elems, options);
+});
+
+console.log('Hello from application.js')
