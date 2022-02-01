@@ -91,8 +91,6 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.10.0)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hamlit (2.15.1)
@@ -276,7 +274,6 @@ DEPENDENCIES
   cancancan
   capybara (>= 3.26)
   devise (~> 4.8, >= 4.8.1)
-  font-awesome-rails
   hamlit-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
