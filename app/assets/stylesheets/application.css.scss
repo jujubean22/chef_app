@@ -14,6 +14,14 @@
  *= require_self
  */
 
+///////////////////////////////////
+///// Imports
+/////////////////////////////////// 
+@import './objects/variables';
+
+//Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap');
+
 
 ///////////////////////////////////
 ///// General
@@ -28,6 +36,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: $poppins;
+}
+
 ul li {
   list-style-type: none;
   display: inline-block;
@@ -40,14 +52,26 @@ ul li {
 ///// Footer
 /////////////////////////////////// 
 #footer {
-  background-color: 
-  bottom: 0;
-  position: fixed;
-
-
-  .footer-header {
-    display: flex;
-
+  .footer-container {
+    color: $white;
+    background-color: $black;
+    bottom: 0;
+    height: 360px;
+    position: fixed;
+  
+  
+    .footer-header {
+      display: flex;
+      width: 100%;
+  
+        .footer-logo {
+          margin: 0 auto;
+        }
+      
+        .footer-nav {
+          display: none;
+        }
+    }
   }
 }
 
