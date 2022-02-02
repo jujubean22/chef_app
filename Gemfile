@@ -28,6 +28,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'rolify', '~> 6.0'
 gem 'cancancan'
 gem 'hamlit-rails'
+gem 'cities'
+gem 'ransack'
+gem 'city-state'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
