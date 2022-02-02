@@ -19,7 +19,7 @@
 // Color palette
 
 $cuisinero-white: #fdfdfd;
-$cuisiner-white-med: #f2f2f2;
+$cuisinero-white-med: #f2f2f2;
 $cuisinero-black-dark: #242424;
 $cuisinero-black-light: #484848;
 $cuisinero-yellow-dark: #ffc425;
@@ -32,6 +32,13 @@ $cuisinero-grey-med: #949494;
 $cuisinero-grey-light: #c4c4c4;
 
 body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   color: $cuisinero-black-dark;
   font-family: "Lato", sans-serif !important;
+}
+
+main {
+  flex: 1 0 auto;
 }
