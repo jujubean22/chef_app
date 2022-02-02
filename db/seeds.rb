@@ -16,5 +16,5 @@ admin1 = User.create!(email: 'admin@test.com', password: '123123', user_type: 'A
 client1 = User.create!(email: 'test@test.com', password: '123123', user_type: 'Client', username: 'test123', first_name: 'Test', last_name: 'User')
 # client1.add_role(:client)
 
-chef1 = User.create!(email: 'chef@chef.com', password: '123123', user_type: 'Chef', username: 'masterchef', first_name: 'Gordon', last_name: 'Ramsay')
+chef1 = User.create!(email: 'chef@chef.com', password: '123123', user_type: 'Chef', username: 'masterchef', first_name: 'Gordon', last_name: 'Ramsay', region: 'Metro Manila', city:'Acacia')
 # chef1.add_role(:chef)
