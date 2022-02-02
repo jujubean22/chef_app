@@ -1,0 +1,17 @@
+<div class="section one"> 
+  <% if current_user.user_type == 'Chef' %>
+    <h1>Chef Profile</h1>
+  <% elsif current_user.user_type == 'Client' %>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title"><%= [current_user.first_name, current_user.last_name].join(' ') %></span>
+          <p><%#= @client.location %></p>
+          <p><%#= @client.contact_number %></p>
+          <p>Tuguegarao City, Cagayan</p>
+          <p>09261621023</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
