@@ -31,6 +31,8 @@ $cuisinero-grey-dark: #646464;
 $cuisinero-grey-med: #949494;
 $cuisinero-grey-light: #c4c4c4;
 
+// HTML Elements
+
 body {
   display: flex;
   min-height: 100vh;
@@ -41,4 +43,46 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+// Text Color
+
+.text-white {
+  color: $cuisinero-white;
+}
+
+.text-yellow-dark {
+  color: $cuisinero-yellow-dark;
+}
+
+
+.text-yellow-light {
+  color: $cuisinero-yellow-light;
+}
+
+.text-black-dark {
+  color: $cuisinero-black-dark;
+}
+
+
+.text-black-light {
+  color: $cuisinero-black-light;
+}
+
+// Text Style
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-bolder {
+  font-weight: bolder;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-space-sm {
+ letter-spacing: calc(0.25vw);
 }
