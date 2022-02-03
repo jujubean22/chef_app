@@ -15,34 +15,154 @@
  */
 
 @import "materialize";
-
-// Color palette
-
-$cuisinero-white: #fdfdfd;
-$cuisinero-white-med: #f2f2f2;
-$cuisinero-black-dark: #242424;
-$cuisinero-black-light: #484848;
-$cuisinero-yellow-dark: #ffc425;
-$cuisinero-yellow-light: #ffdc7c;
-$cuisinero-green: #187a33;
-$cuisinero-red: #d9071c;
-$cuisinero-blue-grey: #afb4bd;
-$cuisinero-grey-dark: #646464;
-$cuisinero-grey-med: #949494;
-$cuisinero-grey-light: #c4c4c4;
+@import "./objects/_variables";
 
 // HTML Elements
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
-  min-height: 100vh;
+  //min-height: 100vh;
+  width: 100%;
+  height: 100vh;
   flex-direction: column;
   color: $cuisinero-black-dark;
   font-family: "Lato", sans-serif !important;
 }
 
-main {
-  flex: 1 0 auto;
+ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 25px;
+  letter-spacing: 1.3px;
+}
+
+p {
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.dot {
+  height: 4px;
+  width: 4px;
+  background-color: $lightYellow;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 4px 3px;
+}
+
+///////////////////////////////////
+///// Cards
+///////////////////////////////////
+.card-container-1 {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.card-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px 20px;
+
+  .card-image-name {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    margin: 20px auto;
+    text-align: center;
+
+    .image-card {
+      width: 100%;
+      height: 250px;
+      border-radius: 2px;
+    }
+
+    p {
+      line-height: 20px;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+
+///////////////////////////////////
+///// Footer
+///////////////////////////////////
+#footer {
+  .footer-container {
+    color: $white;
+    background-color: $black;
+    bottom: 0;
+    width: 100%;
+    height: 320px;
+
+    hr {
+      color: $gray;
+      width: 90%;
+      margin: 10px auto;
+    }
+
+    .footer-header {
+      display: flex;
+
+        .footer-logo {
+          font-size: 40px;
+          margin: 0 auto;
+          color: $yellow;
+          letter-spacing: 3px;
+          padding: 25px 0;
+        }
+
+        .footer-nav {
+          display: none;
+        }
+    }
+
+    .footer-devs {
+      color: $lightYellow;
+      width: 305px;
+      margin: 50px auto;
+      text-align: center;
+      line-height: 26px;
+    }
+
+    .footer-disclaimer {
+      color: $white;
+      font-style: italic;
+      padding: 10px;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 
 // Text Color
