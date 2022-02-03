@@ -2,9 +2,66 @@
 
 <div id='homepage'>
   <div class='container'>
-    <h1>Home Page</h1>  
-    <h2>Welcome</h2>
+    <%# Navigation Bar %>
+    <div class='nav'>
+      Navigation
+    </div>
+    <%# Cards with image %>
+    <div class='card-image-container'>
+      <h3>Turn your home into a <br><span class='yellow-title'>five-star dining</span></h3>
+      <p>Satisfy your cravings and savor each unique taste</p>
 
+      <%# Card Image - The Cooking %>
+      <div class='card-image'>
+        <%= render 'devise/shared/card-image' %>
+        <h5 class='card-image-name'>The Cooking</h5>
+        <div class='card-image-body'>
+          <p class='card-image-text'>
+            Your Private Chef will arrive with all the ingredients needed to prepare your dreamed meal.
+          </p>
+          <p>
+            Sit back and enjoy your very own culinary show! Watch and learn new recipes as your chef cooks up a fine dinning meal in your in-house chefs table.
+          </p>
+        </div>
+      </div>
+
+      <%# Card Image - The Experience %>
+      <div class='card-image'>
+        <%= render 'devise/shared/card-image' %>
+        <h5 class='card-image-name'>The Experience</h5>
+        <div class='card-image-body'>
+          <p class='card-image-text'>
+            Your chef will take care of your party all-throughout the experience; and yes! That means host duties are off-the-table for you.
+          </p>
+          <p>
+            French service, family-style or buffet, your choice! We want you to feel pampered.
+          </p>
+        </div>
+      </div>
+
+      <div class='card-image'>
+        <%= render 'devise/shared/card-image' %>
+        <h5 class='card-image-name'>The Wrap-up</h5>
+        <div class='card-image-body'>
+          <p class='card-image-text'>
+            By the end of the night, all there will be left for you to do is relax and enjoy your company.
+          </p>
+          <p>
+            We mean: clean silverware and shiny counters for the perfect farewell.
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <%# Cards %>
+    <div class='card-container'>
+      <h3>Because you can travel the world while at home</h3>
+      <p>And over 500,000 guests already reserved their tickets!</p>
+      
+      <%= render 'devise/shared/card' %>
+      <%= render 'devise/shared/card' %>
+      <%= render 'devise/shared/card' %>
+    </div>
   </div>
 </div>
 
