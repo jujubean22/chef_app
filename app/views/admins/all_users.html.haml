@@ -7,7 +7,8 @@
       %th{:class => "p-3 center"} Username
       %th{:class => "p-3 center"} First Name
       %th{:class => "p-3 center"} Last Name
-      %th{:class => "p-3 center"} Location
+      %th{:class => "p-3 center"} Region
+      %th{:class => "p-3 center"} City
       %th{:class => "p-3 center"} Contact Number
   %tbody
     - @users.each do |user|
@@ -18,10 +19,12 @@
         %td{:class => "p-3"}= user.first_name
         %td{:class => "p-3"}= user.last_name
         - if user.user_type == 'Client'
-          %td{:class => "p-3"}= user.client.location
+          %td{:class => "p-3"}= user.client.region
+          %td{:class => "p-3"}= user.client.city
           %td{:class => "p-3 center"}= user.client.contact_number
         - elsif user.user_type == 'Chef'
-          %td{:class => "p-3"}= user.chef.location
+          %td{:class => "p-3"}= user.chef.region
+          %td{:class => "p-3"}= user.chef.city
           %td{:class => "p-3"}= user.chef.contact_number
         -# %td{:class => "p-3"}
         -#   - if user.wallet
