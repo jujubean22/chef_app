@@ -46,10 +46,6 @@ main {
   flex: 1 0 auto;
 }
 
-ul li {
-  list-style-type: none;
-  display: inline-block;
-}
 
 h3 {
   margin-bottom: 15px;
@@ -252,6 +248,11 @@ p {
       .footer-nav {
         display: none;
       }
+      
+      ul li {
+        list-style-type: none;
+        display: inline-block;
+      }
     }
 
     .footer-devs {
@@ -260,6 +261,11 @@ p {
       margin: 50px auto;
       text-align: center;
       line-height: 26px;
+      
+      ul li {
+        list-style-type: none;
+        display: inline-block;
+      }
     }
 
     .footer-disclaimer {
@@ -269,6 +275,7 @@ p {
       bottom: 0;
       width: 100%;
       text-align: center;
+      display: block;
     }
   }
 }
