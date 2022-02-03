@@ -1,10 +1,20 @@
 <%= stylesheet_link_tag '' %>
 
 <div id='homepage'>
+  <%# Navigation Bar %>
   <div class='container'>
-    <h1>Home Page</h1>  
-    <h2>Welcome</h2>
-
+    <div class='nav'>
+      Navigation
+    </div>
+  </div>
+  <%# Cards %>
+  <div class='card-container'>
+    <h3>Because you can travel the world while at home</h3>
+    <p>And over 500,000 guests already reserved their tickets!</p>
+    
+    <%= render 'devise/shared/card' %>
+    <%= render 'devise/shared/card' %>
+    <%= render 'devise/shared/card' %>
   </div>
 </div>
 
