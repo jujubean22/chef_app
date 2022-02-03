@@ -31,4 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // var instances = M.Sidenav.init(elems, options);
 });
 
+// Material Box Initialization (Clickable Image)
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.materialboxed');
+  var options = {
+    inDuration: 200  
+  }
+  var instances = M.Materialbox.init(elems, options);
+});
+
 console.log('Hello from application.js')
