@@ -28,18 +28,6 @@ nav {
       font-size: 20px;
     }
 
-    .btn-large {
-      background-color: $cuisinero-yellow-dark;
-      color: $cuisinero-white;
-      text-transform: capitalize;
-      font-size: 20px;
-
-      &:hover {
-        background-color: #FAAF12;
-        transition: background-color .2s ease-out;
-      }
-    }
-
     .emphasize-link {
       color: $cuisinero-yellow-dark !important;
     }

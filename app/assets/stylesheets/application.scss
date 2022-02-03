@@ -24,8 +24,8 @@ $cuisinero-black-dark: #242424;
 $cuisinero-black-light: #484848;
 $cuisinero-yellow-dark: #ffc425;
 $cuisinero-yellow-light: #ffdc7c;
-$cuisinero-green: #18b444;
-$cuisinero-red: #fc4630;
+$cuisinero-green: #187a33;
+$cuisinero-red: #d9071c;
 $cuisinero-blue-grey: #afb4bd;
 $cuisinero-grey-dark: #646464;
 $cuisinero-grey-med: #949494;
@@ -69,6 +69,14 @@ main {
   color: $cuisinero-black-light;
 }
 
+.text-green {
+  color: $cuisinero-green !important;
+}
+
+.text-red {
+  color: $cuisinero-red !important;
+}
+
 // Text Style
 
 .text-bold {
@@ -85,4 +93,51 @@ main {
 
 .text-space-sm {
  letter-spacing: calc(0.25vw);
+}
+
+// Button Colors
+
+.btn-yellow-dark {
+  background-color: $cuisinero-yellow-dark;
+  color: $cuisinero-white !important;
+  text-transform: capitalize;
+  font-size: 20px;
+
+  &:hover {
+    background-color: #FAAF12;
+    transition: background-color .2s ease-out;
+  }
+}
+
+.btn-black-dark {
+  background-color: $cuisinero-black-dark;
+  color: $cuisinero-white !important;
+  text-transform: capitalize;
+  font-size: 20px;
+    &:hover {
+      background-color: $cuisinero-black-light;
+      transition: background-color .2s ease-out;
+    }
+}
+
+.btn-green {
+  background-color: $cuisinero-green;
+  color: $cuisinero-white;
+  //text-transform: capitalize;
+  font-size: 20px;
+    &:hover {
+      background-color: #1D8F46;
+      transition: background-color .2s ease-out;
+    }
+}
+
+.btn-red {
+  background-color: $cuisinero-red;
+  color: $cuisinero-white;
+  //text-transform: capitalize;
+  font-size: 20px;
+    &:hover {
+      background-color: #DB2739;
+      transition: background-color .2s ease-out;
+    }
 }

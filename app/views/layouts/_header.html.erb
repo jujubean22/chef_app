@@ -22,7 +22,7 @@
             <%= link_to 'Transactions', admins_transactions_path %>
           </li>
           <li>
-            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
               Log Out <i class="material-icons right">arrow_forward</i>
             <% end %>
             <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
@@ -36,7 +36,7 @@
             <%= link_to 'Appointments', chef_appointments_path(current_user.chef.id) %>
           </li>
           <li>
-            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
               Log Out <i class="material-icons right">arrow_forward</i>
             <% end %>
             <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
@@ -50,7 +50,7 @@
             <%= link_to 'Chefs', chefs_path %>
           </li>
           <li>
-            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
               Log Out <i class="material-icons right">arrow_forward</i>
             <% end %>
             <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
@@ -61,7 +61,7 @@
             <%= link_to 'Log In', new_user_session_path %>
           </li>
           <li>
-            <%= link_to(new_user_registration_path, class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(new_user_registration_path, class: "waves-effect waves-light btn-large btn-yellow-dark") do %>
               Sign Up <i class="material-icons right">create</i>
             <% end %>
             <%#= link_to 'Sign Up', new_user_registration_path, class: "emphasize-link" %>
