@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'clients/index'
   get 'chefs/index'
-  devise_for :users
+  devise_for :users 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
+  get 'cities/:state', to: 'application#cities'
 
   # scope '/admins' do
   #   resources :users
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
 
   # resources :users do
   #   resources :clients
-  #   resources :chefs
+    resources :chefs do
+      resources :galleries
+    end
   # end
   
   devise_scope :users do
