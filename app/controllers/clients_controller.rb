@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
   end
 
   def all_chefs
+    @chefs = User.where.not(user_type: ['Admin' ,'Client'])
   end
 
   def profile

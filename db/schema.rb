@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_124025) do
+ActiveRecord::Schema.define(version: 2022_02_02_123057) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,22 +34,24 @@ ActiveRecord::Schema.define(version: 2022_01_25_124025) do
 
   create_table "chefs", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "location"
     t.string "contact_number"
     t.datetime "suspended_at"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "region"
+    t.string "city"
     t.index ["user_id"], name: "index_chefs_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "location"
     t.string "contact_number"
     t.datetime "suspended_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "region"
+    t.string "city"
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 

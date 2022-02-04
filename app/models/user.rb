@@ -2,7 +2,7 @@ class User < ApplicationRecord
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :timeoutable
   validates :user_type, :first_name, :last_name, presence: true
   validates :username, uniqueness: true
 
@@ -30,9 +30,9 @@ class User < ApplicationRecord
     if self.user_type == 'Admin'
       Admin.create(user: self)
     elsif self.user_type == 'Client'
-      Client.create(user: self, location: 'Tuguegarao City, Cagayan', contact_number: '09261621023')
+      client1 = Client.create(user: self, region: 'default location', city: 'default location' , contact_number: '0')
     elsif self.user_type == 'Chef'
-      Chef.create(user: self, location: 'Quezon City, NCR', contact_number: '09062347566')
+      Chef.create(user: self, region: 'default location', city: 'default location' , contact_number: '0')
     end
   end
 

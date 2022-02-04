@@ -28,6 +28,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'rolify', '~> 6.0'
 gem 'cancancan'
 gem 'hamlit-rails'
+gem 'cities'
+gem 'ransack'
+gem 'city-state'
 
 gem 'materialize-sass'
 
