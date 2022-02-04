@@ -2,6 +2,22 @@
   <%= render '/profiles/profile_own' %>
 
   <%# add appointments here%>
+  <div class="appointments section two">
+    <h2 class="text-black-dark text-bold">Appointments</h2>
+
+    <div class="appointments-container">
+      <% (1..10).each do |n| %>
+        <div class="card appointment">
+          <div class="card-content">
+            <div class="card-title text-black-dark text-bold text-italic">
+              Appointment #<%= n %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 <% else %>
   <%# this is profile_own but without the wallet and edit profile and shorter section height %>
   <%= render '/profiles/profile_public' %>
