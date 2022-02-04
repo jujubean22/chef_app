@@ -1,0 +1,27 @@
+@import 'application';
+
+.appointments {
+  height: 200vh;
+}
+
+.two {
+  background-color: $cuisinero-white;
+}
+
+.appointments-container {
+  //background-color: $cuisinero-white-med;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-top: 2px $cuisinero-blue-grey;
+}
+
+.appointment {
+  background-color: $cuisinero-white-med;
+  width: 95%; 
+}
