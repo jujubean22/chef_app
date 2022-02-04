@@ -7,6 +7,8 @@ class ChefsController < ApplicationController
 
   def profile
     @chef = Chef.find(params[:id])
+    @galleries = @chef.galleries.where.not(id: nil)
+    @gallery = @chef.galleries.build
   end
 
   def appointments
