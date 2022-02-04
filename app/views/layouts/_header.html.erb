@@ -1,0 +1,122 @@
+<header class="navbar-fixed"> 
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to root_path do %>
+        <%= image_tag "logo/logo.png", class: "brand-logo" %>
+      <% end %>
+
+      <a href="#" data-target="mobile-sidenav" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? && current_user.user_type == "Admin" %>
+          <li>
+            <%= link_to 'Users', all_users_path %>
+          </li>
+          <li>
+            <%= link_to 'Reports', admins_reports_path %>
+          </li>
+          <li>
+            <%= link_to 'Appointments', admins_appointments_path %>
+          </li>
+          <li>
+            <%= link_to 'Transactions', admins_transactions_path %>
+          </li>
+          <li>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
+              Log Out <i class="material-icons right">arrow_forward</i>
+            <% end %>
+            <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+          </li>
+        
+        <% elsif user_signed_in? && current_user.user_type == "Chef" %>
+          <li>
+            <%= link_to 'Profile', chef_profile_path(current_user.chef.id) %>
+          </li>
+          <li>
+            <%= link_to 'Appointments', chef_appointments_path(current_user.chef.id) %>
+          </li>
+          <li>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
+              Log Out <i class="material-icons right">arrow_forward</i>
+            <% end %>
+            <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+          </li>
+        
+        <% elsif user_signed_in? && current_user.user_type == "Client" %>
+          <li>
+            <%= link_to 'Profile', client_profile_path(current_user.client.id) %>
+          </li>
+          <li>
+            <%= link_to 'Chefs', chefs_path %>
+          </li>
+          <li>
+            <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>
+              Log Out <i class="material-icons right">arrow_forward</i>
+            <% end %>
+            <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+          </li>
+        
+        <% else %>
+          <li>
+            <%= link_to 'Log In', new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to(new_user_registration_path, class: "waves-effect waves-light btn-large btn-yellow-dark") do %>
+              Sign Up <i class="material-icons right">create</i>
+            <% end %>
+            <%#= link_to 'Sign Up', new_user_registration_path, class: "emphasize-link" %>
+          </li>
+        <% end %>    
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<ul id="mobile-sidenav" class="sidenav">
+  <% if user_signed_in? && current_user.user_type == "Admin" %>
+    <li class='sidenav-top-border'>
+      <%= link_to 'Users', all_users_path %>
+    </li>
+    <li>
+      <%= link_to 'Reports', admins_reports_path %>
+    </li>
+    <li>
+      <%= link_to 'Appointments', admins_appointments_path %>
+    </li>
+    <li>
+      <%= link_to 'Transactions', admins_transactions_path %>
+    </li>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+    </li>
+  
+  <% elsif user_signed_in? && current_user.user_type == "Chef" %>
+    <li class='sidenav-top-border'>
+      <%= link_to 'Profile', chef_profile_path(current_user.chef.id) %>
+    </li>
+    <li>
+      <%= link_to 'Appointments', chef_appointments_path(current_user.chef.id) %>
+    </li>
+    <li>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+    </li>
+  
+  <% elsif user_signed_in? && current_user.user_type == "Client" %>
+    <li class='sidenav-top-border'>
+      <%= link_to 'Profile', client_profile_path(current_user.client.id) %>
+    </li>
+    <li>
+      <%= link_to 'Chefs', chefs_path %>
+    </li>
+    <li>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "emphasize-link" %>
+    </li>
+  
+  <% else %>
+    <li class='sidenav-top-border'>
+      <%= link_to 'Log In', new_user_session_path %>
+    </li>
+    <li>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "emphasize-link" %>
+    </li>
+  <% end %>
+</ul>

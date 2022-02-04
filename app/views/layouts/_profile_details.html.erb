@@ -1,0 +1,85 @@
+<div class="section one"> 
+  <div class="card-container">
+    <div class="card">
+      <div class="card-content text-space-sm">
+        <div class="avatar">
+          <img class="materialboxed" src="https://images.hdqwalls.com/download/angelina-jolie-4k-2019-new-3f-2560x1600.jpg">
+        </div>
+        <span class="card-title text-black-dark text-bold"><%= [current_user.first_name, current_user.last_name].join(' ') %></span>
+        <p class="card-details text-black-light text-italic"><%#= @client.location %></p>
+        <p class="card-details text-black-light"><%#= @client.contact_number %></p>
+        
+        <p class="card-details text-black-light text-italic">Tuguegarao City, Cagayan</p>
+        <p class="card-details text-black-light">09261621023</p>
+        
+        <div class="rating-container text-yellow-dark">
+          <% @rating = 4.5 %>
+          <% if @rating >= 3 %>
+            <% case @rating %>
+            <% when 3 %>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star_border</i>
+              <i class="material-icons">star_border</i>
+            <% when 3.5 %>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star_half</i>
+              <i class="material-icons">star_border</i>
+            <% when 4 %>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star_border</i>
+            <% when 4.5 %>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star_half</i>
+            <% when 5 %>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+              <i class="material-icons">star</i>
+            <% end %>
+            
+          <% end %>
+        </div>
+        
+        <% if current_user.user_type == 'Chef' %>
+          <div class="divider"></div>
+          
+          <span class="card-title text-black-dark text-bold">Account balance:</span>
+          <p class="card-details text-yellow-dark text-bold money"><%= convert_to_money(current_user.wallet.current_balance) %></p>
+
+          <div class="btn-container">
+            <%#= link_to(edit_chef_profile_path(@chef.id), class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(edit_user_registration_path(current_user.id), class: "waves-effect waves-light btn-large") do %>
+              Edit Profile <i class="material-icons right">edit</i>
+            <% end %> 
+          </div>
+        <% elsif current_user.user_type == 'Client' %>
+          <div class="divider"></div>
+          
+          <span class="card-title text-black-dark text-bold">Account balance:</span>
+          <p class="card-details text-yellow-dark text-bold money"><%= convert_to_money(current_user.wallet.current_balance) %></p>
+
+          <div class="btn-container">
+            <%#= link_to(edit_client_profile_path(@client.id), class: "waves-effect waves-light btn-large") do %>
+            <%= link_to(edit_user_registration_path(current_user.id), class: "waves-effect waves-light btn-large") do %>
+              Edit Profile <i class="material-icons right">edit</i>
+            <% end %> 
+          </div>
+        <% else  %> 
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>

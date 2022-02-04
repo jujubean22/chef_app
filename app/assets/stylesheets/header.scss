@@ -1,0 +1,59 @@
+@import "application";
+
+nav {
+  background-color: $cuisinero-white;
+  height: 100px;
+  line-height: 100px;
+
+  .nav-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+
+
+    .brand-logo {
+      height: 70px;
+      margin-top: 15px;
+    }
+
+
+    a.sidenav-trigger i {
+      color: $cuisinero-yellow-dark;
+      height: 100px;
+      line-height: 95px;
+      font-size: 50px;
+    }
+
+    ul a {
+      color: $cuisinero-black-dark;
+      font-size: 20px;
+    }
+
+    .emphasize-link {
+      color: $cuisinero-yellow-dark !important;
+    }
+  }
+}
+
+.sidenav {
+  background-color: $cuisinero-yellow-dark;
+  width: 50% !important;
+  padding: 60px 0;
+
+  .sidenav-top-border {
+    border-top: 2px $cuisinero-yellow-light solid;
+  }
+
+  li {
+    border-bottom: 2px $cuisinero-yellow-light solid;
+    text-align: center;
+  }
+
+  a {
+    height: 60px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    color: $cuisinero-white !important;
+    font-size: 30px !important;
+    text-transform: uppercase !important;
+  }
+}
