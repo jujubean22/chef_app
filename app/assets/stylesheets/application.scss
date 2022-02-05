@@ -55,9 +55,11 @@ h3 {
 }
 
 p {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 400;
   font-style: italic;
   text-align: center;
+  color: $cuisinero-black-light;
 }
 
 .dot {
@@ -166,6 +168,35 @@ p {
 }
 
 ///////////////////////////////////
+///// Banner
+///////////////////////////////////
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: image-url('bg-home-mobile.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+
+    h2 {
+      color: $cuisinero-yellow-light;
+      font-size: 1.4rem;
+      margin: 0 auto;
+      max-width: 280px;
+      padding: 100px 0 10px 0;
+      letter-spacing: 2px;
+      line-height: 30px;
+    }
+
+    h4 {
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 200;
+      color: $cuisinero-white;
+    }
+}
+
+///////////////////////////////////
 ///// Cards
 ///////////////////////////////////
 .card-container-1 {
@@ -190,9 +221,15 @@ p {
   width: 100%;
   padding: 30px 20px;
 
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
   .card-image-name {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
+    font-weight: 600;
   }
 
   .card-image {
@@ -206,6 +243,7 @@ p {
       height: 250px;
       border-radius: 2px;
     }
+
 
     p {
       line-height: 20px;
