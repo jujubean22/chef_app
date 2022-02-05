@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   devise_scope :users do
     get '/client', to: 'clients#index', as: :client_root
     get '/client/:id', to: 'clients#profile', as: :client_profile
-    get '/chefs', to: 'clients#all_chefs'
+    get '/all_chefs', to: 'clients#all_chefs', as: :all_chefs
     get '/chef/:id', to: 'chefs#profile', as: :chef_profile
     get '/chef/:id/appointments', to: 'chefs#appointments', as: :chef_appointments
     get '/chef', to: 'chefs#index', as: :chef_root
@@ -33,5 +33,5 @@ Rails.application.routes.draw do
   end
 
   get '/page-not-found', action: :error_page, controller: 'home'
-  get '*path', to: 'home#error_page'
+  # get '*path', to: 'home#error_page'
 end
