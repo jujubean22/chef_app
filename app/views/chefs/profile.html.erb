@@ -1,0 +1,17 @@
+<% if current_user.user_type == 'Chef' && current_user.id == @chef.user_id %>
+  <%= render '/profiles/profile_own' %>
+  <%# add gallery, services, reviews here %>
+  <%= render '/galleries/form' %>
+  <% @galleries.each do |gallery| %>
+    <% if gallery.image.attached? %>
+      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>"> 
+    <% else %>
+      <h1> No available images </h1>
+    <% end %>
+  <% end %>
+<% else %>
+  <%# this is profile_own but without the  %>
+  <%= render '/profiles/profile_public' %>
+  
+  <%# add gallery, services, reviews here %>
+<% end %>
