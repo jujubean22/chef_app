@@ -4,7 +4,8 @@
   <%= render '/galleries/form' %>
   <% @galleries.each do |gallery| %>
     <% if gallery.image.attached? %>
-      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px"> 
+      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
+      <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
     <% else %>
       <h1> No available images </h1>
     <% end %>

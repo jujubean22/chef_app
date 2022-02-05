@@ -33,7 +33,7 @@ def destroy
     @gallery = @chef.galleries.find(params[:id])
 
     @gallery.destroy
-    redirect_to chef_path(@chef), notice: "An image was successfully deleted"
+    redirect_to chef_profile_path(@chef), notice: "An image was successfully deleted"
 end
 
 private
