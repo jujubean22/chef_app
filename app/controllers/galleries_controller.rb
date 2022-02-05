@@ -5,7 +5,7 @@ def create
     @gallery = @chef.galleries.build(gallery_params) 
     
     if @gallery.save
-        flash[:notice] = "A gallery has been successfully created"
+        flash[:notice] = "An image has been successfully uploaded"
         redirect_to chef_profile_path(@chef)
     else
         flash[:error] = 'Error encountered'
@@ -33,7 +33,7 @@ def destroy
     @gallery = @chef.galleries.find(params[:id])
 
     @gallery.destroy
-    redirect_to chef_path(@chef), notice: "A gallery was successfully deleted"
+    redirect_to chef_path(@chef), notice: "An image was successfully deleted"
 end
 
 private
