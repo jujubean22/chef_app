@@ -4,7 +4,7 @@
   <%= render '/galleries/form' %>
   <% @galleries.each do |gallery| %>
     <% if gallery.image.attached? %>
-      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>"> 
+      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px"> 
     <% else %>
       <h1> No available images </h1>
     <% end %>
