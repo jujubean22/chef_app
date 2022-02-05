@@ -47,7 +47,7 @@
             <%= link_to 'Profile', client_profile_path(current_user.client.id) %>
           </li>
           <li>
-            <%= link_to 'Chefs', chefs_path %>
+            <%= link_to 'Chefs', all_chefs_path %>
           </li>
           <li>
             <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-large btn-black-dark") do %>

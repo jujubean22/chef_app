@@ -1,8 +1,11 @@
 - if current_user.user_type == 'Chef' && current_user.id == @chef.user_id
   = render '/profiles/profile_own'
   = render '/galleries/form'
+  %br
   - @galleries.each do |gallery|
     -if gallery.image.attached?
-      = image_tag gallery.image, width: '50px'
+      = image_tag gallery.image, width: '200px'
+      %br
+      = link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } 
 - else
   = render '/profiles/profile_public'
