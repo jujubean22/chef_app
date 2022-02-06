@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   #   resources :clients
     resources :chefs do
       resources :galleries
+      resources :services
     end
   # end
   
