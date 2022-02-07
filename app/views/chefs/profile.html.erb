@@ -2,22 +2,22 @@
   <%= render '/profiles/profile_own' %>
   <%= render '/services/form' %>
   <table>
-          <thead >
-              <tr>
-              <th>Specialty</th>
-              <th>Service Rate</th>
-              </tr>
-          </thead>
-          <tbody>
-          <% @services.each do |service| %>
-            <tr>
-            <td><%= service.specialty %></td>
-            <td><%= service.service_rate %></td>
-            <td><%= link_to 'Edit', edit_chef_service_path(@chef.id, service.id) %></td>
-            <td><%= link_to 'Delete', chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-            <tr>
-          </tbody>
+    <thead >
+      <tr>
+      <th>Specialty</th>
+      <th>Service Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @services.each do |service| %>
+      <tr>
+      <td><%= service.specialty %></td>
+      <td><%= service.service_rate %></td>
+      <td><%= link_to 'Edit', edit_chef_service_path(@chef.id, service.id) %></td>
+      <td><%= link_to 'Delete', chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+      <tr>
+    </tbody>
   </table>
   <%# add gallery, services, reviews here %>
   <%= render '/galleries/form' %>

@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
     t.integer "service_id", null: false
     t.integer "request_id", null: false
     t.datetime "schedule"
-    t.decimal "total_charge"
+    t.integer "total_charge"
     t.datetime "confirmed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
   create_table "reviews", force: :cascade do |t|
     t.integer "appointment_id", null: false
     t.text "client_comment"
-    t.decimal "chef_rating"
-    t.decimal "client_rating"
+    t.integer "chef_rating"
+    t.integer "client_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
   create_table "services", force: :cascade do |t|
     t.integer "chef_id", null: false
     t.text "specialty"
-    t.decimal "service_rate"
+    t.integer "service_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chef_id"], name: "index_services_on_chef_id"
