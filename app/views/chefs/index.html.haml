@@ -1,4 +1,4 @@
--if user_signed_in? && current_user.user_type == "Client"
+-if current_user == nil || [user_signed_in? && current_user.user_type == "Client"] 
   %h1{class:'text-3xl'} Chef's Search List
   %table{:class => "w-full py-22 table text-gray-900 text-sm"}
     %thead{:class => "bg-gray-50 text-gray-500"}
