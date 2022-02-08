@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     get '/chef/:id', to: 'chefs#profile', as: :chef_profile
     get '/chef/:id/appointments', to: 'chefs#appointments', as: :chef_appointments
     get '/chef', to: 'chefs#index', as: :chef_root
+    put '/chef/:id', to: 'chefs#update_chef'
+    patch '/chef/:id', to: 'chefs#update_chef'
+    get '/chef/:id/edit', to: 'chefs#edit_chef', as: :edit_chef_profile
 
     get '/admins', to: 'admins#index', as: :admin_root
     get '/admins/users', to: 'admins#all_users', as: :all_users

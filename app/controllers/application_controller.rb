@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
       admin_root_path
     elsif resource.user_type == 'Client'
       client_root_path
+      # client_profile_path(resource.client.id)
     elsif resource.user_type == 'Chef'
       chef_root_path
     end

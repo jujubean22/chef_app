@@ -70,6 +70,11 @@
               Edit Profile <i class="material-icons right">edit</i>
             <% end %> 
           </div>
+          <div class="btn-container">
+            <%= link_to(edit_chef_profile_path(current_user.chef.id), class: "waves-effect waves-light btn-large") do %>
+              Edit Information <i class="material-icons right">edit</i>
+            <% end %> 
+          </div>
         <% elsif current_user.user_type == 'Client' %>
           <div class="divider"></div>
           

@@ -21,16 +21,11 @@ class ChefsController < ApplicationController
   end
 
   def update_chef
-    if @user.wallet
-      @wallet = @user.wallet
-      @wallet.balance = params[:user][:balance]
-      @wallet.save
-    end
-    if @user.update(user_params)
-      redirect_to admin_root_path, notice: "A user data  was successfully updated"
+    if @chef.update(chef_params)
+      redirect_to chef_profile_path(@chef.id), notice: "A user data  was successfully updated"
     else
       flash[:error] = "There are some errors encountered"
-      render :edit_user
+      render :edit_chef
     end
   end
 
@@ -40,7 +35,7 @@ class ChefsController < ApplicationController
     @chef = Chef.find(params[:id])
   end
 
-  def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password)
+  def chef_params
+    params.require(:chef).permit(:contact_number, :bio, :region, :city)
   end
 end
