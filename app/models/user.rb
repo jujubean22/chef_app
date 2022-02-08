@@ -30,9 +30,9 @@ class User < ApplicationRecord
     if self.user_type == 'Admin'
       Admin.create(user: self)
     elsif self.user_type == 'Client'
-      Client.create(user: self, region: 'Cagayan', city: 'Tuguegarao City' , contact_number: '09748372837')
+      Client.create(user: self, region: 'Metro Manila', city: 'Amihan' , contact_number: '09748372837')
     elsif self.user_type == 'Chef'
-      Chef.create(user: self, region: 'NCR', city: 'Quezon City' , contact_number: '09123423456')
+      Chef.create(user: self, region: 'Ilocos', city: 'Abanon' , contact_number: '09123423456')
     end
   end
 

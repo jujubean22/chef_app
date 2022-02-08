@@ -6,6 +6,8 @@ class HomeController < ApplicationController
     else 
       @name = "Stranger"
     end
+    @q = Chef.ransack(params[:q])
+    @chef = @q.result(distinct: true)
   end
 
   def error_page
