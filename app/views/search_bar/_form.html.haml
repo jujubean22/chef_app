@@ -1,0 +1,9 @@
+= search_form_for @q do |f|
+  %div
+    = f.label :location, class:"label"
+    %div
+      %select#states-of-country{ name: "user[region]", style: "color: black; opacity: 1" , required: ""}
+        %option#no-state{selected: "selected", value: ""} Select Region
+        = CS.states(:ph).each do |key, value|
+          %option{id: key, value: value}= value
+      = f.submit
