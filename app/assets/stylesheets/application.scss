@@ -242,6 +242,21 @@ p {
       font-weight: 700;
       width: 100%;
     }
+  
+  //////////////////////////////////////
+  /// Breakpoints
+  //////////////////////////////////////
+  @include respond-to('medium') {
+
+    h3 {
+      max-width: 480px;
+      line-height: 35px;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
 }
 
 .card-image-container {
@@ -298,7 +313,7 @@ p {
     }
 
     .card-image {
-      max-width: 410px;
+      max-width: 360px;
 
       p {
         margin: 0 auto 20px auto;
