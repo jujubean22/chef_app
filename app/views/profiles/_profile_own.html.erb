@@ -3,20 +3,20 @@
     <div class="card">
       <div class="card-content text-space-sm">
         <div class="avatar">
-          <img class="materialboxed" src="https://images.hdqwalls.com/download/angelina-jolie-4k-2019-new-3f-2560x1600.jpg">
+          <img class="materialboxed" src="/assets/avatar-4.jpg">
         </div>
         <% if current_user.user_type == 'Chef' %>
           <span class="card-title text-black-dark text-bold">Chef <%= [current_user.first_name, current_user.last_name].join(' ') %></span>
           <p class="card-details text-black-light text-italic">
-            <i class="material-icons">location_on</i> <%= [current_user.chef.city, current_user.chef.region].join(', ') %>
+            <i class="material-icons left">location_on</i> <%= [current_user.chef.city, current_user.chef.region].join(', ') %>
           </p>
-          <p class="card-details text-black-light"><i class="material-icons">phone</i> <%= current_user.chef.contact_number %></p>
+          <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= current_user.chef.contact_number %></p>
         <% elsif current_user.user_type == 'Client' %>
           <span class="card-title text-black-dark text-bold"><%= [current_user.first_name, current_user.last_name].join(' ') %></span>
           <p class="card-details text-black-light text-italic">
-            <i class="material-icons">location_on</i> <%= [current_user.client.city, current_user.client.region].join(', ') %>
+            <i class="material-icons left">location_on</i> <%= [current_user.client.city, current_user.client.region].join(', ') %>
           </p>
-          <p class="card-details text-black-light"><i class="material-icons">phone</i> <%= current_user.client.contact_number %></p>
+          <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= current_user.client.contact_number %></p>
         <% end %>
         
         <div class="rating-container text-yellow-dark">
