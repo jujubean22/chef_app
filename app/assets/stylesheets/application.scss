@@ -283,6 +283,36 @@ p {
       max-width: 345px;
     }
   }
+
+  //////////////////////////////////////
+  /// Breakpoints
+  //////////////////////////////////////
+  @include respond-to('medium') {
+    h3 {
+      font-size: 2.3rem;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .card-image {
+      max-width: 410px;
+
+      p {
+        margin: 0 auto 20px auto;
+        font-size: 1.1rem;
+        max-width: 346px;
+        line-height: 25px;
+      }
+
+      .image-card {
+        border-radius: 6px;
+      }
+    }
+  }
+
 }
 
 
