@@ -20,6 +20,8 @@ class Ability
       can :manage, Client
     elsif user.admin?
       can :manage, :all
+    else
+      can :index, Chef
     end
 
     # Define abilities for the passed in user here. For example:
