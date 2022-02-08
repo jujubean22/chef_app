@@ -1,27 +1,106 @@
 @import 'application';
 
-.appointments {
-  height: 200vh;
-}
+$avatar-size: 20vmin;
 
 .two {
   background-color: $cuisinero-white;
+  height: auto !important;
 }
 
 .appointments-container {
-  //background-color: $cuisinero-white-med;
-  width: 80%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  border-top: 2px $cuisinero-blue-grey;
+  // background-color: $cuisinero-yellow-light;
+  width: 90vw;
+  height: 100vmin;
+
+  .tabs-container {
+    width: 100%;
+
+    ul {
+      background-color: $cuisinero-black-dark !important;
+
+      a {
+        color: $cuisinero-white;
+
+	&:hover {
+	  color: $cuisinero-yellow-dark;
+	  transition: color .28s ease, background-color .28s ease;
+	}
+      }
+
+      a.active {
+        color: $cuisinero-yellow-dark !important;
+        
+	&:focus {
+          background-color: rgba(87, 72, 97, 0.2) !important;
+        }
+      }
+
+      li.indicator {
+        background-color: $cuisinero-yellow-dark !important;
+      }
+    }
+  }
+
+  .tabs-content {
+    height: 90vmin !important;
+  }
+  
+  .tab-content {
+    // background-color: $cuisinero-black-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    overflow-y: scroll;
+
+    .collection {
+      background-color: $cuisinero-yellow-light;
+      width: 95% !important;
+
+      li p {
+        text-align: left !important;
+      }
+    }
+
+  }
 }
 
 .appointment {
-  background-color: $cuisinero-white-med;
-  width: 95%; 
+  background-color: $cuisinero-white-med !important;
+  width: 95%;
+
+  .card-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    background-color: $cuisinero-black-dark;
+    width: $avatar-size;
+    height: $avatar-size;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+ 
+    img {
+      height: $avatar-size;
+    }
+  }
+
+  .text-container {
+    width: auto;
+    margin: 0 calc(5px + 2vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  } 
 }
