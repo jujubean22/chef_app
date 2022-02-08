@@ -182,12 +182,12 @@ p {
 
     h2 {
       color: $cuisinero-yellow-light;
-      font-size: 2.3rem;
+      font-size: 1.4rem;
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 280px;
       padding: 100px 0 10px 0;
       letter-spacing: 2px;
-      line-height: 50px;
+      line-height: 30px;
     }
 
     h4 {
@@ -218,7 +218,11 @@ p {
   /// Breakpoints
   //////////////////////////////////////
   @include respond-to('medium') {
-
+    h2 {
+      font-size: 2.3rem;
+      max-width: 600px;
+      line-height: 50px;
+    }
   }
 }
 
