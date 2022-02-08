@@ -1,4 +1,5 @@
 @import './variables';
+@import './responsive.scss';
 
 .card-1 {
   background-color: $white;
@@ -39,5 +40,28 @@
       width: 100%;
       max-width: 280px;
       height: 100%;
+    }
+
+    //////////////////////////////////////
+    /// Breakpoints
+    //////////////////////////////////////
+    @include respond-to('medium') {
+      max-width: 365px;
+      
+      .card-img {
+        height: 95px;
+        width: 95px;
+      }
+
+      .card-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .card-text {
+        line-height: 24px;
+        text-align: left;
+        max-width: 281px;
+      }
     }
 }
