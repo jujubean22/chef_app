@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     get '/client', to: 'clients#index', as: :client_root
     get '/client/:id', to: 'clients#profile', as: :client_profile
     get '/all_chefs', to: 'clients#all_chefs', as: :all_chefs
+    put '/client/:id', to: 'clients#update_client'
+    patch '/client/:id', to: 'clients#update_client'
+    get '/client/:id/edit', to: 'clients#edit_client', as: :edit_client_profile
 
     get '/chef/:id', to: 'chefs#profile', as: :chef_profile
     get '/chef/:id/appointments', to: 'chefs#appointments', as: :chef_appointments
