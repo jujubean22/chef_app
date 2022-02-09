@@ -1,34 +1,51 @@
 <% if current_user.user_type == 'Chef' && current_user.id == @chef.user_id %>
   <%= render '/profiles/profile_own' %>
-  <%= render '/services/form' %>
-  <table>
-    <thead >
-      <tr>
-      <th>Specialty</th>
-      <th>Service Rate</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @services.each do |service| %>
-      <tr>
-      <td><%= service.specialty %></td>
-      <td><%= service.service_rate %></td>
-      <td><%= link_to 'Edit', edit_chef_service_path(@chef.id, service.id) %></td>
-      <td><%= link_to 'Delete', chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  <%# add services here (with CREATE, EDIT, DELETE) %>
+  <div class="services section two">
+    <h3 class="text-black-dark text-bold">Services</h3>
+
+    <%= render '/services/form' %>
+    <table>
+      <thead >
+        <tr>
+        <th>Specialty</th>
+        <th>Service Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @services.each do |service| %>
+        <tr>
+        <td><%= service.specialty %></td>
+        <td><%= service.service_rate %></td>
+        <td><%= link_to 'Edit', edit_chef_service_path(@chef.id, service.id) %></td>
+        <td><%= link_to 'Delete', chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <%# add gallery here (with CREATE, EDIT, DELETE)%>
+  <div class="gallery section three">
+    <h3 class="text-black-dark text-bold">Gallery</h3>
+     
+    <%= render '/galleries/form' %>
+    
+    <% if @galleries.empty? %>
+      <h5 class="text-black-light text-italic">No available images</h5>
     <% end %>
-      <tr>
-    </tbody>
-  </table>
-  <%# add gallery, services, reviews here %>
-  <%= render '/galleries/form' %>
-  <% @galleries.each do |gallery| %>
-    <% if gallery.image.attached? %>
-      <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
-      <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% else %>
-      <h1> No available images </h1>
+  
+    <% @galleries.each do |gallery| %>
+      <% if gallery.image.attached? %>
+        <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
+        <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     <% end %>
-  <% end %>
+
+  </div>
+
 <% else %>
   <%# this is profile_own but without the  %>
   <%= render '/profiles/profile_public' %>
