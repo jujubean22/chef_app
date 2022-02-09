@@ -1,0 +1,17 @@
+%h2 
+  Request form for the appointment
+  %br
+  Chef's username, 
+  = @chef.user.username
+
+Your balance
+= @balance
+
+= form_with scope: :request, model: [@request.client, @request] do |f|
+  = f.hidden_field :client_id, value: current_user.client.id
+  = f.hidden_field :chef_id, value: @chef.id
+  = f.label :head_count
+  = f.number_field :head_count
+  = f.label :notes_to_chef
+  = f.text_field :notes_to_chef
+  = f.submit

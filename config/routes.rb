@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'requests/index'
   get 'clients/index'
   get 'chefs/index'
   devise_for :users, :controllers => {:registrations => "my_devise/registrations"}
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
   # end
 
   # resources :users do
-  #   resources :clients
+    resources :clients do
+      resources :requests
+    end
     resources :chefs do
       resources :galleries
       resources :services

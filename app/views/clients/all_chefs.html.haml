@@ -10,6 +10,7 @@
       %th{:class => "p-3 center"} Region
       %th{:class => "p-3 center"} City
       %th{:class => "p-3 center"} Contact Number
+      %th{:class => "p-3 center"} Action
   %tbody
     - @chefs.each do |chef|
       %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
@@ -21,3 +22,5 @@
         %td{:class => "p-3"}= chef.chef.region
         %td{:class => "p-3"}= chef.chef.city
         %td{:class => "p-3"}= chef.chef.contact_number
+        %th{:class => "p-3 center"}
+          = link_to 'View Chef', chef_profile_path(chef.chef.id)
