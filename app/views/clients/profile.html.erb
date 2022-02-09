@@ -3,23 +3,94 @@
 
   <%# add appointments here%>
   <div class="appointments section two">
-    <h2 class="text-black-dark text-bold">Appointments</h2>
+    <h3 class="text-black-dark text-bold">Appointments</h3>
 
     <div class="appointments-container">
-      <% (1..10).each do |n| %>
-        <div class="card appointment">
-          <div class="card-content">
-            <div class="card-title text-black-dark text-bold text-italic">
-              Appointment #<%= n %>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col s12 tabs-container">
+          <ul class="tabs">
+            <li class="tab col s3"><a href="#confirmed" class="active">Confirmed</a></li>
+            <li class="tab col s3"><a href="#pending">Pending</a></li>
+            <li class="tab col s3"><a href="#rejected">Rejected</a></li>
+            <li class="tab col s3"><a href="#torate">To Rate</a></li>
+          </ul>
         </div>
-      <% end %>
+        
+        <div id="confirmed" class="tab-content">
+          <% (1..5).each do |n| %>
+            <div class="card appointment">
+              <div class="card-content">
+                <div class="avatar-img hide-on-med-and-down">
+                  <img src="/assets/avatar-3.jpg">
+                </div>
+                <div class="text-container"> 
+                  <span class="card-title text-black-dark text-bold text-italic">
+                    Chef Julie Mae Villanueva
+                  </span>
+                  <p class="text-black-light">
+                  <span class="text-bold">Date: </span>Jan 17, 2025 (6:00PM)
+                  </p>
+                  <br>
+                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
+                  <p class="text-green text-bold">CONFIRMED</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div id="pending" class="tab-content">
+          <% (1..7).each do |n| %>
+            <div class="card appointment">
+              <div class="card-content">
+                <div class="avatar-img hide-on-med-and-down">
+                  <img src="/assets/avatar-7.jpg">
+                </div>
+                <div class="text-container"> 
+                  <span class="card-title text-black-dark text-bold text-italic">
+                    Chef Michael Bonacini
+                  </span>
+                  <p class="text-black-light">
+                  <span class="text-bold">Date: </span>Mar <%= n + 10 %>, 2026 (<%= n %>:00PM)
+                  </p>
+                  <br>
+                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
+                  <p class="text-yellow-dark text-bold">PENDING</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div id="rejected" class="tab-content">
+          <% (1..2).each do |n| %>
+            <div class="card appointment">
+              <div class="card-content">
+                <div class="avatar-img hide-on-med-and-down">
+                  <img src="/assets/avatar-5.jpg">
+                </div>
+                <div class="text-container"> 
+                  <span class="card-title text-black-dark text-bold text-italic">
+                    Chef Gordon Ramsay
+                  </span>
+                  <p class="text-black-light">
+                  <span class="text-bold">Date: </span>Dec 24, 2026 (6:00PM)
+                  </p>
+                  <br>
+                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
+                  <p class="text-red text-bold">REJECTED</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div id="torate" class="tab-content">
+          <h5 class="text-black-light text-italic">Nothing to show here</h5>
+        </div>
+      </div>
     </div>
+
   </div>
 
 <% else %>
   <%# this is profile_own but without the wallet and edit profile and shorter section height %>
   <%= render '/profiles/profile_public' %>
 <% end %>
-
