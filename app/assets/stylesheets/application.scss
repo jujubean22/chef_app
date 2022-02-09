@@ -215,13 +215,27 @@ p {
     }
 
   //////////////////////////////////////
-  /// Breakpoints
+  /// Breakpoints: Banner
   //////////////////////////////////////
   @include respond-to('medium') {
     h2 {
       font-size: 2.3rem;
       max-width: 600px;
       line-height: 50px;
+    }
+  }
+
+  @include respond-to('large') {
+    h2 {
+      font-size: 4.0rem;
+      max-width: 1200px;
+      line-height: 90px;
+      padding-top: 200px;
+    }
+
+    h4 {
+      font-size: 2.7rem;
+      letter-spacing: 2px;
     }
   }
 }
@@ -244,7 +258,7 @@ p {
     }
   
   //////////////////////////////////////
-  /// Breakpoints
+  /// Breakpoints: Cards
   //////////////////////////////////////
   @include respond-to('medium') {
 
@@ -255,6 +269,17 @@ p {
 
     p {
       font-size: 1.1rem;
+    }
+  }
+
+  @include respond-to('large') {
+    h3 {
+      font-size: 3rem;
+      line-height: 60px;  
+    }
+
+    p {
+      font-size: 1.5rem;
     }
   }
 }
@@ -300,7 +325,7 @@ p {
   }
 
   //////////////////////////////////////
-  /// Breakpoints
+  /// Breakpoints: Card Image
   //////////////////////////////////////
   @include respond-to('medium') {
     h3 {
@@ -325,6 +350,48 @@ p {
       .image-card {
         border-radius: 6px;
       }
+    }
+  }
+
+  @include respond-to('large') {
+    .card-image-header {
+      margin-bottom: 100px;
+    }
+
+    .card-img,
+    .card-img-2 {
+      display: flex;
+      flex-direction: row;
+      max-width: 70%;
+      align-items: center;
+      text-align: left;
+
+      .image-card {
+        width: 400px;
+        height: 300px;
+      }
+
+      .card-image-body {
+        width: 100%;
+        max-width: 600px;
+        padding: 0 70px;
+      }
+
+      .card-image-name {
+        font-size: 2.7rem;
+      }
+
+      .card-image-text {
+        text-align: left;
+        font-size: 1.3rem;
+        margin-bottom: 26px;
+      }
+
+
+    }
+
+    .card-img-2 {
+      flex-direction: row-reverse;
     }
   }
 
@@ -393,7 +460,7 @@ p {
     }
 
     //////////////////////////////////////
-    /// Breakpoints
+    /// Breakpoints: Footer
     //////////////////////////////////////
     @include respond-to('medium') {
       
@@ -421,6 +488,15 @@ p {
         width: 335px;
       }
     }
-  }
 
+    @include respond-to('large') {
+
+
+      .footer-disclaimer {
+        font-size: 1rem;
+        padding: 0;
+        height: 0;
+      }
+    }
+  }
 }
