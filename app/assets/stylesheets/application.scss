@@ -240,6 +240,7 @@ p {
   }
 }
 
+
 ///////////////////////////////////
 ///// Cards
 ///////////////////////////////////
@@ -273,9 +274,12 @@ p {
   }
 
   @include respond-to('large') {
+    padding: 50px 0 200px 0;
+
     h3 {
       font-size: 3rem;
       line-height: 60px;  
+      max-width: 100%;
     }
 
     p {
@@ -284,6 +288,10 @@ p {
   }
 }
 
+
+//////////////////////////////////////
+///  Card Image
+//////////////////////////////////////
 .card-image-container {
   display: flex;
   flex-direction: column;
@@ -354,6 +362,8 @@ p {
   }
 
   @include respond-to('large') {
+    padding: 100px 20px;
+
     .card-image-header {
       margin-bottom: 100px;
     }
@@ -490,7 +500,6 @@ p {
     }
 
     @include respond-to('large') {
-
 
       .footer-disclaimer {
         font-size: 1rem;
