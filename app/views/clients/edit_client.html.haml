@@ -1,0 +1,19 @@
+%h2{class:"font-bold text-3xl"} Edit Client Account
+= form_with scope: :client, url: client_profile_path, method: :patch do |f|
+  - if @client.errors.any?
+    %h2 Errors: 
+    %ul
+      - @client.errors.full_messages.each do |message|
+        %li= message
+  %div{class:"flex flex-col items-center justify-center gap-4 text-gray-800"}
+    %div{class: "flex flex-col gap-2"}
+      %h1{class: 'text-sm text-white'}CONTACT NUMBER
+      = f.text_field :contact_number, class: 'rounded w-80', placeholder: "Contact Number"
+    %div{class: "flex flex-col gap-2"}
+      %h1{class: 'text-sm text-white'}REGION
+      = f.text_field :region, class: 'rounded w-80', placeholder: "Region"
+    %div{class: "flex flex-col gap-2"}
+      %h1{class: 'text-sm text-white'}CITY
+      = f.text_field :city, class: 'rounded w-80', placeholder: "City"
+    %button{class:"mt-10 rounded bg-blue-500 px-5 py-2 w-full text-white font-bold transition-ease duration-200 cursor-pointer hover:opacity-50"}
+      = f.submit "Update Account", :class => "font-bold"

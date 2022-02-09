@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_133544) do
+ActiveRecord::Schema.define(version: 2022_02_08_133449) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -105,9 +105,11 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
     t.integer "client_id", null: false
     t.integer "head_count"
     t.string "cuisine"
-    t.string "courses"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "notes_to_chef"
+    t.integer "chef_id"
+    t.index ["chef_id"], name: "index_requests_on_chef_id"
     t.index ["client_id"], name: "index_requests_on_client_id"
   end
 
@@ -183,6 +185,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
   add_foreign_key "galleries", "chefs"
   add_foreign_key "reports", "chefs"
   add_foreign_key "reports", "clients"
+  add_foreign_key "requests", "chefs"
   add_foreign_key "requests", "clients"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "services", "chefs"
