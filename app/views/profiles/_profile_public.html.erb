@@ -67,7 +67,7 @@
       <div class="card-action">
         <% if !@chef.nil? %>
           <% if current_user.user_type == 'Client' %>
-            <%= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-green") do %>
+            <%= link_to(new_client_request_path(current_user.client.id, chef_id: @chef.id), class: "waves-effect waves-light btn-large btn-green") do %>
               Book Chef <i class="material-icons right">event</i>
             <% end %>
           <% end %>

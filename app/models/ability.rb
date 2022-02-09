@@ -10,6 +10,7 @@ class Ability
       #can :manage, Client, user_id: user.id
       can :manage, Client
       can :manage, Chef
+      can :manage, Request
       # can :read, Portfolio, {:account_id => user.account.id}
       # can [:read, :update], Client, {:user_id => user.id}
       # can :manage, []
