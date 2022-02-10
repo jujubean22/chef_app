@@ -1,1 +1,22 @@
 %h1 Chef Appointments
+
+%table
+  %thead
+    %tr
+      %th Chef
+      %th Client
+      %th Created At
+      %th Schedule
+      %th Total Charge
+      %th Confirmed At?
+      %th Payment Released At
+  %tbody
+    - @appointments.each do |a|
+      %tr
+        %td= "#{a.chef.user.first_name} #{a.chef.user.last_name}"
+        %td= "#{a.request.client.user.first_name} #{a.request.client.user.last_name}"
+        %td= format_date(a.created_at)
+        %td= a.schedule ? format_date(a.schedule) : "No schedule yet"
+        %td= convert_to_money(a.total_charge)
+        %td= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"
+        %td= a.payment_released_at ? format_date(a.payment_released_at) : "No payment yet"

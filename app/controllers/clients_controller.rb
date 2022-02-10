@@ -12,6 +12,9 @@ class ClientsController < ApplicationController
   end
 
   def profile
+    @requests = Request.where(client_id: current_user.client.id)
+    @requests_array = @requests.map{|req| req.id}
+    @appointments = Appointment.where(request_id: @requests_array)
   end
 
   def edit_client
