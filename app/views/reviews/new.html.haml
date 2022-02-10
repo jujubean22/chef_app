@@ -1,0 +1,16 @@
+%h2 
+  Leave a review for this appointment
+  Test: 
+  = @appointment.total_charge
+  %br
+  Chef's username, 
+  = @chef.user.username
+
+= form_with scope: :review, model: [@appointment, @review] do |f|
+  = f.label :client_comment
+  = f.text_area :client_comment
+  = f.label :chef_rating
+  = f.number_field :chef_rating
+  = f.label :client_rating
+  = f.number_field :client_rating
+  = f.submit 'Submit your review'
