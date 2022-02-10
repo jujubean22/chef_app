@@ -19,14 +19,6 @@ class GalleriesController < ApplicationController
     end
 
     def update
-        @gallery = @chef.galleries.find(params[:id])  
-
-        if @gallery.update(gallery_params)
-            redirect_to chef_path(@chef)
-        else
-            flash[:error] = 'Error encountered'
-            render :edit
-        end
     end
 
     def destroy

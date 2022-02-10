@@ -1,4 +1,5 @@
 @import './variables';
+@import './responsive.scss';
 
 .card-1 {
   background-color: $white;
@@ -39,5 +40,64 @@
       width: 100%;
       max-width: 280px;
       height: 100%;
+    }
+
+    //////////////////////////////////////
+    /// Breakpoints
+    //////////////////////////////////////
+    @include respond-to('medium') {
+      max-width: 365px;
+      
+      .card-img {
+        height: 95px;
+        width: 95px;
+      }
+
+      .card-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .card-text {
+        line-height: 24px;
+        text-align: left;
+        max-width: 281px;
+      }
+    }
+
+    @include respond-to('large') {
+      display: flex;
+      align-items: center;
+      max-width: 75%;
+      height: 250px;
+      margin: 30px auto;
+      padding: 0 100px;
+
+      .card-date {
+        display: none;
+      }
+
+      .card-header {
+        .card-img {
+          height: 100px;
+          width: 100px;
+        }
+
+        .card-name {
+          font-size: 1.3rem;
+        }
+      }
+
+      .card-body {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .card-text {
+        max-width: 100%;
+        height: 100%;
+        line-height: 30px;
+      }
     }
 }

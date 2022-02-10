@@ -16,8 +16,9 @@
 
 ///////////////////////////////////
 ///// Imports
-/////////////////////////////////// 
-@import './objects/variables';
+///////////////////////////////////
+@import "./objects/variables";
+@import "./objects/responsive.scss";
 @import "materialize";
 
 // HTML Elements
@@ -46,6 +47,9 @@ main {
   flex: 1 0 auto;
 }
 
+select {
+  opacity: 1;
+}
 
 h3 {
   margin-bottom: 15px;
@@ -55,9 +59,11 @@ h3 {
 }
 
 p {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 400;
   font-style: italic;
   text-align: center;
+  color: $cuisinero-black-light;
 }
 
 .dot {
@@ -78,7 +84,6 @@ p {
   color: $cuisinero-yellow-dark;
 }
 
-
 .text-yellow-light {
   color: $cuisinero-yellow-light;
 }
@@ -86,7 +91,6 @@ p {
 .text-black-dark {
   color: $cuisinero-black-dark;
 }
-
 
 .text-black-light {
   color: $cuisinero-black-light;
@@ -136,8 +140,8 @@ p {
   text-transform: capitalize;
 
   &:hover {
-    background-color: #FAAF12;
-    transition: background-color .2s ease-out;
+    background-color: #faaf12;
+    transition: background-color 0.2s ease-out;
   }
 
   &:focus {
@@ -193,6 +197,79 @@ p {
 }
 
 ///////////////////////////////////
+///// Banner
+///////////////////////////////////
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: image-url('bg-home-mobile.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+  text-align: center;
+
+    h2 {
+      color: $cuisinero-yellow-light;
+      font-size: 1.4rem;
+      margin: 0 auto;
+      max-width: 280px;
+      padding: 100px 0 10px 0;
+      letter-spacing: 2px;
+      line-height: 30px;
+    }
+
+    h4 {
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 200;
+      color: $cuisinero-white;
+    }
+
+    .home-dropdown {
+      opacity: 1;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 25px;
+    }
+
+    .home-btn {
+      background-color: $cuisinero-yellow-dark;
+      color: $cuisinero-white;
+      font-size: 1.3rem;
+      text-decoration: none;
+      padding: 13px 65px;
+      border-radius: 3px;
+      margin-top: 100px;
+    }
+
+  //////////////////////////////////////
+  /// Breakpoints: Banner
+  //////////////////////////////////////
+  @include respond-to('medium') {
+    h2 {
+      font-size: 2.3rem;
+      max-width: 600px;
+      line-height: 50px;
+    }
+  }
+
+  @include respond-to('large') {
+    h2 {
+      font-size: 4.0rem;
+      max-width: 1200px;
+      line-height: 90px;
+      padding-top: 200px;
+    }
+
+    h4 {
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+
+///////////////////////////////////
 ///// Cards
 ///////////////////////////////////
 .card-container-1 {
@@ -208,8 +285,41 @@ p {
       font-weight: 700;
       width: 100%;
     }
+  
+  //////////////////////////////////////
+  /// Breakpoints: Cards
+  //////////////////////////////////////
+  @include respond-to('medium') {
+
+    h3 {
+      max-width: 480px;
+      line-height: 35px;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  @include respond-to('large') {
+    padding: 50px 0 200px 0;
+
+    h3 {
+      font-size: 3rem;
+      line-height: 60px;  
+      max-width: 100%;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
 }
 
+
+//////////////////////////////////////
+///  Card Image
+//////////////////////////////////////
 .card-image-container {
   display: flex;
   flex-direction: column;
@@ -217,9 +327,15 @@ p {
   width: 100%;
   padding: 30px 20px;
 
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
   .card-image-name {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    font-weight: 600;
   }
 
   .card-image {
@@ -234,19 +350,94 @@ p {
       border-radius: 2px;
     }
 
+
     p {
       line-height: 20px;
       margin-bottom: 20px;
       text-align: left;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+      max-width: 345px;
     }
   }
-}
 
+  //////////////////////////////////////
+  /// Breakpoints: Card Image
+  //////////////////////////////////////
+  @include respond-to('medium') {
+    h3 {
+      font-size: 2.3rem;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .card-image {
+      max-width: 360px;
+
+      p {
+        margin: 0 auto 20px auto;
+        font-size: 1.1rem;
+        max-width: 346px;
+        line-height: 25px;
+      }
+
+      .image-card {
+        border-radius: 6px;
+      }
+    }
+  }
+
+  @include respond-to('large') {
+    padding: 100px 20px;
+
+    .card-image-header {
+      margin-bottom: 100px;
+    }
+
+    .card-img,
+    .card-img-2 {
+      display: flex;
+      flex-direction: row;
+      max-width: 70%;
+      align-items: center;
+      text-align: left;
+
+      .image-card {
+        width: 400px;
+        height: 300px;
+      }
+
+      .card-image-body {
+        width: 100%;
+        max-width: 600px;
+        padding: 0 70px;
+      }
+
+      .card-image-name {
+        font-size: 2.7rem;
+      }
+
+      .card-image-text {
+        text-align: left;
+        font-size: 1.3rem;
+        margin-bottom: 26px;
+      }
+
+
+    }
+
+    .card-img-2 {
+      flex-direction: row-reverse;
+    }
+  }
+
+}
 
 ///////////////////////////////////
 ///// Footer
-/////////////////////////////////// 
+///////////////////////////////////
 #footer {
   .footer-container {
     color: $cuisinero-white;
@@ -275,7 +466,7 @@ p {
       .footer-nav {
         display: none;
       }
-      
+
       ul li {
         list-style-type: none;
         display: inline-block;
@@ -288,7 +479,7 @@ p {
       margin: 50px auto;
       text-align: center;
       line-height: 26px;
-      
+
       ul li {
         list-style-type: none;
         display: inline-block;
@@ -303,6 +494,45 @@ p {
       width: 100%;
       text-align: center;
       display: block;
+    }
+
+    //////////////////////////////////////
+    /// Breakpoints: Footer
+    //////////////////////////////////////
+    @include respond-to('medium') {
+      
+      .footer-header {
+        align-items: center;
+        justify-content: space-around;
+
+        .footer-logo {
+          margin: 0;
+        }
+
+        .footer-nav {
+          display: block;
+        }
+
+        ul li {
+          margin: 0 20px;
+          font-style: italic;
+          font-size: 1.2rem;
+        }
+      }
+      
+      .footer-devs {
+        font-size: 1.2rem;
+        width: 335px;
+      }
+    }
+
+    @include respond-to('large') {
+
+      .footer-disclaimer {
+        font-size: 1rem;
+        padding: 0;
+        height: 0;
+      }
     }
   }
 }
