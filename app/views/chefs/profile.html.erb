@@ -30,9 +30,9 @@
       <h5 class="text-black-light text-italic">No available services</h5>
     <% end %>
 
-    <input type="button" value="Add new service" id="toggle-btn">
+    <input type="button" value="Add new service" id="toggle-service" class="btn-small btn-show">
 
-    <div class="new-service" id="toggle-div" style="display: none;">
+    <div class="toggle-form z-depth-3" id="service-form" style="display: none;">
       <%= render '/services/form' %>
     </div>
     
@@ -43,18 +43,23 @@
   <div class="gallery section three">
     <h3 class="text-black-dark text-bold">Gallery</h3>
      
-    <%= render '/galleries/form' %>
     
     <% if @galleries.empty? %>
       <h5 class="text-black-light text-italic">No available images</h5>
-    <% end %>
-  
-    <% @galleries.each do |gallery| %>
-      <% if gallery.image.attached? %>
-        <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
-        <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% else %>
+      <% @galleries.each do |gallery| %>
+        <% if gallery.image.attached? %>
+          <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
+          <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
       <% end %>
     <% end %>
+    
+    <input type="button" value="Add new photo" id="toggle-gallery" class="btn-small btn-show">
+
+    <div class="toggle-form z-depth-3" id="gallery-form" style="display: none;">
+      <%= render '/galleries/form' %>
+    </div>
 
   </div>
 
