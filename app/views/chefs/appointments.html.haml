@@ -10,6 +10,7 @@
       %th Total Charge
       %th Confirmed At?
       %th Payment Released At
+      %th Action
   %tbody
     - @appointments.each do |a|
       %tr
@@ -20,3 +21,4 @@
         %td= convert_to_money(a.total_charge)
         %td= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"
         %td= a.payment_released_at ? format_date(a.payment_released_at) : "No payment yet"
+        %td= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" if a.review
