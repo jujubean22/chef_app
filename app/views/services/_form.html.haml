@@ -1,7 +1,8 @@
 = form_with model: [@chef, @service] do |f|
-  = f.label :specialty
-  = f.text_field :specialty
-  = f.label :service_rate
-  = f.number_field :service_rate
-  %br/
-  = f.submit
+  = f.label(:specialty, class: "label")
+  = f.text_field(:specialty, class: "text-field", required: true, placeholder: "e.g. French Cuisine")
+  
+  = f.label(:service_rate, class: "label")
+  = f.number_field(:service_rate, class: "number-field", min: 1, required: true, placeholder: "Enter value in Php")
+  
+  = f.submit("Add service", class: "waves-effect waves-light btn-small btn-submit") 

@@ -122,17 +122,31 @@ p {
   letter-spacing: calc(0.25vw);
 }
 
+// Button font size
+
+.btn-large {
+  font-size: calc(5px + 2vmin) !important;
+}
+
+.btn-small {
+  font-size: calc(2px + 2vmin) !important;
+}
+
 // Button Colors
 
 .btn-yellow-dark {
   background-color: $cuisinero-yellow-dark;
   color: $cuisinero-white !important;
   text-transform: capitalize;
-  font-size: 20px;
 
   &:hover {
     background-color: #faaf12;
     transition: background-color 0.2s ease-out;
+  }
+
+  &:focus {
+    background-color: $cuisinero-yellow-dark;
+    transition: background-color .2s ease-out;
   }
 }
 
@@ -140,32 +154,45 @@ p {
   background-color: $cuisinero-black-dark;
   color: $cuisinero-white !important;
   text-transform: capitalize;
-  font-size: 20px;
+  
   &:hover {
     background-color: $cuisinero-black-light;
-    transition: background-color 0.2s ease-out;
+    transition: background-color .2s ease-out;
+  }
+
+  &:focus {
+    background-color: $cuisinero-black-dark;
+    transition: background-color .2s ease-out;
   }
 }
 
 .btn-green {
   background-color: $cuisinero-green;
-  color: $cuisinero-white;
-  //text-transform: capitalize;
-  font-size: 20px;
+  color: $cuisinero-white !important;
+  
   &:hover {
-    background-color: #1d8f46;
-    transition: background-color 0.2s ease-out;
+    background-color: #1D8F46;
+    transition: background-color .2s ease-out;
+  }
+  
+  &:focus {
+    background-color: $cuisinero-green;
+    transition: background-color .2s ease-out;
   }
 }
 
 .btn-red {
   background-color: $cuisinero-red;
-  color: $cuisinero-white;
-  //text-transform: capitalize;
-  font-size: 20px;
+  color: $cuisinero-white !important;
+  
   &:hover {
-    background-color: #db2739;
-    transition: background-color 0.2s ease-out;
+    background-color: #DB2739;
+    transition: background-color .2s ease-out;
+  }
+  
+  &:focus {
+    background-color: $cuisinero-red;
+    transition: background-color .2s ease-out;
   }
 }
 

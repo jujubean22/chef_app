@@ -1,0 +1,113 @@
+@import 'application';
+
+.toggle-form {
+  background-color: #FFFFFF;
+  height: auto;
+  margin-top: calc(10px + 3vh);
+  border-radius: 5px;
+}
+
+.label {
+  color: $cuisinero-black-dark !important;
+  font-size: calc(10px + 0.5vw) !important;
+  text-transform: uppercase;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
+
+}
+
+.btn-show, .btn-submit {
+  background-color: $cuisinero-green !important;
+  color: $cuisinero-white !important;
+  
+  &:hover {
+    background-color: #1D8F46 !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+  &:focus {
+    background-color: $cuisinero-green !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+}
+
+.btn-hide {
+  background-color: $cuisinero-red !important;
+  color: $cuisinero-white !important;
+  
+  &:hover {
+    background-color: #DB2739 !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+  &:focus {
+    background-color: $cuisinero-red !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: calc(20px + 2vw);
+  font-family: $lato !important;
+  height: 75vh !important;
+
+
+  .waves-button-input {
+    color: $cuisinero-white !important;
+  }
+}
+
+input {
+  text-align: center;
+  color: $cuisinero-black-light;
+  margin-bottom: calc(20px + 5vmin) !important;
+}
+
+// Input field bottom border
+
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(browser-default):focus:not([readonly]){
+  border-bottom: 1px solid $cuisinero-yellow-dark !important;
+  box-shadow: 0 1px 0 0 $cuisinero-yellow-light !important;
+}
+
+// Placeholder color
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $cuisinero-grey-light !important;
+  opacity: 1; /* Firefox */
+  font-size: calc(5px + 0.5vw) !important;
+  font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $cuisinero-grey-light !important;
+  font-size: calc(5px + 0.5vw) !important;
+  font-style: italic;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $cuisinero-grey-light !important;
+  font-size: calc(5px + 0.5vw) !important;
+  font-style: italic;
+}
+
+// Hide arrows for number field
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
