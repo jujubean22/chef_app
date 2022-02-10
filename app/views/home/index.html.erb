@@ -2,23 +2,6 @@
 
 <div id='homepage'>
   <div class='container-1'>
-<<<<<<< HEAD
-    <div class='banner'>
-      <h2>Experience fine dining once more without leaving the comfort of you home</h2>
-      <h4>Find chefs near you and book one today</h4>
-      <div class='dropdown-group'>
-
-        <a href="#" class='home-btn'>Find Your Chef</a>
-      </div>
-    </div>
-    <%# Cards with image %>
-    <div class='card-image-container'>
-      <div class='card-image-header'>
-        <h3>Turn your home into a <br><span class='text-yellow-dark card-span'>five-star dining</span></h3>
-        <p>Satisfy your cravings and savor each unique taste</p>
-      </div>
-
-=======
     <%# Cards with image %>
     <div class='card-image-container'>
       <h3>Turn your home into a <br><span class='text-yellow-dark'>five-star dining</span></h3>
@@ -26,7 +9,6 @@
       <%if current_user == nil || current_user.user_type == "Client"%>
         <%= render 'search_bar/form' %>
       <%end %>
->>>>>>> 14c4f2a33fcd13cf3bdf553fc884c156f000b9a7
       <%# Card Image - The Cooking %>
       <div class='card-img'>
         <%= render 'devise/shared/card-image' %>
