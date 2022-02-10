@@ -22,7 +22,7 @@ class ServicesController < ApplicationController
       @service = @chef.services.find(params[:id])  
 
       if @service.update(service_params)
-          redirect_to chef_path(@chef)
+          redirect_to chef_profile_path(@chef)
       else
           flash[:error] = 'Error encountered'
           render :edit
