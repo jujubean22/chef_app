@@ -32,7 +32,7 @@ class User < ApplicationRecord
     elsif self.user_type == 'Client'
       Client.create(user: self, region: 'Metro Manila', city: 'Amihan' , contact_number: '09748372837')
     elsif self.user_type == 'Chef'
-      Chef.create(user: self, region: 'Ilocos', city: 'Abanon' , contact_number: '09123423456')
+      Chef.create(user: self)
     end
   end
 
