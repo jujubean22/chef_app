@@ -14,7 +14,7 @@
     - @appointments.each do |a|
       %tr
         %td= "#{a.chef.user.first_name} #{a.chef.user.last_name}"
-        %td= "#{a.request.client.user.first_name} #{a.request.client.user.last_name}"
+        %td= link_to "#{a.request.client.user.first_name} #{a.request.client.user.last_name}", client_profile_path(a.request.client.id)
         %td= format_date(a.created_at)
         %td= a.schedule ? format_date(a.schedule) : "No schedule yet"
         %td= convert_to_money(a.total_charge)
