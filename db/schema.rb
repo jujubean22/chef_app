@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_025510) do
   create_table "appointments", force: :cascade do |t|
     t.integer "request_id", null: false
     t.datetime "schedule"
-    t.integer "total_charge"
+    t.decimal "total_charge"
     t.datetime "confirmed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_025510) do
   create_table "reviews", force: :cascade do |t|
     t.integer "appointment_id", null: false
     t.text "client_comment"
-    t.integer "chef_rating"
-    t.integer "client_rating"
+    t.decimal "chef_rating"
+    t.decimal "client_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
