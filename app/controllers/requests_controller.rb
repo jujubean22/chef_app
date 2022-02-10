@@ -22,7 +22,6 @@ class RequestsController < ApplicationController
       @client_wallet.save
       Appointment.create(request_id: @request.id,
         chef_id: @s_chef.id,
-        schedule: Time.now,
         total_charge: @total_charge
       )
       flash[:notice] = "An request was successfully created"

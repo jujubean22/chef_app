@@ -22,8 +22,9 @@ end
     @services = @chef.services.where.not(id: nil)
     @service = @chef.services.build
   end
-
+  
   def appointments
+    @appointments = Appointment.where(chef_id: current_user.chef.id)
   end
 
   def edit_chef
