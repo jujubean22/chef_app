@@ -1,0 +1,8 @@
+<%= form_with model: [@chef, @gallery] do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+  <br>
+
+  <%= f.submit %>
+<% end %>

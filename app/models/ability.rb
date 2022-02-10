@@ -10,6 +10,7 @@ class Ability
       #can :manage, Client, user_id: user.id
       can :manage, Client
       can :manage, Chef
+      can :manage, Request
       # can :read, Portfolio, {:account_id => user.account.id}
       # can [:read, :update], Client, {:user_id => user.id}
       # can :manage, []
@@ -20,6 +21,8 @@ class Ability
       can :manage, Client
     elsif user.admin?
       can :manage, :all
+    else
+      can :index, Chef
     end
 
     # Define abilities for the passed in user here. For example:

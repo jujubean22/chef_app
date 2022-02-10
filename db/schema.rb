@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_133544) do
+ActiveRecord::Schema.define(version: 2022_02_10_025510) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,16 +48,16 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "service_id", null: false
     t.integer "request_id", null: false
     t.datetime "schedule"
-    t.decimal "total_charge"
+    t.integer "total_charge"
     t.datetime "confirmed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "payment_released_at"
+    t.integer "chef_id"
+    t.index ["chef_id"], name: "index_appointments_on_chef_id"
     t.index ["request_id"], name: "index_appointments_on_request_id"
-    t.index ["service_id"], name: "index_appointments_on_service_id"
   end
 
   create_table "chefs", force: :cascade do |t|
@@ -105,17 +105,19 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
     t.integer "client_id", null: false
     t.integer "head_count"
     t.string "cuisine"
-    t.string "courses"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "notes_to_chef"
+    t.integer "chef_id"
+    t.index ["chef_id"], name: "index_requests_on_chef_id"
     t.index ["client_id"], name: "index_requests_on_client_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "appointment_id", null: false
     t.text "client_comment"
-    t.decimal "chef_rating"
-    t.decimal "client_rating"
+    t.integer "chef_rating"
+    t.integer "client_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
@@ -176,13 +178,14 @@ ActiveRecord::Schema.define(version: 2022_02_04_133544) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admins", "users"
+  add_foreign_key "appointments", "chefs"
   add_foreign_key "appointments", "requests"
-  add_foreign_key "appointments", "services"
   add_foreign_key "chefs", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "galleries", "chefs"
   add_foreign_key "reports", "chefs"
   add_foreign_key "reports", "clients"
+  add_foreign_key "requests", "chefs"
   add_foreign_key "requests", "clients"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "services", "chefs"

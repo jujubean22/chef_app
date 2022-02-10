@@ -3,7 +3,7 @@ class CreateService < ActiveRecord::Migration[6.1]
     create_table :services do |t|
       t.references :chef, null: false, foreign_key: true
       t.text :specialty
-      t.decimal :service_rate
+      t.integer :service_rate
 
       t.timestamps
     end

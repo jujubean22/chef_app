@@ -18,27 +18,27 @@ ActiveStorage.start()
 
 import "@fortawesome/fontawesome-free/css/all"
 
-// Mobile Menu Initialization
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var options = {
+document.addEventListener('turbolinks:load', function() {
+  // Mobile Menu Initialization
+  var mySidenav = document.querySelectorAll('.sidenav');
+  var options_sidenav = {
     edge: 'left'
   }
-  var instances = M.Sidenav.init(elems, options);
+  var instance_sidenav = M.Sidenav.init(mySidenav, options_sidenav);
 
-  // see materializecss.com for details on options
-  // var instances = M.Sidenav.init(elems, options);
-});
-
-// Material Box Initialization (Clickable Image)
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.materialboxed');
-  var options = {
+  // Material Box Initialization (Clickable Image)
+  var myImages = document.querySelectorAll('.materialboxed');
+  var options_images = {
     inDuration: 200  
   }
-  var instances = M.Materialbox.init(elems, options);
-});
+  var instance_images = M.Materialbox.init(myImages, options_images);
 
-console.log('Hello from application.js')
+  // Tabs Initialization
+  var myTabs = document.querySelectorAll('.tabs');
+  var options_tabs = {
+    swipeable: true,
+    duration: 200
+  }
+  var instance_tabs = M.Tabs.init(myTabs, options_tabs);
+});
