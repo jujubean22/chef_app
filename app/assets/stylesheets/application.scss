@@ -18,6 +18,7 @@
 ///// Imports
 ///////////////////////////////////
 @import "./objects/variables";
+@import "./objects/responsive.scss";
 @import "materialize";
 
 // HTML Elements
@@ -252,7 +253,6 @@ p {
   width: 100%;
   text-align: center;
 
-<<<<<<< HEAD
     h3 {
       font-size: 1.8rem;
       font-weight: 700;
@@ -286,12 +286,6 @@ p {
     p {
       font-size: 1.5rem;
     }
-=======
-  h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    width: 100%;
->>>>>>> 14c4f2a33fcd13cf3bdf553fc884c156f000b9a7
   }
 }
 
