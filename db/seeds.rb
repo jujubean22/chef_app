@@ -19,17 +19,12 @@ client1.add_role(:client)
 
 chef1 = User.create!(email: 'chef@chef.com', password: '123123', user_type: 'Chef', username: 'masterchef', first_name: 'Gordon', last_name: 'Ramsay')
 chef1.add_role(:chef)
+Chef.create!(user_id: 3, region: 'Ilocos', city: 'Abanon', contact_number: '09123423456')
 
 chef2 = User.create!(email: 'chefy@chefy.com', password: '123123', user_type: 'Chef', username: 'masterchefy', first_name: 'Margarita', last_name: 'Fores')
 chef2.add_role(:chef)
-# c=Chef.find(2)
-# c.region = 'Metro Manila'
-# c.city = 'Acacia'
+Chef.create!(user_id: 4, region: 'Metro Manila', city: 'Amihan', contact_number: '09123423456')
 
 chef3 = User.create!(email: 'chefyy@chefy.com', password: '123123', user_type: 'Chef', username: 'masterchefyy', first_name: 'Margaret', last_name: 'Forest')
 chef3.add_role(:chef)
-# x=Chef.find(3)
-# x.region = 'Metro Manila'
-# x.city = 'Amihan'
-service = Service.create!(id: 1, chef_id: 1, specialty: 'Asian', service_rate: 1500)
-
+Chef.create!(user_id: 5, region: 'Ilocos', city: 'Abanon', contact_number: '09123423456')
