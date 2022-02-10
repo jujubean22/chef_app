@@ -12,6 +12,7 @@ Your balance
   = f.hidden_field :chef_id, value: @chef.id
   = f.label :head_count
   = f.number_field :head_count
+  = f.collection_select :cuisine, @chef.services, :specialty, :speciality_with_rate, {:prompt => "Select a cuisine"}
   = f.label :notes_to_chef
   = f.text_field :notes_to_chef
   = f.submit

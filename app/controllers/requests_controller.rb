@@ -10,13 +10,17 @@ class RequestsController < ApplicationController
 
   def create
     @request = current_user.client.requests.build(request_params)
+    @s_chef = Chef.find_by(id: @request.chef_id)
+    @s_service = @s_chef.services.find_by(specialty: @request.cuisine)
 
     if @request.save
       flash[:notice] = "An request was successfully created"
 
       Appointment.create(request_id: @request.id,
-                      service_id: @request.chef_id,
-                      schedule: Time.now)
+                      chef_id: @s_chef.id,
+                      schedule: Time.now,
+                      total_charge: @s_service.service_rate * params[:request][:head_count].to_i
+                    )
       redirect_to client_profile_path(current_user.client.id)
     else
       flash[:error] = "There are some errors encountered"

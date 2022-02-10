@@ -16,8 +16,8 @@
 
 ///////////////////////////////////
 ///// Imports
-/////////////////////////////////// 
-@import './objects/variables';
+///////////////////////////////////
+@import "./objects/variables";
 @import "materialize";
 
 // HTML Elements
@@ -46,6 +46,9 @@ main {
   flex: 1 0 auto;
 }
 
+select {
+  opacity: 1;
+}
 
 h3 {
   margin-bottom: 15px;
@@ -78,7 +81,6 @@ p {
   color: $cuisinero-yellow-dark;
 }
 
-
 .text-yellow-light {
   color: $cuisinero-yellow-light;
 }
@@ -86,7 +88,6 @@ p {
 .text-black-dark {
   color: $cuisinero-black-dark;
 }
-
 
 .text-black-light {
   color: $cuisinero-black-light;
@@ -127,8 +128,8 @@ p {
   font-size: 20px;
 
   &:hover {
-    background-color: #FAAF12;
-    transition: background-color .2s ease-out;
+    background-color: #faaf12;
+    transition: background-color 0.2s ease-out;
   }
 }
 
@@ -137,10 +138,10 @@ p {
   color: $cuisinero-white !important;
   text-transform: capitalize;
   font-size: 20px;
-    &:hover {
-      background-color: $cuisinero-black-light;
-      transition: background-color .2s ease-out;
-    }
+  &:hover {
+    background-color: $cuisinero-black-light;
+    transition: background-color 0.2s ease-out;
+  }
 }
 
 .btn-green {
@@ -148,10 +149,10 @@ p {
   color: $cuisinero-white;
   //text-transform: capitalize;
   font-size: 20px;
-    &:hover {
-      background-color: #1D8F46;
-      transition: background-color .2s ease-out;
-    }
+  &:hover {
+    background-color: #1d8f46;
+    transition: background-color 0.2s ease-out;
+  }
 }
 
 .btn-red {
@@ -159,10 +160,10 @@ p {
   color: $cuisinero-white;
   //text-transform: capitalize;
   font-size: 20px;
-    &:hover {
-      background-color: #DB2739;
-      transition: background-color .2s ease-out;
-    }
+  &:hover {
+    background-color: #db2739;
+    transition: background-color 0.2s ease-out;
+  }
 }
 
 ///////////////////////////////////
@@ -176,11 +177,11 @@ p {
   width: 100%;
   text-align: center;
 
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      width: 100%;
-    }
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    width: 100%;
+  }
 }
 
 .card-image-container {
@@ -216,10 +217,9 @@ p {
   }
 }
 
-
 ///////////////////////////////////
 ///// Footer
-/////////////////////////////////// 
+///////////////////////////////////
 #footer {
   .footer-container {
     color: $cuisinero-white;
@@ -248,7 +248,7 @@ p {
       .footer-nav {
         display: none;
       }
-      
+
       ul li {
         list-style-type: none;
         display: inline-block;
@@ -261,7 +261,7 @@ p {
       margin: 50px auto;
       text-align: center;
       line-height: 26px;
-      
+
       ul li {
         list-style-type: none;
         display: inline-block;
