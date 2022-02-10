@@ -7,13 +7,13 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.find_by(params[:appointment_id])
+    @appointment = Appointment.find_by(id: params[:appointment_id])
     # @review = @appointment.build_review
     @chef = Chef.find_by(params[:chef_id])
   end
 
   def create
-    @appointment = Appointment.find_by(params[:appointment_id])
+    @appointment = Appointment.find_by(id: params[:appointment_id])
     @review = @appointment.build_review(review_params)
 
     if @review.save
