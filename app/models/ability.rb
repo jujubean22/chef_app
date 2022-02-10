@@ -21,6 +21,7 @@ class Ability
       can :manage, Chef
       can :manage, Client
       can :show, Review
+      can :manage, Report
     elsif user.admin?
       can :manage, :all
     else

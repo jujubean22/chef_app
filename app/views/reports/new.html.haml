@@ -1,0 +1,12 @@
+%h2 
+  Leave a report for this client
+  %br
+  Client's username, 
+  = @client.user.username
+
+= form_with scope: :report, model: [@client, @report] do |f|
+  = f.hidden_field :chef_id, value: current_user.chef.id
+  = f.hidden_field :client_id, value: @client.id
+  = f.label :message
+  = f.text_area :message
+  = f.submit 'Submit the report'

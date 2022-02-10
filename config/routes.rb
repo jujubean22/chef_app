@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/new'
   get 'reviews/new'
   get 'requests/index'
   get 'clients/index'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   # resources :users do
     resources :clients do
       resources :requests
+      resources :reports
     end
     resources :chefs do
       resources :galleries
