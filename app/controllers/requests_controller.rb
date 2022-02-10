@@ -16,7 +16,8 @@ class RequestsController < ApplicationController
     if @request.save
       flash[:notice] = "An request was successfully created"
 
-      Appointment.create(request_id: @request.id,
+      Appointment.create(
+                      request_id: @request.id,
                       chef_id: @s_chef.id,
                       schedule: Time.now,
                       total_charge: @s_service.service_rate * params[:request][:head_count].to_i

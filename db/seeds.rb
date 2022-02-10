@@ -12,6 +12,7 @@ Role.create(name: :chef)
 
 admin1 = User.create!(email: 'admin@test.com', password: '123123', user_type: 'Admin', username: 'admin', first_name: 'admin', last_name: 'admin')
 admin1.add_role(:admin)
+User.create{}
 
 client1 = User.create!(email: 'test@test.com', password: '123123', user_type: 'Client', username: 'test123', first_name: 'Test', last_name: 'User')
 client1.add_role(:client)
@@ -30,3 +31,5 @@ chef3.add_role(:chef)
 # x=Chef.find(3)
 # x.region = 'Metro Manila'
 # x.city = 'Amihan'
+service = Service.create!(id: 1, chef_id: 1, specialty: 'Asian', service_rate: 1500)
+
