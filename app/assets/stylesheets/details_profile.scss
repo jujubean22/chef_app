@@ -97,18 +97,6 @@ $avatar-size: 40vmin;
       .btn-container {
         padding: calc(20px + 5vh) 0;
       }
-
-      .btn-large {
-        background-color: $cuisinero-yellow-dark;
-        color: $cuisinero-white;
-        text-transform: capitalize;
-        font-size: 20px;
-  
-        &:hover {
-          background-color: #FAAF12;
-          transition: background-color .2s ease-out;
-        }
-      }
     }
     
     .card-action {
