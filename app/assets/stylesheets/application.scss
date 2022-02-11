@@ -139,17 +139,17 @@ p {
 // Button Colors
 
 .btn-yellow-dark {
-  background-color: $cuisinero-yellow-dark;
-  color: $cuisinero-white !important;
+  background-color: #FAAF12;
+  color: $cuisinero-white-med !important;
   text-transform: capitalize;
 
   &:hover {
-    background-color: #faaf12;
+    background-color: $cuisinero-yellow-dark;
     transition: background-color 0.2s ease-out;
   }
 
   &:focus {
-    background-color: $cuisinero-yellow-dark;
+    background-color: #FAAF12;
     transition: background-color .2s ease-out;
   }
 }
