@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
       redirect_to client_profile_path(current_user.client.id)
     else
       flash[:error] = "There are some errors encountered"
-      render :new
+      redirect_back fallback_location: new_client_request_path(current_user.client.id, chef_id: @s_chef.id)
     end
   end
 
