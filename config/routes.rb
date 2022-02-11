@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "my_devise/registrations"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
-  get 'cities/:state', to: 'application#cities'
+  # get 'cities/:state', to: 'application#cities'
 
   # scope '/admins' do
   #   resources :users

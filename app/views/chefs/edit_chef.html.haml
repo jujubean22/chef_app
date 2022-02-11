@@ -12,9 +12,12 @@
     %div{class: "flex flex-col gap-2"}
       %h1{class: 'text-sm text-white'}BIO
       = f.text_area :bio, class: 'rounded w-80', placeholder: "Bio"
-    %div{class: "flex flex-col gap-2"}
       %h1{class: 'text-sm text-white'}REGION
-      = f.text_field :region, class: 'rounded w-80', placeholder: "Region"
+    %div{class: "flex flex-col gap-2"}
+      %select{ name: "chef[region]", required: ""}
+        %option{selected: "selected", value: ""} Select Region
+        = CS.states(:ph).each do |key, value|
+          %option{id: key, value: value}= value
     %div{class: "flex flex-col gap-2"}
       %h1{class: 'text-sm text-white'}CITY
       = f.text_field :city, class: 'rounded w-80', placeholder: "City"
