@@ -1,12 +1,21 @@
-<%= javascript_pack_tag 'toggle', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag 'toggle', 'data-turbolinks-track': 'reload' %>
 
 <% if current_user.user_type == 'Chef' && current_user.id == @chef.user_id %>
   <%= render '/profiles/profile_own' %>
 
   <%# add services here (with CREATE, EDIT, DELETE) %>
   <div class="services section two">
-    <h3 class="text-black-dark text-bold">Services</h3>
- 
+    <div class="header-with-btn">
+      <h3 class="text-black-dark text-bold">Services<a class="modal-trigger" href="#service-form"><i class="material-icons right">playlist_add</i></a></h3>
+    </div>
+    
+    <div id="service-form" class="modal">
+      <div class="modal-content">
+        <h4 class="text-italic">Chef Service Form</h4>
+        <%= render '/services/form' %>
+      </div>
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -19,8 +28,16 @@
         <tr>
         <td><%= service.specialty %></td>
         <td><%= service.service_rate %></td>
-        <td><%= link_to 'Edit', edit_chef_service_path(@chef.id, service.id) %></td>
-        <td><%= link_to 'Delete', chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to(edit_chef_service_path(@chef.id, service.id), class: 'text-black-dark') do %>
+            <i class="material-icons">edit</i> 
+          <% end %>
+        </td>
+        <td>
+          <%= link_to(chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red') do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </td>
       <% end %>
         <tr>
       </tbody>
@@ -29,38 +46,44 @@
     <% if @services.empty? %>
       <h5 class="text-black-light text-italic">No available services</h5>
     <% end %>
-
-    <input type="button" value="Add new service" id="toggle-service" class="btn-small btn-show">
-
-    <div class="toggle-form z-depth-3" id="service-form" style="display: none;">
-      <%= render '/services/form' %>
-    </div>
     
   </div>
 
 
   <%# add gallery here (with CREATE, EDIT, DELETE)%>
   <div class="gallery section three">
-    <h3 class="text-black-dark text-bold">Gallery</h3>
-     
-    
-    <% if @galleries.empty? %>
-      <h5 class="text-black-light text-italic">No available images</h5>
-    <% else %>
-      <% @galleries.each do |gallery| %>
-        <% if gallery.image.attached? %>
-          <img class="materialboxed" src="<%= (url_for(gallery.image)) %>" height="100px">
-          <%= link_to 'Delete', chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-      <% end %>
-    <% end %>
-    
-    <input type="button" value="Add new photo" id="toggle-gallery" class="btn-small btn-show">
-
-    <div class="toggle-form z-depth-3" id="gallery-form" style="display: none;">
-      <%= render '/galleries/form' %>
+    <div class="header-with-btn">
+      <h3 class="text-black-dark text-bold">Gallery<a class="modal-trigger" href="#gallery-form"><i class="material-icons right" style="line-height: 0.25 !important;">add_a_photo</i></a></h3>
     </div>
+    
+    <div id="gallery-form" class="modal">
+      <div class="modal-content">
+        <h4 class="text-italic">Upload a Photo</h4>
+        <%= render '/galleries/form' %>
+      </div>
+    </div>
+     
+      <div class="gallery-container z-depth-4">
+        <% if @galleries.empty? %>
+          <h5 class="text-black-light text-italic">No available images</h5>
+        <% end %>
 
+        <% @galleries.each do |gallery| %>
+          <% if gallery.image.attached? %>
+            <div class="image-container z-depth-2">
+              <div class="delete-container">
+                <%= link_to(chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+                  <i class="material-icons right">clear</i> 
+                <% end %>
+              </div>
+
+              <div class="image-frame">
+                <img class="materialboxed" src="<%= (url_for(gallery.image)) %>">
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 
 <% else %>
