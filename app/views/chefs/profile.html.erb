@@ -21,21 +21,21 @@
         <tr>
         <th>Specialty</th>
         <th>Service Rate</th>
+        <th>Actions</th>
         </tr>
       </thead>
       <tbody>
       <% @services.each do |service| %>
         <tr>
         <td><%= service.specialty %></td>
-        <td><%= service.service_rate %></td>
+        <td><%= convert_to_money(service.service_rate) %></td>
         <td>
           <%= link_to(edit_chef_service_path(@chef.id, service.id), class: 'text-black-dark') do %>
-            <i class="material-icons">edit</i> 
+            <i class="material-icons" style="margin-right: 5px !important;">edit</i> 
           <% end %>
-        </td>
-        <td>
+          
           <%= link_to(chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red') do %>
-            <i class="material-icons">delete</i>
+            <i class="material-icons" style="margin: 0 5px !important;">delete</i>
           <% end %>
         </td>
       <% end %>
