@@ -65,9 +65,15 @@
           <p class="card-details text-yellow-dark text-bold money"><%= convert_to_money(current_user.wallet.current_balance) %></p>
 
           <div class="btn-container">
-            <%= link_to(edit_chef_profile_path(current_user.chef.id), class: "waves-effect waves-light btn-large") do %>
+          </div>
+
+          <div class="card-action">
+            <%= link_to(edit_chef_profile_path(current_user.chef.id), class: "waves-effect waves-light btn-large btn-yellow-dark") do %>
               Edit Profile <i class="material-icons right">edit</i>
-            <% end %> 
+            <% end %>
+            <%= link_to(edit_user_registration_path(current_user.id), class: "waves-effect waves-light btn-large btn-black-dark") do %>
+              Edit Account <i class="material-icons right">account_circle</i>
+            <% end %>
           </div>
         <% elsif current_user.user_type == 'Client' %>
           <div class="divider"></div>
@@ -76,9 +82,15 @@
           <p class="card-details text-yellow-dark text-bold money"><%= convert_to_money(current_user.wallet.current_balance) %></p>
 
           <div class="btn-container">
-            <%= link_to(edit_client_profile_path(current_user.client.id), class: "waves-effect waves-light btn-large") do %>
+          </div>
+          
+          <div class="card-action">
+            <%= link_to(edit_client_profile_path(current_user.client.id), class: "waves-effect waves-light btn-large btn-yellow-dark") do %>
               Edit Profile <i class="material-icons right">edit</i>
             <% end %> 
+            <%= link_to(edit_user_registration_path(current_user.id), class: "waves-effect waves-light btn-large btn-black-dark") do %>
+              Edit Account <i class="material-icons right">account_circle</i>
+            <% end %>
           </div>
         <% else  %> 
         <% end %>
