@@ -1,8 +1,8 @@
 <%= form_with model: [@chef, @gallery] do |f| %>
-  <%= f.label :image, 'Add photos to your gallery' %>
+  <%= f.label(:image, class: "label") do %>
+    Select photo <i class="material-icons right">add_a_photo</i>
+  <% end%>
   <%= f.file_field :image %>
 
-  <br>
-
-  <%= f.submit %>
+  <%= f.submit("Add to Gallery", class: "waves-effect waves-light btn-small btn-submit") %>
 <% end %>
