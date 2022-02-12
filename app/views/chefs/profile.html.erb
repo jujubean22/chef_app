@@ -15,38 +15,32 @@
         <%= render '/services/form' %>
       </div>
     </div>
-
-    <table>
-      <thead>
-        <tr>
-        <th>Specialty</th>
-        <th>Service Rate</th>
-        <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @services.each do |service| %>
-        <tr>
-        <td><%= service.specialty %></td>
-        <td><%= convert_to_money(service.service_rate) %></td>
-        <td>
-          <%= link_to(edit_chef_service_path(@chef.id, service.id), class: 'text-black-dark') do %>
-            <i class="material-icons" style="margin-right: 5px !important;">edit</i> 
-          <% end %>
-          
-          <%= link_to(chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red') do %>
-            <i class="material-icons" style="margin: 0 5px !important;">delete</i>
-          <% end %>
-        </td>
-      <% end %>
-        <tr>
-      </tbody>
-    </table>
     
     <% if @services.empty? %>
       <h5 class="text-black-light text-italic">No available services</h5>
+    <% else %>
+      <ul class="collection">
+        <% @services.each do |service| %>
+          <li class="collection-item">
+            <div>
+              <i class="material-icons left text-yellow-darker" style="font-size: calc(20px + 1 vw) !important;">restaurant</i><span class="text-yellow-dark text-bold" style="font-size: calc(20px + 1 vw) !important; text-transform: uppercase;"><%= service.specialty%></span>
+            </div>
+            <br>
+            <div>
+              <i class="material-icons left text-black-light" style="font-size: calc(20px + 1 vw) !important;">person</i><span class="text-black-light text-italic" style="font-size: calc(10px + 1 vw) !important;"><%= convert_to_money(service.service_rate) %> × head</span>
+
+              <%= link_to(chef_service_path(@chef.id, service.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red') do %>
+                <i class="material-icons right">delete</i>
+              <% end %>
+              
+              <%= link_to(edit_chef_service_path(@chef.id, service.id), class: 'text-black-dark') do %>
+                <i class="material-icons right">edit</i> 
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-    
   </div>
 
 
@@ -66,21 +60,21 @@
       <div class="gallery-container z-depth-4">
         <% if @galleries.empty? %>
           <h5 class="text-black-light text-italic">No available images</h5>
-        <% end %>
+        <% else %>
+          <% @galleries.each do |gallery| %>
+            <% if gallery.image.attached? %>
+              <div class="image-container z-depth-2">
+                <div class="delete-container">
+                  <%= link_to(chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
+                    <i class="material-icons right">clear</i> 
+                  <% end %>
+                </div>
 
-        <% @galleries.each do |gallery| %>
-          <% if gallery.image.attached? %>
-            <div class="image-container z-depth-2">
-              <div class="delete-container">
-                <%= link_to(chef_gallery_path(@chef.id, gallery.id), method: :delete, data: { confirm: "Are you sure?" }) do %>
-                  <i class="material-icons right">clear</i> 
-                <% end %>
+                <div class="image-frame">
+                  <img class="materialboxed" src="<%= (url_for(gallery.image)) %>">
+                </div>
               </div>
-
-              <div class="image-frame">
-                <img class="materialboxed" src="<%= (url_for(gallery.image)) %>">
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -90,5 +84,74 @@
   <%# this is profile_own but without the  %>
   <%= render '/profiles/profile_public' %>
   
-  <%# add gallery, services, reviews here %>
+  <%# add services here %>
+  <div class="services section two">
+    <h3 class="text-black-dark text-bold">Services</h3>
+    
+    <% if @services.empty? %>
+      <h5 class="text-black-light text-italic">No available services</h5>
+    <% else %>
+      <ul class="collection">
+        <% @services.each do |service| %>
+          <li class="collection-item">
+            <div>
+              <i class="material-icons left text-yellow-darker" style="font-size: calc(20px + 1 vw) !important;">restaurant</i><span class="text-yellow-dark text-bold" style="font-size: calc(20px + 1 vw) !important; text-transform: uppercase;"><%= service.specialty%></span>
+            </div>
+            <br>
+            <div>
+              <i class="material-icons left text-black-light" style="font-size: calc(20px + 1 vw) !important;">person</i><span class="text-black-light text-italic" style="font-size: calc(10px + 1 vw) !important;"><%= convert_to_money(service.service_rate) %> × head</span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <%# add gallery here %>
+  <div class="gallery section three">
+    <h3 class="text-black-dark text-bold">Gallery</h3>
+    
+    <% if @galleries.empty? %>
+      <h5 class="text-black-light text-italic">No available images</h5>
+    <% else %>
+      <div class="carousel">
+        <% @galleries.each do |gallery| %>
+          <% if gallery.image.attached? %>
+            <a class="carousel-item"> 
+              <div class="image-carousel">
+                <img class="materialboxed" src="<%= (url_for(gallery.image)) %>">
+              </div>
+            </a>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 <% end %>
+
+
+<%# add reviews here %>
+
+<div class="reviews section four">
+  <h3 class="text-black-dark text-bold">Reviews</h3> 
+  
+  <% if @appointments.empty? || @appointments.nil? %>
+    <% @review_count = 0 %>
+  <% else %>
+    <% @review_count = 0 %>
+    <% @appointments.each do |a| %>
+      <% unless a.review.nil? %>
+        <% @review_count = @review_count + 1%>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if @review_count == 0 %>
+    <h5 class="text-black-light text-italic">No available reviews</h5>
+  <% else %>
+    <% @appointments.each do |a| %>
+      <%= a.review %>
+    <% end %>
+  <% end %>
+</div>
