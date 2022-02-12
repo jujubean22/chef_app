@@ -49,4 +49,14 @@ document.addEventListener('turbolinks:load', function() {
     dismissible: true
   }
   var instance_modals = M.Modal.init(myModals, options_modals);
+
+  // Carousel Initialization
+  var myCarousel = document.querySelectorAll('.carousel');
+  var options_carousel = {
+    numVisible: 5,
+    dist: -75,
+    fullWidth: false,
+    indicators: true
+  }
+  var instances_carousel = M.Carousel.init(myCarousel, options_carousel);
 });
