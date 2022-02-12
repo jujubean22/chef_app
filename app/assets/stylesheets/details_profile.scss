@@ -10,6 +10,7 @@ $avatar-size: 40vmin;
 
 .section {
   // height: 165vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
