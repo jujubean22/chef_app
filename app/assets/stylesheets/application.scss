@@ -181,21 +181,10 @@ p {
   backdrop-filter: blur(2px);
   text-align: center;
 
-    h2 {
-      color: $cuisinero-yellow-light;
-      font-size: 1.4rem;
-      margin: 0 auto;
-      max-width: 280px;
-      padding: 100px 0 10px 0;
-      letter-spacing: 2px;
-      line-height: 30px;
-    }
-
-    h4 {
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 200;
-      color: $cuisinero-white;
+    .banner-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 20px 0;
     }
 
     .home-dropdown {
@@ -205,15 +194,27 @@ p {
       margin-top: 25px;
     }
 
-    .home-btn {
+    .header-btn {
       background-color: $cuisinero-yellow-dark;
       color: $cuisinero-white;
-      font-size: 1.3rem;
+      font-size: 2rem;
       text-decoration: none;
       padding: 13px 65px;
-      border-radius: 3px;
+      border-radius: 12px;
       margin-top: 100px;
+      width: 100%;
+      max-width: 200px;
     }
+
+    
+
+    #states-of-country {
+      color: $cuisinero-yellow-dark;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+    }
+
 
   //////////////////////////////////////
   /// Breakpoints: Banner
