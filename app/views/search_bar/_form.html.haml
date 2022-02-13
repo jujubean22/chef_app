@@ -1,8 +1,8 @@
 = search_form_for @q do |f|
   %div
-    %div
+    %div.form-container
       %select#states-of-country{ name: "chef[region]", required: ""}
-        %option#no-state{selected: "selected", value: ""} Select Region
+        %option#no-state.no-sate{selected: "selected", value: ""} Select Region
         = CS.states(:ph).each do |key, value|
           %option{id: key, value: value}= value
       = f.submit :class => 'header-btn'

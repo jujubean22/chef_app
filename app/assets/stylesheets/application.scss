@@ -206,14 +206,24 @@ p {
       max-width: 200px;
     }
 
-    
+    .no-state {
+      color: red;
+    }
+
+    .form-container {
+      display: flex;
+    }
 
     #states-of-country {
-      color: $cuisinero-yellow-dark;
       opacity: 1;
       width: 100%;
+      max-width: 300px;
+      font-size: 1.7rem;
+      padding: 10px 15px;
       height: 100%;
     }
+
+
 
 
   //////////////////////////////////////
