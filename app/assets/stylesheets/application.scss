@@ -232,7 +232,8 @@ p {
   background-image: image-url('bg-home-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(2px);
+  background-position: 70% 50%;
+  backdrop-filter: blur(4px) brightness(0.45);
   text-align: center;
 
     h4 {
