@@ -49,6 +49,14 @@ main {
 
 select {
   opacity: 1;
+  color: $cuisinero-black-light !important;
+  background-color: $cuisinero-white !important;
+  outline: 1px solid $cuisinero-yellow-dark !important;
+  margin-bottom: calc(20px + 5vmin) !important;
+  
+  &:focus {
+    outline: 1px solid $cuisinero-yellow-dark !important;
+  }
 }
 
 h3 {
@@ -86,6 +94,10 @@ p {
   color: $cuisinero-white;
 }
 
+.text-yellow-darker {
+  color: $cuisinero-yellow-darker;
+}
+
 .text-yellow-dark {
   color: $cuisinero-yellow-dark;
 }
@@ -108,6 +120,10 @@ p {
 
 .text-red {
   color: $cuisinero-red !important;
+}
+
+.text-blue-grey {
+  color: $cuisinero-blue-grey !important;
 }
 
 // Text Style
@@ -141,17 +157,18 @@ p {
 // Button Colors
 
 .btn-yellow-dark {
-  background-color: $cuisinero-yellow-dark;
-  color: $cuisinero-white !important;
+  background-color: #FAAF12;
+  // color: $cuisinero-white-med !important;
+  color: $cuisinero-black-dark !important;
   text-transform: capitalize;
 
   &:hover {
-    background-color: #faaf12;
+    background-color: $cuisinero-yellow-dark;
     transition: background-color 0.2s ease-out;
   }
 
   &:focus {
-    background-color: $cuisinero-yellow-dark;
+    background-color: #FAAF12;
     transition: background-color .2s ease-out;
   }
 }
