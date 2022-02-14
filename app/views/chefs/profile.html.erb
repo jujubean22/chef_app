@@ -136,22 +136,5 @@
 <div class="reviews section four">
   <h3 class="text-black-dark text-bold">Reviews</h3> 
   
-  <% if @appointments.empty? || @appointments.nil? %>
-    <% @review_count = 0 %>
-  <% else %>
-    <% @review_count = 0 %>
-    <% @appointments.each do |a| %>
-      <% unless a.review.nil? %>
-        <% @review_count = @review_count + 1%>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if @review_count == 0 %>
     <h5 class="text-black-light text-italic">No available reviews</h5>
-  <% else %>
-    <% @appointments.each do |a| %>
-      <%= a.review %>
-    <% end %>
-  <% end %>
 </div>
