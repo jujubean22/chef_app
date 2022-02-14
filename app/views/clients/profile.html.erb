@@ -1,6 +1,7 @@
 <% if current_user.user_type == 'Client' && current_user.id == @client.user_id %>
   <%= render '/profiles/profile_own' %>
 
+
   <%# add appointments here%>
   <div class="appointments section two">
     <h3 class="text-black-dark text-bold">Appointments</h3>
@@ -17,7 +18,7 @@
         </div>
         
         <div id="confirmed" class="tab-content">
-          <% (1..5).each do |n| %>
+          <% @appointments.each do |a| %>
             <div class="card appointment">
               <div class="card-content">
                 <div class="avatar-img hide-on-med-and-down">
@@ -25,21 +26,31 @@
                 </div>
                 <div class="text-container"> 
                   <span class="card-title text-black-dark text-bold text-italic">
-                    Chef Julie Mae Villanueva
+                    <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
                   </span>
                   <p class="text-black-light">
-                  <span class="text-bold">Date: </span>Jan 17, 2025 (6:00PM)
+                  <span class="text-bold">Date Created: </span><%= format_date(a.created_at)%>
+                  </p>
+                  <p class="text-black-light">
+                  <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>
                   </p>
                   <br>
-                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
+                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
                   <p class="text-green text-bold">CONFIRMED</p>
+
+                  <% if a.review.nil? %>
+                    <%= link_to "Leave a review", new_appointment_review_path(a.id), class: "text-black text-bold" %> 
+                  <% else %>
+                    <%= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" %> 
+                  <% end %>
+
                 </div>
               </div>
             </div>
           <% end %>
         </div>
         <div id="pending" class="tab-content">
-          <% (1..7).each do |n| %>
+          <% @appointments.each do |a| %>
             <div class="card appointment">
               <div class="card-content">
                 <div class="avatar-img hide-on-med-and-down">
@@ -47,13 +58,16 @@
                 </div>
                 <div class="text-container"> 
                   <span class="card-title text-black-dark text-bold text-italic">
-                    Chef Michael Bonacini
+                    <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
                   </span>
                   <p class="text-black-light">
-                  <span class="text-bold">Date: </span>Mar <%= n + 10 %>, 2026 (<%= n %>:00PM)
+                  <span class="text-bold">Date Created: </span><%= format_date(a.created_at)%>
+                  </p>
+                  <p class="text-black-light">
+                  <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>
                   </p>
                   <br>
-                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
+                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
                   <p class="text-yellow-dark text-bold">PENDING</p>
                 </div>
               </div>

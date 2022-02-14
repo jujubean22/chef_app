@@ -1,0 +1,205 @@
+@import 'application';
+
+.search-container {
+  min-width: 50vw;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  select {
+    width: calc(20px + 30vw) !important;
+    // margin-top: 3.75rem !important;
+    margin-top: 2px !important;
+    height: 3.5rem !important;
+  }
+}
+
+.toggle-form, .modal {
+  background-color: $cuisinero-white !important;
+  max-height: 80% !important;
+  // margin-top: calc(10px + 3vh);
+  text-align: center;
+}
+
+.label {
+  color: $cuisinero-black-dark !important;
+  font-size: calc(10px + 0.5vw) !important;
+  text-transform: uppercase;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
+
+}
+
+.btn-show, .btn-submit {
+  background-color: $cuisinero-green !important;
+  color: $cuisinero-white !important;
+  font-family: $lato !important;
+  text-transform: capitalize !important;
+  
+  &:hover {
+    background-color: #1D8F46 !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+  &:focus {
+    background-color: $cuisinero-green !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+}
+
+.btn-hide, .btn-cancel {
+  background-color: $cuisinero-red !important;
+  color: $cuisinero-white !important;
+  font-family: $lato !important;
+  text-transform: capitalize !important;
+  
+  &:hover {
+    background-color: #DB2739 !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+  &:focus {
+    background-color: $cuisinero-red !important;
+    transition: background-color .2s ease-out !important;
+  }
+
+}
+
+.edit_user {
+  // background-color: $cuisinero-yellow-light !important;
+  min-width: calc(60px + 60vw) !important;
+}
+
+.edit-form, .new-form {
+  background-color: #FAFAFA;
+  min-width: calc(60px + 60vw) !important;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.details-form {
+  background-color: $cuisinero-black-light;
+  min-width: calc(60px + 60vw) !important;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.delete-form {
+  background-color: $cuisinero-black-dark !important;
+  width: calc(60px + 60vw) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: calc(2px + 2vw) calc(10px + 2vw);
+}
+
+.header-left {
+  width: 90vw;
+  display: block;
+}
+
+.field {
+  min-width: calc(20px + 55vw) !important;
+}
+
+.disabled-field {
+  min-width: calc(20px + 55vw) !important;
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid $cuisinero-yellow-dark !important;
+  box-shadow: 0 1px 0 0 $cuisinero-yellow-light !important;
+  font-size: calc(10px + 0.5vw) !important;
+  font-family: $lato !important;
+  color: $cuisinero-black-light;
+  margin-bottom: calc(20px + 5vmin) !important;
+  cursor: not-allowed;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: $lato !important;
+  height: auto !important;
+  padding: calc(2px + 2vw) calc(10px + 2vw);
+
+  .waves-button-input {
+    color: $cuisinero-white !important;
+  }
+}
+
+input {
+  text-align: center;
+  color: $cuisinero-black-light !important;
+  font-size: calc(10px + 0.5vw) !important;
+  margin-bottom: calc(20px + 5vmin) !important;
+  font-family: $lato !important;
+}
+
+// Input field bottom border
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  border-bottom: 1px solid $cuisinero-yellow-dark !important;
+  box-shadow: 0 1px 0 0 $cuisinero-yellow-light !important;
+}
+
+textarea {
+  background-color: $cuisinero-yellow-light !important;
+  min-height: 20vh !important;
+  margin: 1rem 0 !important;
+  padding: 1rem 1rem !important;
+  outline: 0 !important;
+  border: none !important;
+  border: 1px solid $cuisinero-yellow-dark !important;
+  border-radius: 5px !important;
+  box-shadow: 0 1px 0 0 $cuisinero-yellow-light !important;
+  // box-sizing: content-box !important;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+  overflow-y: hidden !important;
+  resize: none !important;
+  font-family: $lato !important;
+  color: $cuisinero-black-light;
+}
+
+// Placeholder color
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $cuisinero-grey-light !important;
+  opacity: 1; /* Firefox */
+  font-size: calc(10px + 0.5vw) !important;
+  font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $cuisinero-grey-light !important;
+  font-size: calc(10px + 0.5vw) !important;
+  font-style: italic;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $cuisinero-grey-light !important;
+  font-size: calc(10px + 0.5vw) !important;
+  font-style: italic;
+}
+
+// Hide arrows for number field
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

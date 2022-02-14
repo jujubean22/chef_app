@@ -1,18 +1,36 @@
-%h2 
-  Request form for the appointment
-  %br
-  Chef's username, 
-  = @chef.user.username
+%div{class: "section one"}
+  %div{class: "header-left"}
+    = link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do
+      %i{class: "material-icons left"}arrow_back
+      Back
+  %div{class: "details-form z-depth-3"}
+    %h4{class: "text-white text-bold"} Account Balance
+    %h5{class: "text-white"}= convert_to_money(@balance)
+  
+  %div{class: "new-form z-depth-3"}
+    %h4{class: "text-black-dark text-bold"} Request Form
+    %br
+    = form_with scope: :request, model: [@request.client, @request] do |f|
+      %div{class: "field"}
+        = f.label "Chef", class: "label"
+        %br
+        %div{class: "disabled-field text-black-light"}= [@chef.user.first_name, @chef.user.last_name].join(' ')
 
-Your balance
-= @balance
+      %div{class: "field"}
+        = f.hidden_field :client_id, value: current_user.client.id
+        = f.hidden_field :chef_id, value: @chef.id
 
-= form_with scope: :request, model: [@request.client, @request] do |f|
-  = f.hidden_field :client_id, value: current_user.client.id
-  = f.hidden_field :chef_id, value: @chef.id
-  = f.label :head_count
-  = f.number_field :head_count
-  = f.collection_select :cuisine, @chef.services, :specialty, :speciality_with_rate, {:prompt => "Select a cuisine"}
-  = f.label :notes_to_chef
-  = f.text_field :notes_to_chef
-  = f.submit
+      %div{class: "field"}
+        = f.label :head_count, class: "label"
+        = f.number_field :head_count, id: 'head_count_id', min: 0, required: true
+
+      %div{class: "field"}
+        = f.collection_select :cuisine, @chef.services, :specialty, :speciality_with_rate, {:prompt => "Select a cuisine"}, required: true
+
+      %br
+      %div{class: "field"}
+        = f.label :notes_to_chef, class: "label"
+        = f.text_area :notes_to_chef
+
+      %div{class: "action"}
+        = f.submit 'Send Request', onclick: "return confirm('Confirm your request, head count: ' + document.getElementById('head_count_id').value + '?' )", class: "waves-effect waves-light btn-small btn-submit"

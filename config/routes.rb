@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'reports/new'
+  get 'reviews/new'
   get 'requests/index'
   get 'clients/index'
   get 'chefs/index'
   devise_for :users, :controllers => {:registrations => "my_devise/registrations"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
-  get 'cities/:state', to: 'application#cities'
+  # get 'cities/:state', to: 'application#cities'
 
   # scope '/admins' do
   #   resources :users
@@ -14,13 +16,17 @@ Rails.application.routes.draw do
   # resources :users do
     resources :clients do
       resources :requests
+      resources :reports
     end
     resources :chefs do
       resources :galleries
       resources :services
     end
-  # end
-  
+    # end
+  resources :appointments do 
+    resources :reviews
+  end
+    
   devise_scope :users do
     get '/client', to: 'clients#index', as: :client_root
     get '/client/:id', to: 'clients#profile', as: :client_profile
