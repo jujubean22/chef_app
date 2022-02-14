@@ -84,6 +84,20 @@ $avatar-size: 40vmin;
 	}
       }
 
+      .bio-container {
+        width: 85%;
+	height: auto;
+	padding: 1.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	p {
+	  font-size: 1.25rem;
+	  text-align: center;
+	}
+      }
+
       .divider {
         background-color: $cuisinero-yellow-light;
         width: 85%;

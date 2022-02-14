@@ -9,7 +9,6 @@
         <% if !@chef.nil? %>
           <span class="card-title text-black-dark text-bold">Chef <%= [@chef.user.first_name, @chef.user.last_name].join(' ') %></span>
           <p class="card-details text-black-light text-italic">
-            <p> <%= @chef.bio %> </p>
             <i class="material-icons left">location_on</i> <%= [@chef.city, @chef.region].join(', ') %>
           </p>
           <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= @chef.contact_number %></p>
@@ -58,7 +57,18 @@
             <% end %>
             
           <% end %>
-        </div> 
+        </div>
+        
+        <% unless @chef.nil? %>
+          <% unless @chef.bio.nil? %>
+            <div class="divider"></div>
+
+            <div class="bio-container">
+              <p class="card-details text-black-light text-italic"> <%= @chef.bio.truncate(100) %> </p>
+            </div>
+          <% end %>
+        <% end %>
+
       </div>
       <br>
       <br>
