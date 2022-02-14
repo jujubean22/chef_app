@@ -4,14 +4,11 @@ A platform especially made for chefs who seek to promote their own culinary serv
 
 ### What problem are we trying to address?
 
-* A lot of chefs were left jobless after the COVID-19 pandemic forced restaurants to close their stores temporarily or permanently
-* Some found a way to earn income by offering themselves as private chefs to clients who want to experience fine-dining at home
-* However, chefs are currently doing this self-promotion in separate platforms (e.g. *Instagram, Facebook*)
-* As a client, it may be hard to find available chefs within the vicinity
+A lot of chefs were left jobless after the COVID-19 pandemic forced restaurants to close their stores. Although some found a way to earn income by offering themselves as private chefs, there is still a disconnect between them and their other potential clients as they use varied platforms (e.g. *Instagram, Facebook*) to advertise. Moreover, it may also be hard for clients to find available chefs within their vicinity.
 
 ### How can *Cuisinero* help?
 
-*Cuisinero* offers a more consolidated platform for both chefs and clients to mix-and-match. Chefs can showcase their specialties, build their reputation, and be hired. Meanwhile, clients can easily search for available chefs based on their region of residence, browse their profiles, and book their desired chef.
+As an app developed solely for booking chefs, *Cuisinero* offers a more consolidated platform for both chefs and clients to mix-and-match. Chefs can showcase their specialties, build their reputation, and be hired. Meanwhile, clients can easily search for available chefs based on their region of residence, browse their profiles, and book their desired chef.
 
 ## Key Features
 
