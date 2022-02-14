@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', function() {
   // Modal Initialization
   var myModals = document.querySelectorAll('.modal');
   var options_modals = {
-    preventScrolling: true,
+    preventScrolling: false,
     dismissible: true
   }
   var instance_modals = M.Modal.init(myModals, options_modals);
