@@ -14,13 +14,6 @@ class GalleriesController < ApplicationController
         end
     end
 
-    def edit
-        @gallery = @chef.galleries.find(params[:id])
-    end
-
-    def update
-    end
-
     def destroy
         @gallery = @chef.galleries.find(params[:id])
 

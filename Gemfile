@@ -55,6 +55,7 @@ group :development do
 end
 
 group :test do
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
