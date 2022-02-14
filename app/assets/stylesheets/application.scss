@@ -49,6 +49,14 @@ main {
 
 select {
   opacity: 1;
+  color: $cuisinero-black-light !important;
+  background-color: $cuisinero-white !important;
+  outline: 1px solid $cuisinero-yellow-dark !important;
+  margin-bottom: calc(20px + 5vmin) !important;
+  
+  &:focus {
+    outline: 1px solid $cuisinero-yellow-dark !important;
+  }
 }
 
 h3 {
@@ -144,7 +152,8 @@ p {
 
 .btn-yellow-dark {
   background-color: #FAAF12;
-  color: $cuisinero-white-med !important;
+  // color: $cuisinero-white-med !important;
+  color: $cuisinero-black-dark !important;
   text-transform: capitalize;
 
   &:hover {
