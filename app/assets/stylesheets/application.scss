@@ -304,59 +304,6 @@ p {
   }
 }
 
-
-///////////////////////////////////
-///// Cards
-///////////////////////////////////
-.card-container-1 {
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-
-    h3 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      width: 100%;
-    }
-
-    .card-text {
-      text-align: left;
-    }
-  
-  //////////////////////////////////////
-  /// Breakpoints: Cards
-  //////////////////////////////////////
-  @include respond-to('medium') {
-
-    h3 {
-      max-width: 480px;
-      line-height: 35px;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-  }
-
-  @include respond-to('large') {
-    padding: 50px 0 200px 0;
-
-    h3 {
-      font-size: 3rem;
-      line-height: 60px;  
-      max-width: 100%;
-    }
-
-    p {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-
 //////////////////////////////////////
 ///  Card Image
 //////////////////////////////////////
@@ -391,15 +338,14 @@ p {
 
     .image-card {
       width: 100%;
+      max-width: 360px;
       height: 250px;
       border-radius: 2px;
     }
 
-    .card-image-text {
-      line-height: 20px;
-      margin-bottom: 20px;
-      text-align: left;
-      max-width: 345px;
+    .card-image-text p {
+      max-width: 360px;
+      margin: 0 auto 30px auto;
     }
   }
 
@@ -425,19 +371,8 @@ p {
       max-width: 400px;
       margin: 50px;
 
-      p {
-        margin: 0 auto 20px auto;
-        font-size: 1.5rem;
-        max-width: 346px;
-        line-height: 30px;
-      }
-
-      .card-image-text {
-        font-size: 1.5rem;
-        width: 100%;
+      .card-image-text p {
         max-width: 400px;
-        line-height: 30px;
-        margin-bottom: 40px;
       }
 
       .image-card {
@@ -454,6 +389,63 @@ p {
   }
 
 }
+
+
+///////////////////////////////////
+///// Cards
+///////////////////////////////////
+.card-container-1 {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+    h3 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      width: 100%;
+      max-width: 500px;
+      line-height: 40px;
+    }
+
+    .card-text {
+      text-align: left;
+    }
+  
+  //////////////////////////////////////
+  /// Breakpoints: Cards
+  //////////////////////////////////////
+  @include respond-to('medium') {
+
+    h3 {
+      font-size: 2.3rem;
+      max-width: 400px;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+  }
+
+  @include respond-to('large') {
+    padding: 50px 0 200px 0;
+
+    h3 {
+      font-size: 3rem;
+      line-height: 60px;  
+      max-width: 100%;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 
 ///////////////////////////////////
 ///// Footer
