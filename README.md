@@ -11,8 +11,7 @@ A platform especially made for chefs who seek to promote their own culinary serv
 
 ### How can *Cuisinero* help?
 
-* *Cuisinero* offers a more consolidated platform for chefs to be seen and hired
-* Clients can easily search for available chefs within their region and book them
+*Cuisinero* offers a more consolidated platform for both chefs and clients to mix-and-match. Chefs can showcase their specialties, build their reputation, and be hired. Meanwhile, clients can easily search for available chefs based on their region of residence, browse their profiles, and book their desired chef.
 
 ## Key Features
 
