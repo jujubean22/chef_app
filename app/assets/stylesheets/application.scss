@@ -258,10 +258,6 @@ p {
         }
     }
 
-
-
-
-
   //////////////////////////////////////
   /// Breakpoints: Banner
   //////////////////////////////////////
@@ -271,6 +267,27 @@ p {
       max-width: 600px;
       line-height: 50px;
     }
+
+    h4 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .form-container {
+      width: 100%;
+      
+      #states-of-country {
+        max-width: 800px;
+      }
+    }
+
+    .banner-header {
+      font-size: 3.8rem;
+      font-weight: 500;
+      max-width: 757px;
+      line-height: 60px;
+    }
+
   }
 
   @include respond-to('large') {
