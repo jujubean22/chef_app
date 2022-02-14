@@ -403,27 +403,46 @@ p {
   /// Breakpoints: Card Image
   //////////////////////////////////////
   @include respond-to('medium') {
-    h3 {
+    h1 {
       font-size: 2.3rem;
       line-height: 40px;
+    }
+
+    h4 {
+      font-size: 1.2rem;
     }
 
     p {
       font-size: 1.2rem;
     }
 
-    .card-image {
-      max-width: 360px;
+    .card-image-name {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
+
+    .card-img {
+      max-width: 400px;
+      margin: 50px;
 
       p {
         margin: 0 auto 20px auto;
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         max-width: 346px;
+        line-height: 30px;
+      }
+
+      .card-image-text {
+        font-size: 1.5rem;
+        width: 100%;
+        max-width: 400px;
         line-height: 25px;
+        margin-bottom: 40px;
       }
 
       .image-card {
         border-radius: 6px;
+        height: 300px;
       }
     }
   }
