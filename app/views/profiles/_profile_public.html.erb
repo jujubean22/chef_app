@@ -9,6 +9,7 @@
         <% if !@chef.nil? %>
           <span class="card-title text-black-dark text-bold">Chef <%= [@chef.user.first_name, @chef.user.last_name].join(' ') %></span>
           <p class="card-details text-black-light text-italic">
+            <p> <%= @chef.bio %> </p>
             <i class="material-icons left">location_on</i> <%= [@chef.city, @chef.region].join(', ') %>
           </p>
           <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= @chef.contact_number %></p>
@@ -80,7 +81,7 @@
               Rate <i class="material-icons right">rate_review</i>
             <% end %>
           <% end %>
-          <%= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-red") do %>
+          <%= link_to(new_client_report_path(@client.id), class: "waves-effect waves-light btn-large btn-red") do %>
             Report <i class="material-icons right">block</i>
           <% end %>
         <% end %>

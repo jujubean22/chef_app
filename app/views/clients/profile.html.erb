@@ -37,6 +37,13 @@
                   <br>
                   <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
                   <p class="text-green text-bold">CONFIRMED</p>
+
+                  <% if a.review.nil? %>
+                    <%= link_to "Leave a review", new_appointment_review_path(a.id), class: "text-black text-bold" %> 
+                  <% else %>
+                    <%= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" %> 
+                  <% end %>
+
                 </div>
               </div>
             </div>

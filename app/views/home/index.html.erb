@@ -3,17 +3,23 @@
 <div id='homepage'>
   <div class='container-1'>
     <%# Cards with image %>
-    <div class='card-image-container'>
-      <h3>Turn your home into a <br><span class='text-yellow-dark'>five-star dining</span></h3>
-      <p>Satisfy your cravings and savor each unique taste</p>
+    <div class='banner'>
+      <h1 class='banner-header text-yellow-light'>
+        Experience fine dining once more without leaving the comfort of your home
+      </h1>
+      <h4>Find chefs near you and book one today<h4>
       <%if current_user == nil || current_user.user_type == "Client"%>
         <%= render 'search_bar/form' %>
       <%end %>
+    </div>
+    <div class='card-image-container'>
+      <h1>Turn your home into a <br><span class='text-yellow-dark'>five-star dining</span></h1>
+      <h4>Satisfy your cravings and savor each unique taste</h4>
       <%# Card Image - The Cooking %>
       <div class='card-img'>
         <%= render 'devise/shared/card-image' %>
         <div class='card-image-body'>
-          <h5 class='card-image-name'>The Cooking</h5>
+          <h1 class='card-image-name'>The Cooking</h1>
           <p class='card-image-text'>
             Your Private Chef will arrive with all the ingredients needed to prepare your dreamed meal.
           </p>
@@ -24,10 +30,10 @@
       </div>
 
       <%# Card Image - The Experience %>
-      <div class='card-img-2'>
+      <div class='card-img .row-reverse'>
         <%= render 'devise/shared/card-image' %>
         <div class='card-image-body'>
-          <h5 class='card-image-name'>The Experience</h5>
+          <h1 class='card-image-name'>The Experience</h1>
           <p class='card-image-text'>
             Your chef will take care of your party all-throughout the experience; and yes! That means host duties are off-the-table for you.
           </p>
@@ -55,7 +61,7 @@
     <%# Cards %>
     <div class='card-container-1'>
       <h3>Because you can travel the world while at home</h3>
-      <p>And over 500,000 guests already reserved their tickets!</p>
+      <h4>And over 500,000 guests already reserved their tickets!</h4>
       
       <%= render 'devise/shared/card' %>
       <%= render 'devise/shared/card' %>

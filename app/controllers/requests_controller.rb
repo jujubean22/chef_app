@@ -27,8 +27,8 @@ class RequestsController < ApplicationController
       flash[:notice] = "An request was successfully created"
       redirect_to client_profile_path(current_user.client.id)
     else
-      flash[:error] = "There are some errors encountered"
-      render :new
+      flash[:notice] = "There are some errors encountered"
+      redirect_back fallback_location: new_client_request_path(current_user.client.id, chef_id: @s_chef.id)
     end
   end
 
