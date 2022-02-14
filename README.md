@@ -1,24 +1,40 @@
-# README
+# Cuisinero (*Chef Booking App*)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A platform especially made for chefs who seek to promote their own culinary services and earn additional income
 
-Things you may want to cover:
+### What problem are we trying to address?
 
-* Ruby version
+* A lot of chefs were left jobless after the COVID-19 pandemic forced restaurants to close their stores temporarily or permanently
+* Some found a way to earn income by offering themselves as private chefs to clients who want to experience fine-dining at home
+* However, chefs are currently doing this self-promotion in separate platforms (e.g. *Instagram, Facebook*)
+* As a client, it may be hard to find available chefs within the vicinity
 
-* System dependencies
+### How can *Cuisinero* help?
 
-* Configuration
+* *Cuisinero* offers a more consolidated platform for chefs to be seen and hired
+* Clients can easily search for available chefs within their region and book them
 
-* Database creation
+## Key Features
 
-* Database initialization
+### As Chef, you can:
 
-* How to run the test suite
+* make your own profile and build your branding
+* showcase your cuisines by uploading photos to your gallery
+* confirm client appointments through the click of a button
+* view your clients' request details and notes
+* report a client with bad behavior
 
-* Services (job queues, cache servers, search engines, etc.)
+### As Client, you can:
 
-* Deployment instructions
+* search for available chefs within your desired region
+* view a chef's profile, the services offered, gallery, and reviews
+* book your desired chef by sending a detailed request of the cuisine
+* give review and rate the chef after your appointment
 
-* ...
+### As Admin, you can:
+
+* view the list of users and their details
+* suspend chefs with less than a 3-star rating or reported clients
+* see the list of appointments made
+* release the payment of the client to the chef after their appointment
+* earn a 20% incentive per transaction in your own wallet
