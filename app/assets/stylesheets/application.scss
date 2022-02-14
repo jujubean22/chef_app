@@ -331,9 +331,9 @@ p {
     }
 
     .banner-header {
-      font-size: 3.8rem;
+      font-size: 3rem;
       font-weight: 500;
-      max-width: 757px;
+      max-width: 905px;
       line-height: 60px;
     }
 
@@ -428,6 +428,13 @@ p {
   }
 
   @include respond-to('large') {
+    .card-img {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 850px;
+    }
+
     .row-reverse {
       flex-direction: row-reverse;
     }
