@@ -131,10 +131,14 @@
 <% end %>
 
 
-<%# add reviews here %>
-
-<div class="reviews section four">
-  <h3 class="text-black-dark text-bold">Reviews</h3> 
-  
-    <h5 class="text-black-light text-italic">No available reviews</h5>
-</div>
+<% @reviews.each do |review| %>
+  <% if review.review.client_comment.present? %>
+    <%= review.review.client_comment %>
+    <%= review.review.chef_rating %>
+    <% else %>
+      <div class="reviews section four">
+        <h3 class="text-black-dark text-bold">Reviews</h3> 
+        <h5 class="text-black-light text-italic">No available reviews</h5>
+      </div>
+  <% end %>
+<% end %>
