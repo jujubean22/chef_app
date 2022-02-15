@@ -35,6 +35,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:client_id, :chef_id, :head_count, :cuisine, :notes_to_chef)
+    params.require(:request).permit(:client_id, :chef_id, :head_count, :cuisine, :notes_to_chef, :schedule)
   end
 end
