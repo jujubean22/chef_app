@@ -27,6 +27,3 @@ production:
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV.fetch("DATABASE_URL") {''}%>
-  # password: <%= ENV.fetch("DATABSE_PASSWORD") %>
-  # database: 'chef_app'  
-  # host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
