@@ -649,6 +649,22 @@ p {
         padding: 0;
         height: 0;
       }
+
+      .footer-devs {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 800px;
+        
+        .dot {
+          display: none;
+        }
+
+        .dev-name {
+          margin: 0 20px;
+        }
+      }
+      
     }
   }
 }
