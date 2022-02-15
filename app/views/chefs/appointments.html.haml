@@ -6,6 +6,7 @@
       %th Chef
       %th Client
       %th Created At
+      %th Notes to Chef
       %th Schedule
       %th Total Charge
       %th Confirmed At?
@@ -17,6 +18,7 @@
         %td= "#{a.chef.user.first_name} #{a.chef.user.last_name}"
         %td= link_to "#{a.request.client.user.first_name} #{a.request.client.user.last_name}", client_profile_path(a.request.client.id)
         %td= format_date(a.created_at)
+        %td= a.request.notes_to_chef
         %td= a.schedule ? format_date(a.schedule) : "No schedule yet"
         %td= convert_to_money(a.total_charge)
         %td= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"
