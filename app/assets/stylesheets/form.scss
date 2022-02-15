@@ -29,7 +29,6 @@
   text-transform: uppercase;
   font-weight: 800 !important;
   letter-spacing: 3px !important;
-
 }
 
 .btn-show, .btn-submit {
@@ -135,8 +134,8 @@ form {
 
 input {
   text-align: center;
-  color: $cuisinero-black-light !important;
-  font-size: calc(10px + 0.5vw) !important;
+  color: $cuisinero-black-light;
+  font-size: calc(10px + 0.5vw);
   margin-bottom: calc(20px + 5vmin) !important;
   font-family: $lato !important;
 }

@@ -13,33 +13,40 @@
       <%end %>
     </div>
     <div class='card-image-container'>
-      <h1>Turn your home into a <br><span class='text-yellow-dark'>five-star dining</span></h1>
+      <div class='card-image-header'>
+        <h1>Turn your home into a</h1>
+        <h1 class='text-yellow-dark'>five-star dining</h1>
+      </div>
       <h4>Satisfy your cravings and savor each unique taste</h4>
       <%# Card Image - The Cooking %>
       <div class='card-img'>
         <%= render 'devise/shared/card-image-cooking' %>
         <div class='card-image-body'>
           <h1 class='card-image-name'>The Cooking</h1>
-          <p class='card-image-text'>
-            Your Private Chef will arrive with all the ingredients needed to prepare your dreamed meal.
-          </p>
-          <p class='card-image-text'>
-            Sit back and enjoy your very own culinary show! Watch and learn new recipes as your chef cooks up a fine dinning meal in your in-house chefs table.
-          </p>
+          <div class='card-image-text'>
+            <p>
+              Your Private Chef will arrive with all the ingredients needed to prepare your dreamed meal.
+            </p>
+            <p>
+              Sit back and enjoy your very own culinary show! Watch and learn new recipes as your chef cooks up a fine dinning meal in your in-house chefs table.
+            </p>
+          </div>
         </div>
       </div>
 
       <%# Card Image - The Experience %>
-      <div class='card-img .row-reverse'>
+      <div class='card-img row-reverse'>
         <%= render 'devise/shared/card-image-experience' %>
         <div class='card-image-body'>
           <h1 class='card-image-name'>The Experience</h1>
-          <p class='card-image-text'>
-            Your chef will take care of your party all-throughout the experience; and yes! That means host duties are off-the-table for you.
-          </p>
-          <p class='card-image-text'>
-            French service, family-style or buffet, your choice! We want you to feel pampered.
-          </p>
+          <div class='card-image-text'>
+            <p>
+              Your chef will take care of your party all-throughout the experience; and yes! That means host duties are off-the-table for you.
+            </p>
+            <p>
+              French service, family-style or buffet, your choice! We want you to feel pampered.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -48,12 +55,14 @@
         <%= render 'devise/shared/card-image-wrap' %>
         <div class='card-image-body'>
           <h5 class='card-image-name'>The Wrap-up</h5>
-          <p class='card-image-text'>
-            By the end of the night, all there will be left for you to do is relax and enjoy your company.
-          </p>
-          <p class='card-image-text'>
-            We mean: clean silverware and shiny counters for the perfect farewell.
-          </p>
+          <div class='card-image-text'>
+            <p class='card-image-text'>
+              By the end of the night, all there will be left for you to do is relax and enjoy your company.
+            </p>
+            <p class='card-image-text'>
+              We mean: clean silverware and shiny counters for the perfect farewell.
+            </p>
+          </div>
         </div>
       </div>
 

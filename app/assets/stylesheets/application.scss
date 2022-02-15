@@ -312,10 +312,6 @@ p {
         }
     }
 
-
-
-
-
   //////////////////////////////////////
   /// Breakpoints: Banner
   //////////////////////////////////////
@@ -325,6 +321,27 @@ p {
       max-width: 600px;
       line-height: 50px;
     }
+
+    h4 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .form-container {
+      width: 100%;
+      
+      #states-of-country {
+        max-width: 800px;
+      }
+    }
+
+    .banner-header {
+      font-size: 3rem;
+      font-weight: 500;
+      max-width: 905px;
+      line-height: 60px;
+    }
+
   }
 
   @include respond-to('large') {
@@ -336,59 +353,6 @@ p {
     }
   }
 }
-
-
-///////////////////////////////////
-///// Cards
-///////////////////////////////////
-.card-container-1 {
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      width: 100%;
-    }
-
-    .card-text {
-      text-align: left;
-    }
-  
-  //////////////////////////////////////
-  /// Breakpoints: Cards
-  //////////////////////////////////////
-  @include respond-to('medium') {
-
-    h3 {
-      max-width: 480px;
-      line-height: 35px;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-  }
-
-  @include respond-to('large') {
-    padding: 50px 0 200px 0;
-
-    h3 {
-      font-size: 3rem;
-      line-height: 60px;  
-      max-width: 100%;
-    }
-
-    p {
-      font-size: 1.5rem;
-    }
-  }
-}
-
 
 //////////////////////////////////////
 ///  Card Image
@@ -424,15 +388,14 @@ p {
 
     .image-card {
       width: 100%;
+      max-width: 360px;
       height: 250px;
       border-radius: 2px;
     }
 
-    .card-image-text {
-      line-height: 20px;
-      margin-bottom: 20px;
-      text-align: left;
-      max-width: 345px;
+    .card-image-text p {
+      max-width: 360px;
+      margin: 0 auto 30px auto;
     }
   }
 
@@ -440,7 +403,7 @@ p {
   /// Breakpoints: Card Image
   //////////////////////////////////////
   @include respond-to('medium') {
-    h3 {
+    h1 {
       font-size: 2.3rem;
       line-height: 40px;
     }
@@ -449,61 +412,43 @@ p {
       font-size: 1.2rem;
     }
 
-    .card-image {
-      max-width: 360px;
+    .card-image-name {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+    }
 
-      p {
-        margin: 0 auto 20px auto;
-        font-size: 1.1rem;
-        max-width: 346px;
-        line-height: 25px;
+    .card-img {
+      max-width: 400px;
+      margin: 50px;
+
+      .card-image-text p {
+        max-width: 400px;
       }
 
       .image-card {
         border-radius: 6px;
+        height: 300px;
       }
     }
   }
 
   @include respond-to('large') {
-    padding: 100px 20px;
-
     .card-image-header {
-      margin-bottom: 100px;
-    }
-
-    .card-img,
-    .card-img-2 {
       display: flex;
-      flex-direction: row;
-      max-width: 70%;
+      justify-content: space-around;
       align-items: center;
-      text-align: left;
-
-      .image-card {
-        width: 400px;
-        height: 300px;
-      }
-
-      .card-image-body {
-        width: 100%;
-        max-width: 600px;
-        padding: 0 70px;
-      }
-
-      .card-image-name {
-        font-size: 2.7rem;
-      }
-
-      .card-image-text {
-        text-align: left;
-        font-size: 1.3rem;
-        margin-bottom: 26px;
-        letter-spacing: 1px;
-      }
-
-
+      width: 100%;
+      max-width: 700px;
     }
+
+
+    .card-img {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 850px;
+    }
+
 
     .row-reverse {
       flex-direction: row-reverse;
@@ -511,6 +456,93 @@ p {
   }
 
 }
+
+
+///////////////////////////////////
+///// Cards
+///////////////////////////////////
+.card-container-1 {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+    h3 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      width: 100%;
+      max-width: 500px;
+      line-height: 40px;
+    }
+
+    .card-text {
+      text-align: left;
+    }
+  
+  //////////////////////////////////////
+  /// Breakpoints: Cards
+  //////////////////////////////////////
+  @include respond-to('medium') {
+
+    h3 {
+      font-size: 2.3rem;
+      max-width: 400px;
+      line-height: 40px;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+  }
+
+  @include respond-to('large') {
+    padding: 50px 0 200px 0;
+
+    h3 {
+      font-size: 3rem;
+      line-height: 60px;  
+      max-width: 100%;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .card-1 {
+      max-width: 1000px;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .card-img {
+        height: 80px;
+        width: 80px;
+      }
+
+      .card-name {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+
+      .card-text {
+        margin: 0;
+        width: 100%;
+        max-width: 800px;
+      }
+    }
+
+    .card-date {
+      display: none;
+    }
+  }
+}
+
 
 ///////////////////////////////////
 ///// Footer
