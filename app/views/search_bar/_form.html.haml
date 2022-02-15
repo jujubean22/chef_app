@@ -7,9 +7,9 @@
           %option{id: key, value: value, class: [("select-items")]}= value
       = f.submit :class => 'waves-effect waves-light btn-large btn-yellow-dark'
     
-  -# %div{class: "form-container hide-on-large-only"}
-  -#   %select#states-of-country{ name: "chef[region]", required: ""}
-  -#     %option#no-state.no-state{selected: "selected", value: ""} Select Region
-  -#     = CS.states(:ph).each do |key, value|
-  -#       %option{id: key, value: value, class: [("select-items")]}= value
-  -#   = f.submit :class => 'header-btn'
+  - %div{class: "form-container hide-on-large-only"}
+  -   %select#states-of-country{ name: "chef[region]", required: ""}
+  -     %option#no-state.no-state{selected: "selected", value: ""} Select Region
+  -     = CS.states(:ph).each do |key, value|
+  -       %option{id: key, value: value, class: [("select-items")]}= value
+  -   = f.submit :class => 'header-btn'
