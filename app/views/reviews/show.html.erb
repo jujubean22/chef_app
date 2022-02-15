@@ -1,0 +1,66 @@
+<div class="section one">
+  <div class="header-left">
+    <%= link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do %>
+      <i class="material-icons left">arrow_back</i>Back
+    <% end %>
+  </div>
+  
+  <div class="review-container" style="margin-top: 20px;">
+    <div class="card">
+      <div class="card-content">
+        <span class="right text-black-dark text-bold">
+          <%= format_schedule(@review.created_at) %>
+        </span>
+
+        <br />
+        <br />
+
+        <p class="text-black-light text-italic">
+          "<%= @review.client_comment %>"
+        </p>
+
+        <br />
+
+        <span class="text-black-dark text-bold">
+          - <%= [@review.appointment.request.client.user.first_name, @review.appointment.request.client.user.last_name].join(' ') %>,
+          <span class="text-italic">Client</span>
+        </span>
+      </div>
+      <div class="card-action text-yellow-darker">
+        <% case @review.chef_rating  %>
+        <% when 1 %>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+        <% when 2 %>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+        <% when 3 %>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star_border</i>
+          <i class="material-icons left">star_border</i>
+        <% when 4 %>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star_border</i>
+        <% when 5 %>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+          <i class="material-icons left">star</i>
+        <% end %>
+        <span class="text-black-dark"><%= @review.chef_rating %>/5.0</span>
+      </div>
+    </div>
+  </div>
+</div>
