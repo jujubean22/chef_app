@@ -1,3 +1,9 @@
-%h1 Edit Page 
-
-= render '/services/form'
+%div{class: "section one"}
+  %div{class: "header-left"}
+    = link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do
+      %i{class: "material-icons left"}arrow_back
+      Back
+  %div{class: "edit-form z-depth-3"}
+    %h3{class: "text-black-dark text-bold"} Update Chef Service
+    = render "devise/shared/error_messages", resource: @service
+    = render '/services/form'
