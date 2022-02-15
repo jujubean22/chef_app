@@ -82,9 +82,9 @@
               Book Chef <i class="material-icons right">event</i>
             <% end %>
           <% end %>
-          <%= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-red") do %>
+          <!-- <%= link_to(chef_path, class: "waves-effect waves-light btn-large btn-red") do %>
             Report <i class="material-icons right">block</i>
-          <% end %>
+          <% end %> -->
         <% elsif !@client.nil? %>
           <% if current_user.user_type == 'Chef' %>
             <%= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-green") do %>

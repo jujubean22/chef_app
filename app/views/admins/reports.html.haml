@@ -8,6 +8,6 @@
   %tbody
     - @reports.each do |report|
       %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-        %td{:class => "p-3"}= report.chef.user.username
-        %td{:class => "p-3"}= report.client.user.username
-        %td{:class => "p-3"}= report.message
+        %td{:class => "p-3 center"}= report.chef.user.username
+        %td{:class => "p-3 center"}= report.client.user.username
+        %td{:class => "p-3 center"}= report.message
