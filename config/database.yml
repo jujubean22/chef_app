@@ -1,4 +1,3 @@
-
 # SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
@@ -28,6 +27,6 @@ production:
   port: 5432
   host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("DATABSE_USERNAME") %>
+  username: <%= ENV.fetch("DATABSE_URL") %>
   password: <%= ENV.fetch("DATABSE_PASSWORD") %>
   database: 'chef_app'
