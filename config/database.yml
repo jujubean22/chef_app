@@ -25,8 +25,8 @@ production:
   # database: db/production.sqlite3
   adapter: postgresql
   port: 5432
-  host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("DATABSE_URL") %>
-  password: <%= ENV.fetch("DATABSE_PASSWORD") %>
-  database: 'chef_app'
+  url: <%= ENV.fetch("DATABASE_URL") {''}%>
+  # password: <%= ENV.fetch("DATABSE_PASSWORD") %>
+  # database: 'chef_app'  
+  # host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
