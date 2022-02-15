@@ -21,6 +21,7 @@ end
     @gallery = @chef.galleries.build
     @services = @chef.services.where.not(id: nil)
     @service = @chef.services.build
+    @reviews = Appointment.where(chef_id: current_user.chef.id)
   end
   
   def appointments
