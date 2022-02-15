@@ -22,9 +22,11 @@ class RequestsController < ApplicationController
       @client_wallet.save
       Appointment.create(request_id: @request.id,
         chef_id: @s_chef.id,
+        schedule: @request.schedule_date,
+        appointment_time: @request.schedule_time,
         total_charge: @total_charge
       )
-      flash[:notice] = "An request was successfully created"
+      flash[:notice] = "A request was successfully created"
       redirect_to client_profile_path(current_user.client.id)
     else
       flash[:notice] = "There are some errors encountered"
@@ -35,6 +37,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:client_id, :chef_id, :head_count, :cuisine, :notes_to_chef, :schedule)
+    params.require(:request).permit(:client_id, :chef_id, :head_count, :cuisine, :notes_to_chef, :schedule_date, :schedule_time)
   end
 end

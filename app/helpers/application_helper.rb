@@ -6,4 +6,12 @@ module ApplicationHelper
   def format_date(date)
     date.strftime("%B %d, %Y (%I:%M %p)")
   end
+
+  def format_schedule(date)
+    date.strftime("%B %d, %Y ")
+  end
+
+  def format_schedule_time(time)
+    time.strftime(" (%I:%M %p)")
+  end
 end

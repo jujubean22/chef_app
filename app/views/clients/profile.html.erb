@@ -29,7 +29,9 @@
                     <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
                   </span>
                   <p class="text-black-light">
-                  <span class="text-bold">Schedule: </span><%= format_date(a.created_at)%>
+                  <span class="text-bold">Schedule: </span>
+                    <%= format_schedule(a.schedule) %> 
+                    <%= format_schedule_time(a.appointment_time) %> 
                   </p>
                   <p class="text-black-light">
                   <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>
@@ -61,7 +63,9 @@
                     <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
                   </span>
                   <p class="text-black-light">
-                  <span class="text-bold">Schedule: </span><%= format_date(a.created_at)%>
+                  <span class="text-bold">Schedule: 
+                    <%= format_schedule(a.schedule) %> 
+                    <%= format_schedule_time(a.appointment_time) %> 
                   </p>
                   <p class="text-black-light">
                   <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>

@@ -22,15 +22,17 @@
 
       %div{class: "field"}
         = f.label :head_count, class: "label"
-        = f.number_field :head_count, id: 'head_count_id', min: 0, required: true
+        = f.number_field :head_count, id: 'head_count_id', step: :any, in: 1..50, :required => true
 
       %div{class: "field"}
         = f.label :cuisine, class: "label"
         = f.collection_select :cuisine, @chef.services, :specialty, :speciality_with_rate, {:prompt => "Select a cuisine"}, required: true
 
       %div{class: "field"}
-        = f.label :schedule, class: "label"
-        = f.date_select :schedule, class: "datepicker"
+        .label Pick a Date
+        = f.date_field :schedule_date, class: "datepicker"
+        .label Pick a Time
+        = f.time_field :schedule_time, class: "timepicker"
 
       %br
       %div{class: "field"}
@@ -41,12 +43,11 @@
         = f.submit 'Send Request', onclick: "return confirm('Confirm your request, head count: ' + document.getElementById('head_count_id').value + '?' )", class: "waves-effect waves-light btn-small btn-submit"
 
 
-:javascript
-  document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.datepicker');
-      var instances = M.Datepicker.init(elems, options);
-    });
-  document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.timepicker');
-      var instances = M.Timepicker.init(elems, options);
-    });
+-# :javascript
+-#   $(document).ready(function(){
+-#     $('.datepicker').datepicker();
+-#   });
+
+-#   $(document).ready(function(){
+-#     $('.timepicker').timepicker();
+-#   });

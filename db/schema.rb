@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_021027) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "payment_released_at"
     t.integer "chef_id"
+    t.datetime "appointment_time"
     t.index ["chef_id"], name: "index_appointments_on_chef_id"
     t.index ["request_id"], name: "index_appointments_on_request_id"
   end
@@ -110,7 +111,8 @@ ActiveRecord::Schema.define(version: 2022_02_15_021027) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "notes_to_chef"
     t.integer "chef_id"
-    t.datetime "schedule"
+    t.datetime "schedule_date"
+    t.datetime "schedule_time"
     t.index ["chef_id"], name: "index_requests_on_chef_id"
     t.index ["client_id"], name: "index_requests_on_client_id"
   end
