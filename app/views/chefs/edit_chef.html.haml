@@ -5,20 +5,12 @@
       Back
   %div{class: "edit-form z-depth-3"}
     %h4{class: "text-black-dark text-bold"} Update Chef Profile
+    = render "devise/shared/error_messages", resource: @chef 
+    
     = form_with scope: :chef, url: chef_profile_path, method: :patch do |f|
-      - if @chef.errors.any?
-        %div{class: "error-container"}
-          %span{class: "text-red text-italic"} Errors: 
-          %ul
-            - @chef.errors.full_messages.each do |message|
-              %li= message
       %div{class: "field"}
         = f.label :contact_number, class: "label"
         = f.text_field :contact_number, placeholder: "e.g. 09123454432"
-
-      %div{class: "field"}
-        = f.label :bio, class: "label"
-        = f.text_area :bio, placeholder: "Write something about you as a chef"
 
       %div{class: "field"}
         = f.label :region, class: "label"
@@ -31,4 +23,8 @@
         = f.label :city, class: "label"
         = f.text_field :city, placeholder: "City"
       
+      %div{class: "field"}
+        = f.label :bio, class: "label"
+        = f.text_area :bio
+
       = f.submit("Update Profile", class: "waves-effect waves-light btn-small btn-submit")

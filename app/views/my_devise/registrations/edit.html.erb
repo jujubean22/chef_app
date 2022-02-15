@@ -6,8 +6,8 @@
   </div>
   <div class="edit-form z-depth-3">
     <h4 class="text-black-dark text-bold">Update Account</h4><br />
+    <%= render "devise/shared/error_messages", resource: resource %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
         <%= f.label :email, class: "label" %><br />
@@ -58,8 +58,9 @@
 
   <div class="delete-form z-depth-3">
     <h4 class="text-white text-bold">Delete Account</h4>
-
-    <span class="text-white">Unhappy?</span>
+    
+    <span class="text-white" style="margin-top: 10px; margin-bottom: 20px;">Please don't leave us! We'll miss you if you go :(</span>
+    
     <%= link_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "waves-effect waves-light btn-small btn-cancel" do %>
       <i class="material-icons right">delete_forever</i> Delete Account
     <% end %>
