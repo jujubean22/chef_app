@@ -510,6 +510,36 @@ p {
     p {
       font-size: 1.5rem;
     }
+
+    .card-1 {
+      max-width: 1000px;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .card-img {
+        height: 80px;
+        width: 80px;
+      }
+
+      .card-name {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+
+      .card-text {
+        margin: 0;
+        width: 100%;
+        max-width: 800px;
+      }
+    }
+
+    .card-date {
+      display: none;
+    }
   }
 }
 
