@@ -13,19 +13,19 @@
   %tbody
     - @users.each do |user|
       %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-        %td{:class => "p-3 text-xl font-bold"}= user.email
-        %td{:class => "p-3"}= user.user_type
-        %td{:class => "p-3"}= user.username
-        %td{:class => "p-3"}= user.first_name
-        %td{:class => "p-3"}= user.last_name
+        %td{:class => "p-3 center"}= user.email
+        %td{:class => "p-3 center"}= user.user_type
+        %td{:class => "p-3 center"}= user.username
+        %td{:class => "p-3 center"}= user.first_name
+        %td{:class => "p-3 center"}= user.last_name
         - if user.user_type == 'Client'
-          %td{:class => "p-3"}= user.client.region
-          %td{:class => "p-3"}= user.client.city
+          %td{:class => "p-3 center"}= user.client.region
+          %td{:class => "p-3 center"}= user.client.city
           %td{:class => "p-3 center"}= user.client.contact_number
         - elsif user.user_type == 'Chef'
-          %td{:class => "p-3"}= user.chef.region
-          %td{:class => "p-3"}= user.chef.city
-          %td{:class => "p-3"}= user.chef.contact_number
+          %td{:class => "p-3 center"}= user.chef.region
+          %td{:class => "p-3 center"}= user.chef.city
+          %td{:class => "p-3 center"}= user.chef.contact_number
         -# %td{:class => "p-3"}
         -#   - if user.wallet
         -#     = user.wallet.balance

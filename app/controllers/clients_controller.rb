@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @name = current_user.first_name + ' ' + current_user.last_name
   end
 
   def all_chefs
