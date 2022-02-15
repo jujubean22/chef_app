@@ -144,7 +144,7 @@
     <% @appointments.each do |a| %>
       <% unless a.review.nil? %>
         <div class="review-container">
-          <div class="card" style="max-width: calc(20px + 50vw) !important;">
+          <div class="card">
             <div class="card-content">
               <span class="right text-black-dark text-bold">
                 <%= format_schedule(a.review.created_at) %>
