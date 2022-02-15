@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
-  validates :head_count, presence: true
+  validates :head_count, :cuisine, presence: true
 
   belongs_to :client
   has_one :appointment

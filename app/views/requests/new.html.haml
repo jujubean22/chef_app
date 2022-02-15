@@ -25,6 +25,7 @@
         = f.number_field :head_count, id: 'head_count_id', min: 0, required: true
 
       %div{class: "field"}
+        = f.label :cuisine, class: "label"
         = f.collection_select :cuisine, @chef.services, :specialty, :speciality_with_rate, {:prompt => "Select a cuisine"}, required: true
 
       %div{class: "field"}
@@ -44,4 +45,8 @@
   document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.datepicker');
       var instances = M.Datepicker.init(elems, options);
+    });
+  document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.timepicker');
+      var instances = M.Timepicker.init(elems, options);
     });

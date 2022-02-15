@@ -53,10 +53,16 @@ select {
   background-color: $cuisinero-white !important;
   outline: 1px solid $cuisinero-yellow-dark !important;
   margin-bottom: calc(20px + 5vmin) !important;
-  
+
   &:focus {
     outline: 1px solid $cuisinero-yellow-dark !important;
   }
+}
+
+.notice,
+.alert {
+  position: relative;
+  top: 1rem;
 }
 
 h3 {
@@ -67,15 +73,15 @@ h3 {
 }
 
 h4 {
-  font-size: 15px;  
+  font-size: 15px;
   text-align: center;
   font-style: italic;
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     font-size: 1.3rem;
   }
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     font-size: 1.5rem;
     letter-spacing: 2px;
   }
@@ -166,7 +172,7 @@ p {
 // Button Colors
 
 .btn-yellow-dark {
-  background-color: #FAAF12;
+  background-color: #faaf12;
   // color: $cuisinero-white-med !important;
   color: $cuisinero-black-dark !important;
   text-transform: capitalize;
@@ -177,8 +183,8 @@ p {
   }
 
   &:focus {
-    background-color: #FAAF12;
-    transition: background-color .2s ease-out;
+    background-color: #faaf12;
+    transition: background-color 0.2s ease-out;
   }
 }
 
@@ -186,45 +192,45 @@ p {
   background-color: $cuisinero-black-dark;
   color: $cuisinero-white !important;
   text-transform: capitalize;
-  
+
   &:hover {
     background-color: $cuisinero-black-light;
-    transition: background-color .2s ease-out;
+    transition: background-color 0.2s ease-out;
   }
 
   &:focus {
     background-color: $cuisinero-black-dark;
-    transition: background-color .2s ease-out;
+    transition: background-color 0.2s ease-out;
   }
 }
 
 .btn-green {
   background-color: $cuisinero-green;
   color: $cuisinero-white !important;
-  
+
   &:hover {
-    background-color: #1D8F46;
-    transition: background-color .2s ease-out;
+    background-color: #1d8f46;
+    transition: background-color 0.2s ease-out;
   }
-  
+
   &:focus {
     background-color: $cuisinero-green;
-    transition: background-color .2s ease-out;
+    transition: background-color 0.2s ease-out;
   }
 }
 
 .btn-red {
   background-color: $cuisinero-red;
   color: $cuisinero-white !important;
-  
+
   &:hover {
-    background-color: #DB2739;
-    transition: background-color .2s ease-out;
+    background-color: #db2739;
+    transition: background-color 0.2s ease-out;
   }
-  
+
   &:focus {
     background-color: $cuisinero-red;
-    transition: background-color .2s ease-out;
+    transition: background-color 0.2s ease-out;
   }
 }
 
@@ -238,84 +244,83 @@ p {
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: image-url('bg-home-mobile.jpg');
+  background-image: image-url("bg-home-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 70% 50%;
   backdrop-filter: blur(4px) brightness(0.45);
   text-align: center;
 
-    h4 {
-      color: $cuisinero-white;
-      font-size: 1.4rem;
-      font-weight: 500;
-      font-style: italic;
-    }
+  h4 {
+    color: $cuisinero-white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-style: italic;
+  }
 
-    .banner-header {
-      font-size: 1.9rem;
-      font-weight: 700;
-      padding: 20px 0;
+  .banner-header {
+    font-size: 1.9rem;
+    font-weight: 700;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 330px;
+    letter-spacing: 2px;
+    line-height: 40px;
+    margin: 0 auto;
+  }
+
+  .home-dropdown {
+    opacity: 1;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 25px;
+  }
+
+  .header-btn {
+    background-color: $cuisinero-yellow-dark;
+    color: $cuisinero-white;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 13px 65px;
+    border-radius: 12px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+
+    .option-container {
+      color: blue;
+      font-size: 1rem;
       width: 100%;
-      max-width: 330px;
-      letter-spacing: 2px;
-      line-height: 40px;
-      margin: 0 auto;
+      max-width: 300px;
+      height: 1vh;
+      overflow: none;
     }
 
-    .home-dropdown {
+    #states-of-country {
       opacity: 1;
       width: 100%;
       max-width: 300px;
-      margin-top: 25px;
+      font-size: 1.7rem;
+      padding: 10px 15px;
+      height: 100%;
     }
 
-    .header-btn {
-      background-color: $cuisinero-yellow-dark;
-      color: $cuisinero-white;
-      font-size: 2rem;
-      text-decoration: none;
-      padding: 13px 65px;
-      border-radius: 12px;
-      margin-top: 50px;
-      width: 100%;
-      max-width: 300px;
+    select {
+      width: 200px;
     }
-
-
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      margin-top: 50px;
-      align-items: center;
-
-        .option-container {
-          color: blue;
-          font-size: 1rem; 
-          width: 100%;
-          max-width: 300px;
-          height: 1vh;
-          overflow: none;
-        }
-
-        #states-of-country {
-          opacity: 1;
-          width: 100%;
-          max-width: 300px;
-          font-size: 1.7rem;
-          padding: 10px 15px;
-          height: 100%;
-        }
-
-        select {
-          width: 200px;
-        }
-    }
+  }
 
   //////////////////////////////////////
   /// Breakpoints: Banner
   //////////////////////////////////////
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     h2 {
       font-size: 2.3rem;
       max-width: 600px;
@@ -329,7 +334,7 @@ p {
 
     .form-container {
       width: 100%;
-      
+
       #states-of-country {
         max-width: 800px;
       }
@@ -341,12 +346,11 @@ p {
       max-width: 905px;
       line-height: 60px;
     }
-
   }
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     h2 {
-      font-size: 4.0rem;
+      font-size: 4rem;
       max-width: 1200px;
       line-height: 90px;
       padding-top: 200px;
@@ -402,7 +406,7 @@ p {
   //////////////////////////////////////
   /// Breakpoints: Card Image
   //////////////////////////////////////
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     h1 {
       font-size: 2.3rem;
       line-height: 40px;
@@ -432,7 +436,7 @@ p {
     }
   }
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     .card-image-header {
       display: flex;
       justify-content: space-around;
@@ -441,7 +445,6 @@ p {
       max-width: 700px;
     }
 
-
     .card-img {
       display: flex;
       align-items: center;
@@ -449,14 +452,11 @@ p {
       max-width: 850px;
     }
 
-
     .row-reverse {
       flex-direction: row-reverse;
     }
   }
-
 }
-
 
 ///////////////////////////////////
 ///// Cards
@@ -469,23 +469,22 @@ p {
   width: 100%;
   text-align: center;
 
-    h3 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      width: 100%;
-      max-width: 500px;
-      line-height: 40px;
-    }
+  h3 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    width: 100%;
+    max-width: 500px;
+    line-height: 40px;
+  }
 
-    .card-text {
-      text-align: left;
-    }
-  
+  .card-text {
+    text-align: left;
+  }
+
   //////////////////////////////////////
   /// Breakpoints: Cards
   //////////////////////////////////////
-  @include respond-to('medium') {
-
+  @include respond-to("medium") {
     h3 {
       font-size: 2.3rem;
       max-width: 400px;
@@ -495,15 +494,14 @@ p {
     p {
       font-size: 1.1rem;
     }
-
   }
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     padding: 50px 0 200px 0;
 
     h3 {
       font-size: 3rem;
-      line-height: 60px;  
+      line-height: 60px;
       max-width: 100%;
     }
 
@@ -542,7 +540,6 @@ p {
     }
   }
 }
-
 
 ///////////////////////////////////
 ///// Footer
@@ -610,8 +607,7 @@ p {
     //////////////////////////////////////
     /// Breakpoints: Footer
     //////////////////////////////////////
-    @include respond-to('medium') {
-      
+    @include respond-to("medium") {
       .footer-header {
         align-items: center;
         justify-content: space-around;
@@ -630,15 +626,14 @@ p {
           font-size: 1.2rem;
         }
       }
-      
+
       .footer-devs {
         font-size: 1.2rem;
         width: 335px;
       }
     }
 
-    @include respond-to('large') {
-
+    @include respond-to("large") {
       .footer-disclaimer {
         font-size: 1rem;
         padding: 0;
