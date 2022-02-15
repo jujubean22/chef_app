@@ -12,6 +12,74 @@
             <i class="material-icons left">location_on</i> <%= [@chef.city, @chef.region].join(', ') %>
           </p>
           <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= @chef.contact_number %></p>
+
+          <% @total_rating = 0 %>
+          <% @review_count = 0 %>
+          <% @appointments.each do |a| %>
+            <% unless a.review.nil? %>
+              <% @total_rating = @total_rating + a.review.chef_rating %>
+              <% @review_count = @review_count + 1%>
+            <% end %>
+          <% end %>
+
+          <div class="rating-container text-yellow-dark">
+            <% if @review_count > 0 %>
+            <% @rating = (@total_rating/@review_count).round(0) %>
+              <% case @rating %>
+              <% when 0 %>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+              <% when 1 %>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+              <% when 3 %>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+              <% when 3 %>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+              <% when 4 %>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star_border</i>
+              <% when 5 %>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              <% end %>
+            <% else %>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
+            <% end %>
+          </div>
+
+          <% unless @chef.bio.nil? %>
+            <div class="divider"></div>
+
+            <div class="bio-container">
+              <p class="card-details text-black-light text-italic">"<%= @chef.bio.truncate(100) %>"</p>
+            </div>
+          <% end %>
+        
         <% elsif !@client.nil? %>
           <span class="card-title text-black-dark text-bold"><%= [@client.user.first_name, @client.user.last_name].join(' ') %></span>
           <p class="card-details text-black-light text-italic">
@@ -19,56 +87,6 @@
           </p>
           <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= @client.contact_number %></p>
         <% end %>
-
-        <div class="rating-container text-yellow-dark">
-          <% @rating = 4.5 %>
-          <% if @rating >= 3 %>
-            <% case @rating %>
-            <% when 3 %>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star_border</i>
-              <i class="material-icons">star_border</i>
-            <% when 3.5 %>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star_half</i>
-              <i class="material-icons">star_border</i>
-            <% when 4 %>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star_border</i>
-            <% when 4.5 %>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star_half</i>
-            <% when 5 %>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-              <i class="material-icons">star</i>
-            <% end %>
-            
-          <% end %>
-        </div>
-        
-        <% unless @chef.nil? %>
-          <% unless @chef.bio.nil? %>
-            <div class="divider"></div>
-
-            <div class="bio-container">
-              <p class="card-details text-black-light text-italic"> <%= @chef.bio.truncate(100) %> </p>
-            </div>
-          <% end %>
-        <% end %>
-
       </div>
       <br>
       <br>
@@ -82,14 +100,14 @@
               Book Chef <i class="material-icons right">event</i>
             <% end %>
           <% end %>
-          <!-- <%= link_to(chef_path, class: "waves-effect waves-light btn-large btn-red") do %>
+          <!-- <%#= link_to(chef_path, class: "waves-effect waves-light btn-large btn-red") do %>
             Report <i class="material-icons right">block</i>
-          <% end %> -->
+          <%# end %> -->
         <% elsif !@client.nil? %>
           <% if current_user.user_type == 'Chef' %>
-            <%= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-green") do %>
+          <!-- <%#= link_to(chefs_path, class: "waves-effect waves-light btn-large btn-green") do %>
               Rate <i class="material-icons right">rate_review</i>
-            <% end %>
+              <%# end %> -->
           <% end %>
           <%= link_to(new_client_report_path(@client.id), class: "waves-effect waves-light btn-large btn-red") do %>
             Report <i class="material-icons right">block</i>
