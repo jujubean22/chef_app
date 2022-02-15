@@ -4,7 +4,7 @@
       %i{class: "material-icons left"}arrow_back
       Back
   %div{class: "edit-form z-depth-3"}
-    %h4{class: "text-black-dark text-bold"} Update Chef Profile
+    %h3{class: "text-black-dark text-bold"} Update Chef Profile
     = render "devise/shared/error_messages", resource: @chef 
     
     = form_with scope: :chef, url: chef_profile_path, method: :patch do |f|
@@ -15,9 +15,17 @@
       %div{class: "field"}
         = f.label :region, class: "label"
         %select{ name: "chef[region]", required: ""}
-          %option{selected: "selected", value: ""} Select Region
-          = CS.states(:ph).each do |key, value|
-            %option{id: key, value: value}= value
+          - if @chef.region.nil?
+            %option{selected: "selected", value: ""} Select Region
+            = CS.states(:ph).each do |key, value|
+              %option{id: key, value: value}= value
+          - else
+            %option{value: ""} Select Region
+            = CS.states(:ph).each do |key, value|
+              - if @chef.region == value
+                %option{id: key, value: value, selected: "selected"}= value
+              - else
+                %option{id: key, value: value}= value
       
       %div{class: "field"}
         = f.label :city, class: "label"

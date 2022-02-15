@@ -131,10 +131,80 @@
 <% end %>
 
 
-<%# add reviews here %>
-
 <div class="reviews section four">
   <h3 class="text-black-dark text-bold">Reviews</h3> 
-  
+  <% @review_count = 0 %>
+  <% @appointments.each do |a| %>
+    <% unless a.review.nil? %>
+      <% @review_count = @review_count + 1 %>
+    <% end %>
+  <% end %>
+
+  <% if @review_count > 0 %>
+    <% @appointments.each do |a| %>
+      <% unless a.review.nil? %>
+        <div class="review-container">
+          <div class="card" style="max-width: calc(20px + 50vw) !important;">
+            <div class="card-content">
+              <span class="right text-black-dark text-bold">
+                <%= format_schedule(a.review.created_at) %>
+              </span>
+
+              <br />
+              <br />
+              
+              <p class="text-black-light text-italic">
+                "<%= a.review.client_comment %>"
+              </p>
+              
+              <br />
+
+              <span class="text-black-dark text-bold">
+                - <%= [a.review.appointment.request.client.user.first_name, a.review.appointment.request.client.user.last_name].join(' ') %>,
+                <span class="text-italic">Client</span>
+              </span>
+            </div>
+            <div class="card-action text-yellow-darker">
+              <% case a.review.chef_rating  %>
+              <% when 1 %>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+              <% when 2 %>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+              <% when 3 %>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star_border</i>
+                <i class="material-icons left">star_border</i>
+              <% when 4 %>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star_border</i>
+              <% when 5 %>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+                <i class="material-icons left">star</i>
+              <% end %>
+              <span class="text-black-dark"><%= a.review.chef_rating %>/5.0</span>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+  <% else %>
     <h5 class="text-black-light text-italic">No available reviews</h5>
+  <% end %>
 </div>
