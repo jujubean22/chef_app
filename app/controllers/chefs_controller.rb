@@ -4,17 +4,17 @@ class ChefsController < ApplicationController
 
   load_and_authorize_resource
 
-def index
-  if current_user == nil || current_user.user_type == "Client" 
-    if params[:chef][:region].present?
-      @chef = Chef.where(region: params[:chef][:region])
-      if @chef.empty?
-        flash[:notice] = "Sorry no results found."
+  def index
+    if current_user == nil || current_user.user_type == "Client" 
+      if params[:chef][:region].present?
+        @chef = Chef.where(region: params[:chef][:region])
+        if @chef.empty?
+          flash[:notice] = "Sorry no results found."
+        end
       end
     end
+    @chefs = User.where.not(user_type: ['Admin' ,'Client'])
   end
-  @chefs = User.where.not(user_type: ['Admin' ,'Client'])
-end
 
   def profile
     @galleries = @chef.galleries.where.not(id: nil)
@@ -37,6 +37,13 @@ end
       flash[:error] = "There are some errors encountered"
       render :edit_chef
     end
+  end
+
+  def confirm_appointment
+    @appointment = Appointment.find(params[:id])
+    @appointment.confirmed_at = Time.now
+    @appointment.save
+    redirect_to chef_appointments_path, notice: 'Successfully confirmed the appointment'
   end
 
   private
