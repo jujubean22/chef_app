@@ -1,12 +1,24 @@
-%h2 
-  Leave a report for this client
-  %br
-  Client's username, 
-  = @client.user.username
+%div{class: "section one"}
+  %div{class: "header-left"}
+    = link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do
+      %i{class: "material-icons left"}arrow_back
+      Back
+  %div{class: "new-form z-depth-3"}
+    %h3{class: "text-white text-bold"} Report Client
 
-= form_with scope: :report, model: [@client, @report] do |f|
-  = f.hidden_field :chef_id, value: current_user.chef.id
-  = f.hidden_field :client_id, value: @client.id
-  = f.label :message
-  = f.text_area :message
-  = f.submit 'Submit the report'
+    = render "devise/shared/error_messages", resource: @report
+    = form_with scope: :report, model: [@client, @report] do |f|
+      %div{class: "field"}
+        = f.label "Client", class: "label"
+        %br
+        %div{class: "disabled-field text-black-light"}= [@client.user.first_name, @client.user.last_name].join(' ')
+
+      = f.hidden_field :chef_id, value: current_user.chef.id
+      = f.hidden_field :client_id, value: @client.id
+
+      %div{class: "field"}
+        = f.label :message, class: "label"
+        = f.text_area :message
+
+      %div{class: "action"}
+      = f.submit "Submit Report", class: "waves-effect waves-light btn-small btn-submit"
