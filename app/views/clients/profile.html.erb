@@ -18,90 +18,151 @@
         </div>
         
         <div id="confirmed" class="tab-content">
+          <% @confirmed = 0 %>
           <% @appointments.each do |a| %>
-            <div class="card appointment">
-              <div class="card-content">
-                <div class="avatar-img hide-on-med-and-down">
-                  <img src="/assets/avatar-3.jpg">
-                </div>
-                <div class="text-container"> 
-                  <span class="card-title text-black-dark text-bold text-italic">
-                    <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
-                  </span>
-                  <p class="text-black-light">
-                  <span class="text-bold">Schedule: </span>
-                    <%= format_schedule(a.schedule) %> 
-                    <%= format_schedule_time(a.appointment_time) %> 
-                  </p>
-                  <p class="text-black-light">
-                  <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>
-                  </p>
-                  <br>
-                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
-                  <p class="text-green text-bold">CONFIRMED</p>
+            <% if a.confirmed_at && Date.today < a.schedule %>
+              <% @confirmed = @confirmed + 1 %>
+              <div class="card appointment">
+                <div class="card-content">
+                  <div class="avatar-img hide-on-med-and-down">
+                    <%= image_tag('chef-2.jpg') %>
+                  </div>
+                  <div class="text-container"> 
+                    <span class="card-title text-black-dark text-bold text-italic">
+                      <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
+                    </span>
+                    <p class="text-black-light">
+                    <span class="text-bold">Schedule: </span>
+                      <%= format_schedule(a.schedule) %> 
+                      <%= format_schedule_time(a.appointment_time) %> 
+                    </p>
+                    <br>
+                    <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
+                    <p class="text-green text-bold">CONFIRMED</p>
 
-                  <% if a.review.nil? %>
-                    <%= link_to "Leave a review", new_appointment_review_path(a.id), class: "text-black text-bold" %> 
-                  <% else %>
-                    <%= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" %> 
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <% unless a.review.nil? %>
+                    <%= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-bold" %> 
                   <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
 
-                </div>
-              </div>
-            </div>
+          <% if @confirmed == 0 %>
+            <h5 class="text-black-light text-italic">Nothing to show here</h5>
           <% end %>
         </div>
+
         <div id="pending" class="tab-content">
+          <% @pending = 0 %>
           <% @appointments.each do |a| %>
-            <div class="card appointment">
-              <div class="card-content">
-                <div class="avatar-img hide-on-med-and-down">
-                  <img src="/assets/avatar-7.jpg">
-                </div>
-                <div class="text-container"> 
-                  <span class="card-title text-black-dark text-bold text-italic">
-                    <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
-                  </span>
-                  <p class="text-black-light">
-                  <span class="text-bold">Schedule: 
-                    <%= format_schedule(a.schedule) %> 
-                    <%= format_schedule_time(a.appointment_time) %> 
-                  </p>
-                  <p class="text-black-light">
-                  <span class="text-bold">Confirmed Date: </span><%= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"%>
-                  </p>
-                  <br>
-                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
-                  <p class="text-yellow-dark text-bold">PENDING</p>
+            <% unless a.confirmed_at %>
+              <% @pending = @pending + 1 %>
+              <div class="card appointment">
+                <div class="card-content">
+                  <div class="avatar-img hide-on-med-and-down">
+                    <%= image_tag('chef-2.jpg') %>
+                  </div>
+                  <div class="text-container"> 
+                    <span class="card-title text-black-dark text-bold text-italic">
+                      <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
+                    </span>
+                    <p class="text-black-light">
+                    <span class="text-bold">Schedule: </span>
+                    <%= format_schedule(a.schedule) %>
+                    <%= format_schedule_time(a.appointment_time) %>
+                    </p>
+                    <br>
+                    <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
+                    <p class="text-yellow-darker text-bold">PENDING</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
+          <% end %>
+          
+          <% if @pending == 0 %>
+            <h5 class="text-black-light text-italic">Nothing to show here</h5>
           <% end %>
         </div>
+
         <div id="rejected" class="tab-content">
-          <% (1..2).each do |n| %>
-            <div class="card appointment">
-              <div class="card-content">
-                <div class="avatar-img hide-on-med-and-down">
-                  <img src="/assets/avatar-5.jpg">
-                </div>
-                <div class="text-container"> 
-                  <span class="card-title text-black-dark text-bold text-italic">
-                    Chef Gordon Ramsay
-                  </span>
-                  <p class="text-black-light">
-                  <span class="text-bold">Date: </span>Dec 24, 2026 (6:00PM)
-                  </p>
-                  <br>
-                  <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(n * 10000) %></p>
-                  <p class="text-red text-bold">REJECTED</p>
+          <% @rejected = 0 %>
+          <% @appointments.each do |a| %>
+            <% unless a.confirmed_at || Date.today < a.schedule %>
+              <% @rejected = @rejected + 1 %>
+              <div class="card appointment">
+                <div class="card-content">
+                  <div class="avatar-img hide-on-med-and-down">
+                    <%= image_tag('chef-1.jpg') %>
+                  </div>
+                  <div class="text-container"> 
+                    <span class="card-title text-black-dark text-bold text-italic">
+                      <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
+                    </span>
+                    <p class="text-black-light">
+                    <span class="text-bold">Schedule: </span>
+                    <%= format_schedule(a.schedule) %>
+                    <%= format_schedule_time(a.appointment_time) %>
+                    </p>
+                    <br>
+                    <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
+                    <p class="text-red text-bold">REJECTED</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
+          
+          <% if @rejected == 0 %>
+            <h5 class="text-black-light text-italic">Nothing to show here</h5>
+          <% end %>
+          
         </div>
         <div id="torate" class="tab-content">
-          <h5 class="text-black-light text-italic">Nothing to show here</h5>
+          <% @to_rate = 0 %>
+          <% @appointments.each do |a| %>
+            <% if a.confirmed_at && Date.today > a.schedule %>
+              <% @to_rate = @to_rate + 1 %>
+              <div class="card appointment">
+                <div class="card-content">
+                  <div class="avatar-img hide-on-med-and-down">
+                    <%= image_tag('chef-2.jpg') %>
+                  </div>
+                  <div class="text-container"> 
+                    <span class="card-title text-black-dark text-bold text-italic">
+                      <%= "#{a.chef.user.first_name} #{a.chef.user.last_name}" %>
+                    </span>
+                    <p class="text-black-light">
+                    <span class="text-bold">Schedule: </span>
+                      <%= format_schedule(a.schedule) %> 
+                      <%= format_schedule_time(a.appointment_time) %> 
+                    </p>
+                    <br>
+                    <p class="text-black-light"><span class="text-bold">Total: </span><%= convert_to_money(a.total_charge) %></p>
+                    <p class="text-green text-bold">CONFIRMED</p>
+
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <% if a.review.nil? %>
+                    <%= link_to "Leave a review", new_appointment_review_path(a.id), class: "text-bold" %> 
+                  <% else %>
+                    <%= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-bold" %> 
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @to_rate == 0 %>
+            <h5 class="text-black-light text-italic">Nothing to show here</h5>
+          <% end %>
         </div>
       </div>
     </div>

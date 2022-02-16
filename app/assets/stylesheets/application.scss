@@ -20,6 +20,8 @@
 @import "./objects/variables";
 @import "./objects/responsive.scss";
 @import "materialize";
+// Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 // HTML Elements
 
@@ -102,6 +104,10 @@ p {
   border-radius: 50%;
   display: inline-block;
   margin: 4px 3px;
+}
+
+.section {
+  height: 93vh;
 }
 
 // Text Color
@@ -649,6 +655,22 @@ p {
         padding: 0;
         height: 0;
       }
+
+      .footer-devs {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 800px;
+        
+        .dot {
+          display: none;
+        }
+
+        .dev-name {
+          margin: 0 20px;
+        }
+      }
+      
     }
   }
 }

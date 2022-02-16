@@ -1,3 +1,58 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+///////////////////////////////////
+///// Imports
+///////////////////////////////////
+@import "./objects/variables";
+
+///////////////////////////////////
+///// Admin: User
+///////////////////////////////////
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  margin: 0 auto;
+
+  h1 {
+    color: $cuisinero-yellow-darker;
+    font-family: $roboto;
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+  th {
+    padding-top: 12px;
+    padding: 12px;
+    text-align: center;
+    background-color: $cuisinero-yellow-darker;
+    color: $cuisinero-white;
+    border-right: 1px solid #fff;
+  }
+
+  tr {
+
+    &:nth-child(even) {
+      background-color: #F5F6FA;
+    }
+  }
+}
+
+.appointments {
+  max-width: 900px
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 80rem;
+  border: 2px solid #F4F5F7;
+  padding: 50px;
+  height: 40vh;
+}
+

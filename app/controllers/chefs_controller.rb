@@ -21,6 +21,7 @@ class ChefsController < ApplicationController
     @gallery = @chef.galleries.build
     @services = @chef.services.where.not(id: nil)
     @service = @chef.services.build
+    @appointments = Appointment.where(chef_id: @chef.id)
   end
   
   def appointments

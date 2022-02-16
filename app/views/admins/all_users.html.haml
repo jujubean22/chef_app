@@ -1,37 +1,40 @@
-%h1{class:'text-3xl'} Users List
-%table{:class => "w-full py-22 table text-gray-900 text-sm"}
-  %thead{:class => "bg-gray-50 text-gray-500"}
-    %tr
-      %th{:class => "p-3 center"} Email
-      %th{:class => "p-3 center"} Type
-      %th{:class => "p-3 center"} Username
-      %th{:class => "p-3 center"} First Name
-      %th{:class => "p-3 center"} Last Name
-      %th{:class => "p-3 center"} Region
-      %th{:class => "p-3 center"} City
-      %th{:class => "p-3 center"} Contact Number
-  %tbody
-    - @users.each do |user|
-      %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-        %td{:class => "p-3 text-xl font-bold"}= user.email
-        %td{:class => "p-3"}= user.user_type
-        %td{:class => "p-3"}= user.username
-        %td{:class => "p-3"}= user.first_name
-        %td{:class => "p-3"}= user.last_name
-        - if user.user_type == 'Client'
-          %td{:class => "p-3"}= user.client.region
-          %td{:class => "p-3"}= user.client.city
-          %td{:class => "p-3 center"}= user.client.contact_number
-        - elsif user.user_type == 'Chef'
-          %td{:class => "p-3"}= user.chef.region
-          %td{:class => "p-3"}= user.chef.city
-          %td{:class => "p-3"}= user.chef.contact_number
-        -# %td{:class => "p-3"}
-        -#   - if user.wallet
-        -#     = user.wallet.balance
-        -# %td{:class => 'font-bold text-blue-500'}
-        -#   = link_to user_profile_path(user.id) do
-        -#     SHOW
-        -# %td{:class => 'font-bold text-blue-500'}
-        -#   = link_to edit_user_profile_path(user.id) do
-        -#     EDIT
+%link(rel="stylesheet" type="text/css" href="users.scss");
+
+.form
+  %h1{class:'text-3xl'} Users List
+  %table{:class => "w-full py-22 table text-gray-900 text-sm"}
+    %thead{:class => "bg-gray-50 text-gray-500"}
+      %tr
+        %th{:class => "p-3 center"} Email
+        %th{:class => "p-3 center"} Type
+        %th{:class => "p-3 center"} Username
+        %th{:class => "p-3 center"} First Name
+        %th{:class => "p-3 center"} Last Name
+        %th{:class => "p-3 center"} Region
+        %th{:class => "p-3 center"} City
+        %th{:class => "p-3 center"} Contact Number
+    %tbody
+      - @users.each do |user|
+        %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
+          %td{:class => "p-3 center"}= user.email
+          %td{:class => "p-3 center"}= user.user_type
+          %td{:class => "p-3 center"}= user.username
+          %td{:class => "p-3 center"}= user.first_name
+          %td{:class => "p-3 center"}= user.last_name
+          - if user.user_type == 'Client'
+            %td{:class => "p-3 center"}= user.client.region
+            %td{:class => "p-3 center"}= user.client.city
+            %td{:class => "p-3 center"}= user.client.contact_number
+          - elsif user.user_type == 'Chef'
+            %td{:class => "p-3 center"}= user.chef.region
+            %td{:class => "p-3 center"}= user.chef.city
+            %td{:class => "p-3 center"}= user.chef.contact_number
+          -# %td{:class => "p-3"}
+          -#   - if user.wallet
+          -#     = user.wallet.balance
+          -# %td{:class => 'font-bold text-blue-500'}
+          -#   = link_to user_profile_path(user.id) do
+          -#     SHOW
+          -# %td{:class => 'font-bold text-blue-500'}
+          -#   = link_to edit_user_profile_path(user.id) do
+          -#     EDIT

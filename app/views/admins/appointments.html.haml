@@ -1,18 +1,10 @@
-%h1{class:'text-3xl'} Appointments List
+%link(rel="stylesheet" type="text/css" href="users.scss");
 
-%table
-  %thead
-    %tr
-      %th Chef
-      %th Client
-      %th Created At
-      %th Schedule
-      %th Total Charge
-      %th Confirmed At?
-      %th Payment Released At
-      %th Action
-  %tbody
-    - @appointments.each do |a|
+
+.form.appointments
+  %h1{class:'text-3xl'} Appointments List
+  %table
+    %thead
       %tr
         %td= link_to "#{a.chef.user.first_name} #{a.chef.user.last_name}", chef_profile_path(a.chef.id)
         %td= link_to "#{a.request.client.user.first_name} #{a.request.client.user.last_name}", client_profile_path(a.request.client.id)

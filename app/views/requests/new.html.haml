@@ -4,11 +4,11 @@
       %i{class: "material-icons left"}arrow_back
       Back
   %div{class: "details-form z-depth-3"}
-    %h4{class: "text-white text-bold"} Account Balance
-    %h5{class: "text-white"}= convert_to_money(@balance)
+    %h3{class: "text-white text-bold"} Account Balance
+    %h4{class: "text-white"}= convert_to_money(@balance)
   
   %div{class: "new-form z-depth-3"}
-    %h4{class: "text-black-dark text-bold"} Request Form
+    %h3{class: "text-black-dark text-bold"} Request Form
     %br
     = form_with scope: :request, model: [@request.client, @request] do |f|
       %div{class: "field"}
@@ -41,13 +41,3 @@
 
       %div{class: "action"}
         = f.submit 'Send Request', onclick: "return confirm('Confirm your request, head count: ' + document.getElementById('head_count_id').value + '?' )", class: "waves-effect waves-light btn-small btn-submit"
-
-
--# :javascript
--#   $(document).ready(function(){
--#     $('.datepicker').datepicker();
--#   });
-
--#   $(document).ready(function(){
--#     $('.timepicker').timepicker();
--#   });
