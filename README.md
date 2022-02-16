@@ -1,5 +1,7 @@
 # Cuisinero (*Chef Booking App*)
 
+![logo](https://github.com/jujubean22/chef_app/blob/main/app/assets/images/logo/logo.png?raw=true )
+
 A platform especially made for chefs who seek to promote their own culinary services and earn additional income
 
 ### What problem are we trying to address?
