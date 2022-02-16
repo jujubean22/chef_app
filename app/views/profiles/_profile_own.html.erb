@@ -11,18 +11,9 @@
             <i class="material-icons left">location_on</i> <%= [current_user.chef.city, current_user.chef.region].join(', ') %>
           </p>
           <p class="card-details text-black-light"><i class="material-icons left">phone</i> <%= current_user.chef.contact_number %></p>
-          <% @total_rating = 0 %>
-          <% @review_count = 0 %>
-          <% @appointments.each do |a| %>
-            <% unless a.review.nil? %>
-              <% @total_rating = @total_rating + a.review.chef_rating %>
-              <% @review_count = @review_count + 1%>
-            <% end %>
-          <% end %>
 
           <div class="rating-container text-yellow-dark">
-            <% if @review_count > 0 %>
-            <% @rating = (@total_rating/@review_count).round(0) %>
+            <% if @rating %>
               <% case @rating %>
               <% when 0 %>
                 <i class="material-icons">star_border</i>

@@ -16,7 +16,7 @@
             %span{class: "text-yellow-darker right"}
               - @appointments = Appointment.where(chef_id: c.id)
               - @total_rating = 0
-              - @review_count = 0
+              - @review_count = 0.99
 
               - unless @appointments.empty?
                 - @appointments.each do |a|
@@ -24,7 +24,9 @@
                     - @total_rating = @total_rating + a.review.chef_rating
                     - @review_count = @review_count + 1
 
-              - if @review_count > 0
+              - @total_rating = @total_rating + c.rating
+
+              - if @review_count > 1
                 - @rating = (@total_rating/@review_count).round(0)
                 - case @rating
                 - when 1
