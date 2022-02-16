@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
     get '/chef/:id', to: 'chefs#profile', as: :chef_profile
     get '/chef/:id/appointments', to: 'chefs#appointments', as: :chef_appointments
+    get '/chef/:id/appointments/:id', to: 'chefs#notes_to_chef', as: :notes_to_chef
     get '/chef', to: 'chefs#index', as: :chef_root
     put '/chef/:id', to: 'chefs#update_chef'
     patch '/chef/:id', to: 'chefs#update_chef'
