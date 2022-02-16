@@ -33,7 +33,7 @@
 
 .label {
   color: $cuisinero-black-dark !important;
-  font-size: calc(10px + 0.5vw) !important;
+  font-size: calc(10px + 0.5vw);
   text-transform: uppercase;
   font-weight: 800 !important;
   letter-spacing: 3px !important;
@@ -266,13 +266,28 @@ input[type=number] {
     margin-top: 110px;
   }
 
-  .login-field {
+  .submit-form {
+    background-color: $cuisinero-white-med;
+    width: 100%;
+    max-width: 330px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 110px;
+    overflow: auto;
+  }
+
+  .login-field,
+  .submit-field {
     width: 100%;
     max-width: 200px;
   }
 
+  .actions {
+    text-align: center;
+  }
+
   #user_email {
-    background-color: red;
     font-size: 20px;
   }
 
@@ -285,9 +300,40 @@ input[type=number] {
       height: 600px;
     }
 
-    .login-field {
+    .login-field,
+    .submit-field {
       max-width: 300px;
       margin-bottom: 40px;
+    }
+
+    .submit-form {
+      max-width: 400px;
+      height: 600px;
+    }
+  }
+
+  @include respond-to('large') {
+    .submit-form {
+      max-width: 900px;
+      height: 700px;
+      overflow: hidden;
+
+      form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+
+      .submit-dropdown {
+        width: 100%;
+        max-width: 700px;
+        height: 66px;
+        margin: 0 auto;
+      }
+
+      .label {
+        font-size: 1rem;
+      }
     }
   }
 
