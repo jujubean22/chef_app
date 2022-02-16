@@ -36,9 +36,13 @@ end
     end
 
     @total_rating = @total_rating + @chef.rating
+<<<<<<< Updated upstream
     rating = (@total_rating/@review_count).round(0)
 
     @recipe = Recipe::Client.random
+=======
+    @rating = (@total_rating/@review_count).round(0)
+>>>>>>> Stashed changes
   end
   
   def appointments

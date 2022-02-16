@@ -1,7 +1,11 @@
 %link(rel="stylesheet" type="text/css" href="users.scss");
 
 
+
 .form.appointments
+  %h1{class:'text-3xl'} 
+    Admin Balance: 
+    = @admin_wallet.current_balance
   %h1{class:'text-3xl'} Appointments List
   %table
     %thead
@@ -9,12 +13,11 @@
         %th Chef
         %th Client
         %th Created At
-        %th Notes to Chef
         %th Schedule
         %th Total Charge
         %th Confirmed At
-        %th Confirm?
         %th Payment Released At
+        %th Release Payment?
         %th Action
     %thead
       - @appointments.each do |a|
@@ -30,5 +33,14 @@
               No schedule yet
           %td= convert_to_money(a.total_charge)
           %td= a.confirmed_at ? format_date(a.confirmed_at) : "Not confirmed"
-          %td= a.payment_released_at ? format_date(a.payment_released_at) : "No payment yet"
+          %td
+            - if a.payment_released_at 
+              = format_date(a.payment_released_at)
+            - else
+              Payment not released yet.
+          %td
+            - if a.payment_released_at
+              Payment has been released to the chef!
+            - else
+              = link_to 'Release Payment?', release_payment_path(a.id), class: "", data: {confirm:"Are you sure?"}
           %td= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" if a.review
