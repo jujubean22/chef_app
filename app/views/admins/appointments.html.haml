@@ -5,7 +5,7 @@
 .form.appointments
   %h1{class:'text-3xl'} 
     Admin Balance: 
-    = @admin_wallet.current_balance
+    = convert_to_money(@admin_wallet.current_balance)
   %h1{class:'text-3xl'} Appointments List
   %table
     %thead
