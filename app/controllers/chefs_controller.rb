@@ -37,6 +37,8 @@ end
 
     @total_rating = @total_rating + @chef.rating
     rating = (@total_rating/@review_count).round(0)
+
+    @recipe = Recipe::Client.random
   end
   
   def appointments

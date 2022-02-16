@@ -75,7 +75,7 @@
               %br
               %br
 
-              - unless c.bio.nil?
+              - unless c.bio.nil? || c.bio == ''
                 %p{class: "text-black-dark text-italic"}
                   = '"' + c.bio + '"'
                 %br

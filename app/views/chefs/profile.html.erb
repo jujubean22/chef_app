@@ -208,3 +208,21 @@
     <h5 class="text-black-light text-italic">No available reviews</h5>
   <% end %>
 </div>
+
+<% if current_user.user_type == 'Chef' && @chef.id == current_user.chef.id %>
+  <div class="section one">
+    <h3 class="text-black-dark text-bold">Meal Ideas</h3>
+    <div class="card">
+        <div class="card-image">
+          <%= image_tag(@recipe[:data]["meals"][0]["strMealThumb"]) %>
+          <span class="card-title"><%= @recipe[:data]["meals"][0]["strMeal"] %></span>
+        </div>
+        <div class="card-content">
+          <p>I am <%= @recipe[:data]["meals"][0]["strMeal"] %>, a simple yet scrumptious meal. I am good for fine-dining experience at home. Want to know more? Click the link below!</p>
+        </div>
+        <div class="card-action">
+          <a href="<%= @recipe[:data]["meals"][0]["strSource"] %>">Click me to know more</a>
+        </div>
+      </div>
+  </div>
+<% end %>

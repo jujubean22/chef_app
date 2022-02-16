@@ -54,4 +54,9 @@ Rails.application.routes.draw do
 
   get '/page-not-found', action: :error_page, controller: 'home'
   # get '*path', to: 'home#error_page'
+  
+
+  scope module: 'api', path: 'food', as: 'food' do
+    get '/recipe/random', to: 'recipes#random'
+  end
 end
