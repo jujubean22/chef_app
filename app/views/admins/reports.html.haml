@@ -11,6 +11,6 @@
     %tbody
       - @reports.each do |report|
         %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-          %td{:class => "p-3 center"}= report.chef.user.username
-          %td{:class => "p-3 center"}= report.client.user.username
+          %td{:class => "p-3 center"}= link_to "#{report.chef.user.username}", chef_profile_path(report.chef.id)
+          %td{:class => "p-3 center"}= link_to "#{report.client.user.username}", client_profile_path(report.client.id)
           %td{:class => "p-3 center"}= report.message
