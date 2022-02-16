@@ -29,8 +29,8 @@ gem 'hamlit-rails'
 gem 'cities'
 gem 'ransack'
 gem 'city-state'
-
 gem 'materialize-sass'
+gem 'rest-client'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
