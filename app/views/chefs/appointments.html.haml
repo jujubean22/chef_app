@@ -1,52 +1,54 @@
-%h1 Chef Appointments
+%link(rel="stylesheet" type="text/css" href="users.scss");
 
-%table
-  %thead
-    %tr
-      %th Chef
-      %th Client
-      %th Created At
-      %th Notes to Chef
-      %th Schedule
-      %th Total Charge
-      %th Confirmed At
-      %th Confirm?
-      %th Payment Released At
-      %th Review
-  %tbody
-    - @appointments.each do |a|
+.form.appointments
+  %h1 Chef Appointments
+  %table
+    %thead
       %tr
-        %td= "#{a.chef.user.first_name} #{a.chef.user.last_name}"
-        %td= link_to "#{a.request.client.user.first_name} #{a.request.client.user.last_name}", client_profile_path(a.request.client.id)
-        %td= format_date(a.created_at)
-        %td
-          - if a.request.notes_to_chef.length > 50
-            = a.request.notes_to_chef.truncate(50)
-            = link_to '...Read more', notes_to_chef_path(@chef.id, a.id), class: ""
-          - else
-            = a.request.notes_to_chef
-        %td
-          - if a.schedule 
-            = format_schedule(a.schedule)
-            = format_schedule_time(a.appointment_time)
-          - else
-            No schedule yet
-        %td= convert_to_money(a.total_charge)
-        %td
-          - if a.confirmed_at 
-            = format_date(a.confirmed_at)
-          - else
-            Not confirmed
-        %td
-          - if a.confirmed_at
-            confirmed!
-          - else
-            = link_to 'Confirm?', confirm_appointment_path(current_user.chef.id, a.id), class: "", data: {confirm:"Are you sure?"}
-        %td= a.payment_released_at ? format_date(a.payment_released_at) : "No payment yet"
-        %td
-          - if a.review
-            = link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" 
-          - else
-            No Review yet.
+        %th Chef
+        %th Client
+        %th Created At
+        %th Notes to Chef
+        %th Schedule
+        %th Total Charge
+        %th Confirmed At
+        %th Confirm?
+        %th Payment Released At
+        %th Review
+    %tbody
+      - @appointments.each do |a|
+        %tr
+          %td= "#{a.chef.user.first_name} #{a.chef.user.last_name}"
+          %td= link_to "#{a.request.client.user.first_name} #{a.request.client.user.last_name}", client_profile_path(a.request.client.id)
+          %td= format_date(a.created_at)
+          %td
+            - if a.request.notes_to_chef.length > 50
+              = a.request.notes_to_chef.truncate(50)
+              = link_to '...Read more', notes_to_chef_path(@chef.id, a.id), class: ""
+            - else
+              = a.request.notes_to_chef
+          %td
+            - if a.schedule 
+              = format_schedule(a.schedule)
+              = format_schedule_time(a.appointment_time)
+            - else
+              No schedule yet
+          %td= convert_to_money(a.total_charge)
+          %td
+            - if a.confirmed_at 
+              = format_date(a.confirmed_at)
+            - else
+              Not confirmed
+          %td
+            - if a.confirmed_at
+              confirmed!
+            - else
+              = link_to 'Confirm?', confirm_appointment_path(current_user.chef.id, a.id), class: "", data: {confirm:"Are you sure?"}
+          %td= a.payment_released_at ? format_date(a.payment_released_at) : "No payment yet"
+          %td
+            - if a.review
+              = link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" 
+            - else
+              No Review yet.
 
 

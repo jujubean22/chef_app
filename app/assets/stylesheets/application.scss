@@ -61,12 +61,6 @@ select {
   }
 }
 
-.notice,
-.alert {
-  position: relative;
-  top: 4rem;
-}
-
 h3 {
   margin-bottom: 15px;
   text-align: center;
@@ -97,6 +91,10 @@ p {
   color: $cuisinero-black-light;
 }
 
+
+///////////////////////////////////
+///// General Classes
+///////////////////////////////////
 .dot {
   height: 4px;
   width: 4px;
@@ -109,6 +107,7 @@ p {
 .section {
   height: 93vh;
 }
+
 
 // Text Color
 .text-white {
@@ -238,6 +237,19 @@ p {
     background-color: $cuisinero-red;
     transition: background-color 0.2s ease-out;
   }
+}
+
+// Review Container
+
+.review-container {
+  width: calc(20px + 50vw);
+}
+
+// Card Name
+
+.card-name {
+  font-size: 1.25rem;
+  text-transform: uppercase;
 }
 
 ///////////////////////////////////

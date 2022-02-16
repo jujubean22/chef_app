@@ -5,17 +5,18 @@ class ChefsController < ApplicationController
 
   load_and_authorize_resource
 
-  def index
-    if current_user == nil || current_user.user_type == "Client" 
-      if params[:chef][:region].present?
-        @chef = Chef.where(region: params[:chef][:region])
-        if @chef.empty?
-          flash[:notice] = "Sorry no results found."
-        end
-      end
+def index
+  if current_user == nil || current_user.user_type == "Client" 
+    if params[:chef][:region].present?
+      @chef = Chef.where(region: params[:chef][:region])
+      # if @chef.empty?
+      #   flash[:notice] = "Sorry no results found."
+      # end
     end
-    @chefs = User.where.not(user_type: ['Admin' ,'Client'])
   end
+  # @chefs = User.where.not(user_type: ['Admin' ,'Client'])
+  @all_chefs = Chef.all
+end
 
   def profile
     @galleries = @chef.galleries.where.not(id: nil)

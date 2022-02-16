@@ -9,7 +9,8 @@ class ClientsController < ApplicationController
   end
 
   def all_chefs
-    @chefs = User.where.not(user_type: ['Admin' ,'Client'])
+    # @chefs = User.where.not(user_type: ['Admin' ,'Client'])
+    @chefs = Chef.all
   end
 
   def profile

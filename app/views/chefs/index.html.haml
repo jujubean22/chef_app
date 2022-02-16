@@ -1,51 +1,171 @@
--if current_user == nil || current_user.user_type == "Client"
-  %h1{class:'text-3xl'} Chef's Search List
-  %table{:class => "w-full py-22 table text-gray-900 text-sm"}
-    %thead{:class => "bg-gray-50 text-gray-500"}
-      %tr
-        %th{:class => "p-3 center"} Email
-        %th{:class => "p-3 center"} Username
-        %th{:class => "p-3 center"} First Name
-        %th{:class => "p-3 center"} Last Name
-        %th{:class => "p-3 center"} Region
-        %th{:class => "p-3 center"} City
-        %th{:class => "p-3 center"} Contact Number
-        %th{:class => "p-3 center"} Action
+%div{class: "section one"}
 
-    %tbody
-      - @chef.each do |chef|
-        %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-          %td{:class => "p-3 center"}= chef.user.email
-          %td{:class => "p-3 center"}= chef.user.username
-          %td{:class => "p-3 center"}= chef.user.first_name
-          %td{:class => "p-3 center"}= chef.user.last_name
-          %td{:class => "p-3 center"}= chef.region
-          %td{:class => "p-3 center"}= chef.city
-          %td{:class => "p-3 center"}= chef.contact_number
-          %td{:class => "p-3 center"}= link_to 'Show Chef', chef_profile_path(chef.id)
--else
-  %h1{class:'text-3xl'} ALL CHEFS!
-  %table{:class => "w-full py-22 table text-gray-900 text-sm"}
-    %thead{:class => "bg-gray-50 text-gray-500"}
-      %tr
-        %th{:class => "p-3 center"} Email
-        %th{:class => "p-3 center"} Type
-        %th{:class => "p-3 center"} Username
-        %th{:class => "p-3 center"} First Name
-        %th{:class => "p-3 center"} Last Name
-        %th{:class => "p-3 center"} Region
-        %th{:class => "p-3 center"} City
-        %th{:class => "p-3 center"} Contact Number
-        %th{:class => "p-3 center"} Action
-    %tbody
-      - @chefs.each do |chef|
-        %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-          %td{:class => "p-3 center"}= chef.email
-          %td{:class => "p-3 center"}= chef.user_type
-          %td{:class => "p-3 center"}= chef.username
-          %td{:class => "p-3 center"}= chef.first_name
-          %td{:class => "p-3 center"}= chef.last_name
-          %td{:class => "p-3 center"}= chef.chef.region
-          %td{:class => "p-3 center"}= chef.chef.city
-          %td{:class => "p-3 center"}= chef.chef.contact_number
-          %td{:class => "p-3 center"}= link_to 'Show Chef', chef_profile_path(chef.chef.id)
+  - if current_user == nil || current_user.user_type == "Client"
+    %div{class: "header-left"}
+      = link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do
+        %i{class: "material-icons left"}arrow_back
+        Back
+
+    %h3{class: "text-black-dark text-bold"} Search Results
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+    - unless @chef.nil? || @chef.empty?
+      - @chef.each do |c|
+        %div{class: "review-container"}
+          %div{class: "card"}
+            %div{class: "card-content"}
+              %span{class: "card-name text-black-dark text-bold left"}
+                = "Chef " + [c.user.first_name, c.user.last_name].join(' ')
+              %span{class: "text-yellow-darker right"}
+                - @appointments = Appointment.where(chef_id: c.id)
+                - @total_rating = 0
+                - @review_count = 0
+
+                - unless @appointments.empty?
+                  - @appointments.each do |a|
+                    - unless a.review.nil?
+                      - @total_rating = @total_rating + a.review.chef_rating
+                      - @review_count = @review_count + 1
+                
+                - if @review_count > 0
+                  - @rating = (@total_rating/@review_count).round(0)
+                  - case @rating
+                  - when 1
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 2
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 3
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 4
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                  - when 5
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+
+                - else
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+
+              %br
+              %br
+
+              - unless c.bio.nil?
+                %p{class: "text-black-dark text-italic"}
+                  = '"' + c.bio + '"'
+                %br
+
+              %div{class: "card-action"}
+                %span{class: "text-black-dark text-italic"}
+                  %i{class: "material-icons left"}my_location
+                  = [c.city, c.region].join(', ')
+                = link_to "Visit Profile", chef_profile_path(c.id), class: "waves-effect waves-light btn-small btn-submit right"
+                %br
+    - else
+      %h5{class: "text-black-light text-italic"} Sorry! No chefs available in the desired region :(
+  - else
+    %h3{class: "text-black-dark text-bold"} Browse All Chefs
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+    - unless @all_chefs.nil? || @all_chefs.empty?
+      - @all_chefs.each do |c|
+        %div{class: "review-container"}
+          %div{class: "card"}
+            %div{class: "card-content"}
+              %span{class: "card-name text-black-dark text-bold left"}
+                = "Chef " + [c.user.first_name, c.user.last_name].join(' ')
+              %span{class: "text-yellow-darker right"}
+                - @appointments = Appointment.where(chef_id: c.id)
+                - @total_rating = 0
+                - @review_count = 0
+
+                - unless @appointments.empty?
+                  - @appointments.each do |a|
+                    - unless a.review.nil?
+                      - @total_rating = @total_rating + a.review.chef_rating
+                      - @review_count = @review_count + 1
+                
+                - if @review_count > 0
+                  - @rating = (@total_rating/@review_count).round(0)
+                  - case @rating
+                  - when 1
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 2
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 3
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                    %i{class: "material-icons left"}star_border
+                  - when 4
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star_border
+                  - when 5
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+                    %i{class: "material-icons left"}star
+
+                - else
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+                  %i{class: "material-icons left"}star_border
+
+              %br
+              %br
+
+              - unless c.bio.nil?
+                %p{class: "text-black-dark text-italic"}
+                  = '"' + c.bio + '"'
+                %br
+
+              %div{class: "card-action"}
+                %span{class: "text-black-dark text-italic"}
+                  %i{class: "material-icons left"}my_location
+                  = [c.city, c.region].join(', ')
+                = link_to "Visit Profile", chef_profile_path(c.id), class: "waves-effect waves-light btn-small btn-submit right"
+                %br
