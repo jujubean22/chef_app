@@ -130,7 +130,7 @@ form {
   justify-content: center;
   align-items: center;
   font-family: $lato !important;
-  height: auto !important;
+  height: auto;
   padding: calc(2px + 2vw) calc(10px + 2vw);
 
   .waves-button-input {
