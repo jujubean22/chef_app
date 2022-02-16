@@ -126,7 +126,7 @@
         <div id="torate" class="tab-content">
           <% @to_rate = 0 %>
           <% @appointments.each do |a| %>
-            <% if a.confirmed_at && Date.today > a.schedule %>
+            <% if a.review.nil? %>
               <% @to_rate = @to_rate + 1 %>
               <div class="card appointment">
                 <div class="card-content">

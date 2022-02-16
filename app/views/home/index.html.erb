@@ -1,6 +1,18 @@
 <%= stylesheet_link_tag '' %>
 
+
+
 <div id='homepage'>
+  <% if user_signed_in? && current_user.user_type == "Chef" %>
+    <% if current_user.chef.suspended_at %>
+      <h1> You are currently suspended at the website, please contact the support/admin </h1>
+    <% end %>
+  <% elsif user_signed_in? && current_user.user_type == "Client"%>
+    <% if current_user.client.suspended_at %>
+      <h1> You are currently suspended at the website, please contact the support/admin </h1>
+    <% end %>
+  <% end %>
+  
   <div class='container-1'>
     <%# Cards with image %>
     <div class='banner'>

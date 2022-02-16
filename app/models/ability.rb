@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
 
     user ||= User.new
-    if user.client?
+    if user.client? && !user.client.suspended_at?
       #can :manage, Client, user_id: user.id
       can :manage, Client
       can :manage, Chef
@@ -16,7 +16,7 @@ class Ability
       # can [:read, :update], Client, {:user_id => user.id}
       # can :manage, []
       # cannot :update, Wallet
-    elsif user.chef?
+    elsif user.chef? && !user.chef.suspended_at?
       #can :manage, Chef, user_id: user.id
       can :manage, Chef
       can :manage, Client

@@ -41,6 +41,21 @@ class AdminsController < ApplicationController
     end
   end
 
+  def suspend_chef
+    @user = User.find(params[:id])
+    @user_chef = Chef.find_by(id: params[:chef_id])
+    @user_chef.suspended_at = Time.now
+    @user_chef.save
+    redirect_to all_users_path, notice: "Successfully suspended the user"
+  end
+
+  def unsuspend_chef
+    # @user_chef = Chef.find_by(id: params[:chef_id])
+    # @user_chef.chef.suspended_at = nil
+    # @user_chef.chef.save
+    # redirect_to all_users_path, notice: "Successfully unsuspended the user"
+  end
+
   def transactions
     @appointments = Appointment.all
   end

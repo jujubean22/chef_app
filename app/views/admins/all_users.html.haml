@@ -13,6 +13,8 @@
         %th{:class => "p-3 center"} Region
         %th{:class => "p-3 center"} City
         %th{:class => "p-3 center"} Contact Number
+        %th{:class => "p-3 center"} Date Latest Suspended
+        %th{:class => "p-3 center"} Action
     %tbody
       - @users.each do |user|
         %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
@@ -29,16 +31,28 @@
             %td{:class => "p-3 center"}= user.client.region
             %td{:class => "p-3 center"}= user.client.city
             %td{:class => "p-3 center"}= user.client.contact_number
+            %td{:class => "p-3 center"}
+              - if user.client.suspended_at
+                = format_date(user.client.suspended_at)
+              - else
+                This user is fine.
+            %td{:class => "p-3 center"}
+              - if user.client.suspended_at
+                = link_to 'Unsuspend?', unsuspend_client_path(user.client.id), class: "", data: {confirm:"Unsuspend this user?"}
+              - else
+                = link_to 'Suspend?', suspend_client_path(user.client.id), class: "", data: {confirm:"Suspend this user?"}
+
           - elsif user.user_type == 'Chef'
             %td{:class => "p-3 center"}= user.chef.region
             %td{:class => "p-3 center"}= user.chef.city
             %td{:class => "p-3 center"}= user.chef.contact_number
-          -# %td{:class => "p-3"}
-          -#   - if user.wallet
-          -#     = user.wallet.balance
-          -# %td{:class => 'font-bold text-blue-500'}
-          -#   = link_to user_profile_path(user.id) do
-          -#     SHOW
-          -# %td{:class => 'font-bold text-blue-500'}
-          -#   = link_to edit_user_profile_path(user.id) do
-          -#     EDIT
+            %td{:class => "p-3 center"}
+              - if user.chef.suspended_at
+                = format_date(user.chef.suspended_at)
+              - else
+                This user is fine.
+            %td{:class => "p-3 center"}
+              - if user.chef.suspended_at
+                = link_to 'Unsuspend?', unsuspend_chef_path(user.id), class: "", data: {confirm:"Unsuspend this user?"}
+              - else
+                = link_to 'Suspend?', suspend_chef_path(user.id), class: "", data: {confirm:"Suspend this user?"}

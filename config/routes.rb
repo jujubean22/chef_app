@@ -51,6 +51,10 @@ Rails.application.routes.draw do
     get '/admins/transactions', to: 'admins#transactions'
     get '/admins/wallet', to: 'admins#admin_wallet'
     get '/admins/appointments/:id/release', to: 'admins#release_payment', as: :release_payment
+    get '/admins/users/:id/suspend_chef', to: 'admins#suspend_chef', as: :suspend_chef
+    get '/admins/users/:id/unsuspend_chef', to: 'admins#unsuspend_chef', as: :unsuspend_chef
+    get '/admins/users/:id/suspend_client', to: 'admins#suspend_client', as: :suspend_client
+    get '/admins/users/:id/unsuspend_client', to: 'admins#unsuspend_client', as: :unsuspend_client
   end
 
   get '/page-not-found', action: :error_page, controller: 'home'
