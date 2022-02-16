@@ -1,25 +1,28 @@
-%h1{class:'text-3xl'} ALL CHEFS!
-%table{:class => "w-full py-22 table text-gray-900 text-sm"}
-  %thead{:class => "bg-gray-50 text-gray-500"}
-    %tr
-      %th{:class => "p-3 center"} Email
-      %th{:class => "p-3 center"} Type
-      %th{:class => "p-3 center"} Username
-      %th{:class => "p-3 center"} First Name
-      %th{:class => "p-3 center"} Last Name
-      %th{:class => "p-3 center"} Region
-      %th{:class => "p-3 center"} City
-      %th{:class => "p-3 center"} Contact Number
-      %th{:class => "p-3 center"} Action
-  %tbody
-    - @chefs.each do |chef|
-      %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
-        %td{:class => "p-3 center"}= chef.email
-        %td{:class => "p-3 center"}= chef.user_type
-        %td{:class => "p-3 center"}= chef.username
-        %td{:class => "p-3 center"}= chef.first_name
-        %td{:class => "p-3 center"}= chef.last_name
-        %td{:class => "p-3 center"}= chef.chef.region
-        %td{:class => "p-3 center"}= chef.chef.city
-        %td{:class => "p-3 center"}= chef.chef.contact_number
-        %td{:class => "p-3 center"}= link_to 'Show Chef', chef_profile_path(chef.chef.id)
+%link(rel="stylesheet" type="text/css" href="users.scss");
+
+.form
+  %h1{class:'text-3xl'} ALL CHEFS!
+  %table{:class => "w-full py-22 table text-gray-900 text-sm"}
+    %thead{:class => "bg-gray-50 text-gray-500"}
+      %tr
+        %th{:class => "p-3 center"} Email
+        %th{:class => "p-3 center"} Type
+        %th{:class => "p-3 center"} Username
+        %th{:class => "p-3 center"} First Name
+        %th{:class => "p-3 center"} Last Name
+        %th{:class => "p-3 center"} Region
+        %th{:class => "p-3 center"} City
+        %th{:class => "p-3 center"} Contact Number
+        %th{:class => "p-3 center"} Action
+    %tbody
+      - @chefs.each do |chef|
+        %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
+          %td{:class => "p-3 center"}= chef.email
+          %td{:class => "p-3 center"}= chef.user_type
+          %td{:class => "p-3 center"}= chef.username
+          %td{:class => "p-3 center"}= chef.first_name
+          %td{:class => "p-3 center"}= chef.last_name
+          %td{:class => "p-3 center"}= chef.chef.region
+          %td{:class => "p-3 center"}= chef.chef.city
+          %td{:class => "p-3 center"}= chef.chef.contact_number
+          %td{:class => "p-3 center"}= link_to 'Show Chef', chef_profile_path(chef.chef.id)
