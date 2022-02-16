@@ -10,6 +10,7 @@
   %div{class: "new-form z-depth-3"}
     %h3{class: "text-black-dark text-bold"} Request Form
     %br
+    = render "devise/shared/error_messages", resource: @request
     = form_with scope: :request, model: [@request.client, @request] do |f|
       %div{class: "field"}
         = f.label "Chef", class: "label"
