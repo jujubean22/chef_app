@@ -236,6 +236,19 @@ p {
   }
 }
 
+// Review Container
+
+.review-container {
+  width: calc(20px + 50vw);
+}
+
+// Card Name
+
+.card-name {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
 ///////////////////////////////////
 ///// Banner
 ///////////////////////////////////
