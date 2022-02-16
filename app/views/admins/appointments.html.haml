@@ -42,5 +42,6 @@
             - if a.payment_released_at
               Payment has been released to the chef!
             - else
-              = link_to 'Release Payment?', release_payment_path(a.id), class: "", data: {confirm:"Are you sure?"}
+              - if a.confirmed_at?
+                = link_to 'Release Payment?', release_payment_path(a.id), class: "", data: {confirm:"Are you sure?"}
           %td= link_to "Show the review", appointment_review_path(a.id, a.review.id), class: "text-black text-bold" if a.review
