@@ -1,10 +1,12 @@
-<div class="section one">
+<%= stylesheet_link_tag '/form.scss' %>
+
+<div class="login-container">
   <div class="header-left">
-    <%= link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do %>
+    <%= link_to :back, class: "waves-effect waves-light login-btn" do %>
       <i class="material-icons left">arrow_back</i>Back
     <% end %>
   </div>
-  <div class="edit-form z-depth-3">
+  <div class="login-form edit-form z-depth-3">
     <h3 class="text-black-dark text-bold">Login</h3><br />
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,7 +30,7 @@
       -->
 
       <div class="actions">
-        <%= f.submit "Log in", class: "waves-effect waves-light btn-small btn-submit" %>
+        <%= f.submit "Log in", class: "submit_btn" %>
       </div>
     <% end %>
 
