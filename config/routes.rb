@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     get '/admins/appointments', to: 'admins#appointments'
     get '/admins/transactions', to: 'admins#transactions'
     get '/admins/wallet', to: 'admins#admin_wallet'
+    get '/admins/appointments/:id/release', to: 'admins#release_payment', as: :release_payment
   end
 
   get '/page-not-found', action: :error_page, controller: 'home'

@@ -18,7 +18,11 @@
         %tr{:class => "bg-white text-center border border-solid border-gray-300 outline-none shadow drop-shadow-xl"}
           %td{:class => "p-3 center"}= user.email
           %td{:class => "p-3 center"}= user.user_type
-          %td{:class => "p-3 center"}= user.username
+          %td{:class => "p-3 center"}
+            - if user.user_type == "Client"
+              = link_to "#{user.username}", client_profile_path(user.client.id)
+            - elsif user.user_type == "Chef"
+              = link_to "#{user.username}", chef_profile_path(user.chef.id)
           %td{:class => "p-3 center"}= user.first_name
           %td{:class => "p-3 center"}= user.last_name
           - if user.user_type == 'Client'
