@@ -1,5 +1,6 @@
 @import 'application';
 @import './objects/variables';
+@import './objects/responsive.scss';
 
 .search-container {
   min-width: 50vw;
@@ -79,9 +80,9 @@
   min-width: calc(60px + 60vw) !important;
 }
 
-.edit-form, .new-form {
+.new-form {
   background-color: #FAFAFA;
-  min-width: calc(60px + 60vw) !important;
+  min-width: calc(60px + 60vw);
   margin: 20px 0;
   text-align: center;
 }
@@ -226,7 +227,20 @@ input[type=number] {
   width: 100%;
   height: 90vh;
 
-  .login-btn,
+
+  .login-btn {
+    color: $cuisinero-white-med;
+    background-color: $cuisinero-yellow-dark;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    width: 120px;
+    position: absolute;
+    top: 115px;
+    left: 25px;
+    border-radius: 8px;
+  }
+
   .submit_btn {
     color: $cuisinero-white-med;
     font-size: 16px;
@@ -237,13 +251,6 @@ input[type=number] {
     width: 120px;
     border-radius: 8px;
     margin-top: 50px;
-  }
-  
-  .login-btn {
-    background-color: $cuisinero-yellow-dark;
-  }
-  
-  .submit_btn {
     background-color: $cuisinero-green;
     padding: 10px 40px;
     margin-bottom: 15px;
@@ -256,11 +263,32 @@ input[type=number] {
     height: 450px;
     padding: 20px;
     border-radius: 4px;
+    margin-top: 110px;
   }
 
+  .login-field {
+    width: 100%;
+    max-width: 200px;
+  }
 
   #user_email {
     background-color: red;
     font-size: 20px;
   }
+
+  //////////////////////////////////////
+  /// Breakpoints
+  //////////////////////////////////////
+  @include respond-to("medium") {
+    .login-form {
+      max-width: 400px;
+      height: 600px;
+    }
+
+    .login-field {
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+  }
+
 }
