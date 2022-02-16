@@ -60,7 +60,7 @@
         <div id="pending" class="tab-content">
           <% @pending = 0 %>
           <% @appointments.each do |a| %>
-            <% unless a.confirmed_at %>
+            <% unless a.confirmed_at || Date.today >= a.schedule %>
               <% @pending = @pending + 1 %>
               <div class="card appointment">
                 <div class="card-content">
