@@ -23,6 +23,19 @@ class ChefsController < ApplicationController
     @services = @chef.services.where.not(id: nil)
     @service = @chef.services.build
     @appointments = Appointment.where(chef_id: @chef.id)
+
+    @total_rating = 0
+    @review_count = 1
+
+    @appointments.each do |a|
+      unless a.review.nil?
+        @total_rating += a.review.chef_rating
+        @review_count += 1
+      end
+    end
+
+    @total_rating = @total_rating + @chef.rating
+    @rating = (@total_rating/@review_count).round(0)
   end
   
   def appointments
