@@ -1,55 +1,55 @@
-<div class="section one">
+<div class="login-container">
   <div class="header-left">
-    <%= link_to :back, class: "waves-effect waves-light btn-small btn-yellow-dark" do %>
+    <%= link_to :back, class: "waves-effect waves-light login-btn" do %>
       <i class="material-icons left">arrow_back</i>Back
     <% end %>
   </div>
-  <div class="edit-form z-depth-3">
+  <div class="submit-form edit-form z-depth-3">
     <h3 class="text-black-dark text-bold">Sign Up</h3><br />
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :email, class: "label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :username, class: "label" %><br />
         <%= f.text_field :username, autocomplete: "username" %>
       </div>
 
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :first_name, class: "label" %><br />
         <%= f.text_field :first_name, autocomplete: "first_name" %>
       </div>
 
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :last_name, class: "label" %><br />
         <%= f.text_field :last_name, autocomplete: "last_name" %>
       </div>
 
-      <div class="field">
-        <%= f.label :user_type, :class => "label" %><br />
-        <%= f.select :user_type, ['Client', 'Chef'], :class => "form-field"%>
-      </div>
-
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :password, class: "label" %>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: @minimum_password_length.to_s + " characters minimum" %>
       </div>
       
 
-      <div class="field">
+      <div class="submit-field">
         <%= f.label :password_confirmation, class: "label" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
+      <div class="submit-field submit-dropdown">
+        <%= f.label :user_type, :class => "label" %><br />
+        <%= f.select :user_type, ['Client', 'Chef'], :class => "submit-field"%>
+      </div>
+
       <div class="actions">
-        <%= f.submit "Sign up", class: "waves-effect waves-light btn-small btn-submit" %>
+        <%= f.submit "Sign up", class: "submit_btn" %>
+      <%= render "devise/shared/links" %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
 
     <br />
     <br />

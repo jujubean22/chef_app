@@ -1,4 +1,6 @@
 @import 'application';
+@import './objects/variables';
+@import './objects/responsive.scss';
 
 .search-container {
   min-width: 50vw;
@@ -31,7 +33,7 @@
 
 .label {
   color: $cuisinero-black-dark !important;
-  font-size: calc(10px + 0.5vw) !important;
+  font-size: calc(10px + 0.5vw);
   text-transform: uppercase;
   font-weight: 800 !important;
   letter-spacing: 3px !important;
@@ -78,9 +80,9 @@
   min-width: calc(60px + 60vw) !important;
 }
 
-.edit-form, .new-form {
+.new-form {
   background-color: #FAFAFA;
-  min-width: calc(60px + 60vw) !important;
+  min-width: calc(60px + 60vw);
   margin: 20px 0;
   text-align: center;
 }
@@ -142,8 +144,12 @@ input {
   text-align: center;
   color: $cuisinero-black-light;
   font-size: calc(10px + 0.5vw);
-  margin-bottom: calc(20px + 5vmin) !important;
+  margin-bottom: calc(20px + 5vmin);
   font-family: $lato !important;
+}
+
+input:focus {
+  outline: none;
 }
 
 // Input field bottom border
@@ -207,4 +213,128 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+///////////////////////////////////
+///// Form Login and Register
+///////////////////////////////////
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+
+
+  .login-btn {
+    color: $cuisinero-white-med;
+    background-color: $cuisinero-yellow-dark;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    width: 120px;
+    position: absolute;
+    top: 115px;
+    left: 25px;
+    border-radius: 8px;
+  }
+
+  .submit_btn {
+    color: $cuisinero-white-med;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 120px;
+    border-radius: 8px;
+    margin-top: 50px;
+    background-color: $cuisinero-green;
+    padding: 10px 40px;
+    margin-bottom: 15px;
+  }
+
+  .login-form {
+    background-color: $cuisinero-white-med;
+    width: 100%;
+    max-width: 330px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 110px;
+  }
+
+  .submit-form {
+    background-color: $cuisinero-white-med;
+    width: 100%;
+    max-width: 330px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 110px;
+    overflow: auto;
+  }
+
+  .login-field,
+  .submit-field {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  #user_email {
+    font-size: 20px;
+  }
+
+  //////////////////////////////////////
+  /// Breakpoints
+  //////////////////////////////////////
+  @include respond-to("medium") {
+    .login-form {
+      max-width: 400px;
+      height: 600px;
+    }
+
+    .login-field,
+    .submit-field {
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+
+    .submit-form {
+      max-width: 400px;
+      height: 600px;
+    }
+  }
+
+  @include respond-to('large') {
+    .submit-form {
+      max-width: 900px;
+      height: 700px;
+      overflow: hidden;
+
+      form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+
+      .submit-dropdown {
+        width: 100%;
+        max-width: 700px;
+        height: 66px;
+        margin: 0 auto;
+      }
+
+      .label {
+        font-size: 1rem;
+      }
+    }
+  }
+
 }
