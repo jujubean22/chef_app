@@ -34,3 +34,14 @@ As an app developed solely for booking chefs, *Cuisinero* offers a more consolid
 * see the list of appointments made
 * release the payment of the client to the chef after their appointment
 * earn a 20% incentive per transaction in your own wallet
+
+## TheMealDB API Wrapper
+
+[TheMealDB](https://www.themealdb.com/) is an open, crowd-sourced database of Recipes from around the world.
+We also offer a free JSON API for anyone wanting to use it, with additional features for subscribers.
+
+### Endpoint
+
+`GET` /random.php
+
+Access via `https://cuisinero-booking.herokuapp.com/food/recipe/`
