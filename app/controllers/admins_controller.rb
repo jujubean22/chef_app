@@ -34,8 +34,6 @@ class AdminsController < ApplicationController
     @chef_wallet.current_balance = @chef_wallet.current_balance + (total_charge * 0.8)
     
     if @appointment.save
-
-
       @chef_wallet.save
       @admin_wallet.save
       
@@ -44,7 +42,7 @@ class AdminsController < ApplicationController
   end
 
   def transactions
-    
+    @appointments = Appointment.all
   end
 
   def admin_wallet

@@ -2,3 +2,8 @@
 
 .form
   %h1{class:'text-3xl'} Transaction List
+  %table
+    %thead
+      - @appointments.each do |a|
+        %tr
+          %td= "Total Charge of #{a.total_charge}"

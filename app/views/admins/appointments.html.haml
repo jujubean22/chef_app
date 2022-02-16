@@ -19,7 +19,7 @@
         %th Payment Released At
         %th Release Payment?
         %th Action
-    %thead
+    %tbody
       - @appointments.each do |a|
         %tr
           %td= link_to "#{a.chef.user.first_name} #{a.chef.user.last_name}", chef_profile_path(a.chef.id)
