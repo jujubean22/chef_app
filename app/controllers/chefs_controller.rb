@@ -1,6 +1,7 @@
 class ChefsController < ApplicationController
 
-  before_action :set_chef, only: [:profile, :appointments, :edit_chef, :update_chef]
+  before_action :set_chef, only: [:profile, :appointments, :edit_chef, :update_chef, :notes_to_chef]
+  before_action :set_appointments, only: [:appointments, :notes_to_chef]
 
   load_and_authorize_resource
 
@@ -25,7 +26,6 @@ class ChefsController < ApplicationController
   end
   
   def appointments
-    @appointments = Appointment.where(chef_id: current_user.chef.id)
   end
 
   def edit_chef
@@ -47,10 +47,18 @@ class ChefsController < ApplicationController
     redirect_to chef_appointments_path, notice: 'Successfully confirmed the appointment'
   end
 
+  def notes_to_chef
+    @appointment = Appointment.find(params[:id])
+  end
+
   private
 
   def set_chef
     @chef = Chef.find(params[:id])
+  end
+
+  def set_appointments
+    @appointments = Appointment.where(chef_id: current_user.chef.id)
   end
 
   def chef_params

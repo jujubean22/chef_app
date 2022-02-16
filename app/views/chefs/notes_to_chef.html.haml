@@ -1,0 +1,9 @@
+%h1 This Appointment
+
+%span
+  = @appointment.request.notes_to_chef
+
+%br
+%br
+
+= link_to 'Back', chef_appointments_path(current_user.chef.id)
