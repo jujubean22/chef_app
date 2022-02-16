@@ -6,4 +6,5 @@
     %thead
       - @appointments.each do |a|
         %tr
-          %td= "Total Charge of #{a.total_charge}"
+          - unless a.payment_released_at.nil?
+            %td= "Total Payment of #{payment(a.total_charge)} and charged of #{charged(a.total_charge)} to the chef, #{a.chef.user.username}"
